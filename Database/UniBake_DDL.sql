@@ -5,30 +5,30 @@ PRAGMA foreign_keys = ON;
 
 
 create table UserLogin(
-	userID integer unique primary key on update cascade on delete cascade, 
+	userID integer unique primary key, 
 	name text,
 	phone text unique
 );
 
 create table Login(
-	userID integer unique references UserLogin(userID),
+	userID integer unique references UserLogin(userID) on update cascade,
 	email text primary key,
 	password text
 );
 
 create table School(
-	schoolID integer unique primary key on update cascade on delete cascade,
+	schoolID integer unique primary key,
 	name text,
 	domain text unique
 );
 
 create table Attends(
-	userID integer unique references UserLogin(userID),
+	userID integer unique references UserLogin(userID) on update cascade,
 	schoolID integer references School(schoolID)
 );
 
 create table Recipe(
-	filePath text unique primary key on update cascade on delete cascade,
+	filePath text unique primary key,
 	bakeTime integer
 );
 
