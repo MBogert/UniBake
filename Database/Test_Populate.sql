@@ -108,15 +108,15 @@ insert into BakeRecipe values(3, 'choc_chip_cookie.txt');
 
 --RequestCategory
 --
-insert into RequestCategory(1, 'Cookie');
-insert into RequestCategory(2, 'Cookie');
-insert into RequestCategory(4, 'Dietary');
-insert into RequestCategory(2, 'Pie');
+insert into RequestCategory values(1, 'Cookie');
+insert into RequestCategory values(2, 'Cookie');
+insert into RequestCategory values(4, 'Dietary');
+insert into RequestCategory values(2, 'Pie');
 --Should Fail
-insert into RequestCategory(6, 'Cookie');
-insert into RequestCategory(1, 'Wumbo');
-insert into RequestCategory('1', 'Cookie');
-insert into RequestCategory(1, 420);
+insert into RequestCategory values(6, 'Cookie');
+insert into RequestCategory values(1, 'Wumbo');
+insert into RequestCategory values('1', 'Cookie');
+insert into RequestCategory values(1, 420);
 
 --Pair
 --
