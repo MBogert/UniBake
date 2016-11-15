@@ -90,6 +90,7 @@ insert into BakeRequest values('3', '02:00', '03:00');
 insert into BakeRequest values(3, 2, '03:00');
 insert into BakeRequest values(3, '02:00', 3);
 
+/*
 --BakeRecipe
 --
 insert into BakeRecipe values(1, 'choc_chip_cookie.txt');
@@ -103,7 +104,19 @@ insert into BakeRecipe values('1', 'choc_chip_cookie.txt');
 insert into BakeRecipe values(1, 420);
 insert into BakeRecipe values(1, 'special_brownies.txt');
 insert into BakeRecipe values(3, 'choc_chip_cookie.txt');
+*/
 
+--RequestCategory
+--
+insert into RequestCategory(1, 'Cookie');
+insert into RequestCategory(2, 'Cookie');
+insert into RequestCategory(4, 'Dietary');
+insert into RequestCategory(2, 'Pie');
+--Should Fail
+insert into RequestCategory(6, 'Cookie');
+insert into RequestCategory(1, 'Wumbo');
+insert into RequestCategory('1', 'Cookie');
+insert into RequestCategory(1, 420);
 
 --Pair
 --
