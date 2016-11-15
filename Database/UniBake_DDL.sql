@@ -38,17 +38,26 @@ create table Category(
 	primary key (filePath, category)
 );
 
+
 create table BakeRequest(
 	userID integer unique primary key references UserLogin(userID) on update cascade on delete cascade,
 	startTime time,
 	endTime time check (endTime > startTime) 
 );
 
+create table RequestCategory(
+	userID integer references UserLogin(userID) on update cascade on delete cascade,
+	category text references Category(category),
+	primary key (userID, category)
+)
+
+/*Ditching this relation, but keeping just in case
 create table BakeRecipe(
 	userID integer references UserLogin(userID) on update cascade on delete cascade check(userID in BakeRequest),
 	recipe text references Recipe(filePath) on update cascade on delete cascade,
 	primary key (userID, filePath)
 );
+*/
 
 create table Pair(
 	user1 integer unique references UserLogin(userID) on update cascade on delete cascade check(userID in BakeRequest),
