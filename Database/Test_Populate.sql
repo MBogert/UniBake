@@ -65,7 +65,7 @@ insert into Recipe values('pecan_pie.txt', 90);
 insert into Recipe values(420, 840);
 insert into Recipe values('insert_error.txt', '30');
 
---Category
+--Category BUG
 --
 insert into Category values('choc_chip_cookie.txt', 'Cookie');
 insert into Category values('raw_cookie_dough.txt', 'Cookie');
