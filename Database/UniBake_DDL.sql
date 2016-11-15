@@ -32,6 +32,8 @@ create table Recipe(
 	bakeTime integer
 );
 
+--Bug
+--"no such column: filePath"
 create table Category(
 	recipe text references Recipe(filePath) on update cascade on delete cascade,
 	category text,
@@ -60,8 +62,8 @@ create table BakeRecipe(
 */
 
 create table Pair(
-	user1 integer unique references UserLogin(userID) on update cascade on delete cascade check(userID in BakeRequest),
-	user2 integer unique references UserLogin(userID) on update cascade on delete cascade check(userID in BakeRequest),
+	user1 integer unique references UserLogin(userID) on update cascade on delete cascade,
+	user2 integer unique references UserLogin(userID) on update cascade on delete cascade,
 	recipe text references Recipe(filePath) on update cascade on delete cascade,
 	primary key (user1, user2)
 );
