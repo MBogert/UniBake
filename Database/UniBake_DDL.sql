@@ -49,7 +49,7 @@ create table RequestCategory(
 	userID integer references UserLogin(userID) on update cascade on delete cascade,
 	category text references Category(category),
 	primary key (userID, category)
-)
+);
 
 /*Ditching this relation, but keeping just in case
 create table BakeRecipe(
