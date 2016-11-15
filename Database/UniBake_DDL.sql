@@ -33,9 +33,8 @@ create table Recipe(
 );
 
 create table Category(
-	filePath text references Recipe(filePath) on update cascade on delete cascade,
 	category text,
-	primary key (filePath, category)
+	filePath text references Recipe(filePath) on update cascade on delete cascade
 );
 
 create table BakeRequest(
@@ -46,8 +45,7 @@ create table BakeRequest(
 
 create table RequestCategory(
 	userID integer references UserLogin(userID) on update cascade on delete cascade,
-	category text references Category(category) on update cascade on delete cascade,
-	primary key (userID, category)
+	category text references Category(category) on update cascade on delete cascade
 );
 
 /*Ditching this relation, but keeping just in case
