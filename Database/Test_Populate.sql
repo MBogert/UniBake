@@ -2,7 +2,7 @@
 --
 insert into UserLogin values(1, 'Matt Bogert', '360-689-7730');
 insert into UserLogin values(2, 'Mark Gilbert', '111-111-1111');
-insert into UserLogin values(3, 'Jessica Ugalde', '222-222-2222')
+insert into UserLogin values(3, 'Jessica Ugalde', '222-222-2222');
 insert into UserLogin values(4, 'Daniel Rubin', '333-333-3333');
 --Should Fail
 insert into UserLogin values(1, 'Bob Smith', '444-444-4444');
