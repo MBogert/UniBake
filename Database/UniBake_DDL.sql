@@ -36,8 +36,8 @@ create table Recipe(
 );
 
 create table Category(
-	category text,
 	filePath text,
+	category text,
 	primary key (category, filePath),
 	foreign key(filePath) references Recipe(filePath)
 );
