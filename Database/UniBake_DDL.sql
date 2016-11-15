@@ -31,7 +31,7 @@ create table Attends(
 );
 
 create table Recipe(
-	filePath text primary key,
+	filePath text unique primary key,
 	bakeTime integer
 );
 
