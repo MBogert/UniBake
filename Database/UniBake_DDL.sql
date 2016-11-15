@@ -52,7 +52,6 @@ create table BakeRequest(
 create table RequestCategory(
 	userID integer,
 	category text,
-	primary key (userID, category),
 	foreign key(userID) references UserLogin(userID),
 	foreign key(category) references Category(category)
 );
