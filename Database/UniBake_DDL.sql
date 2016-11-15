@@ -11,9 +11,10 @@ create table UserLogin(
 );
 
 create table Login(
-	userID integer unique references UserLogin(userID) on update cascade,
+	userID integer unique,
 	email text primary key,
-	password text
+	password text,
+	foreign key(userID) references UserLogin(userID) 
 );
 
 create table School(
@@ -23,8 +24,10 @@ create table School(
 );
 
 create table Attends(
-	userID integer unique references UserLogin(userID) on update cascade,
-	schoolID integer references School(schoolID)
+	userID integer unique,
+	schoolID integer,
+	foreign key(userID) references UserLogin(userID),
+	foreign key(schoolID) references School(schoolID)
 );
 
 create table Recipe(
@@ -34,20 +37,24 @@ create table Recipe(
 
 create table Category(
 	category text,
-	filePath text references Recipe(filePath),
-	primary key (category, filePath)
+	filePath text,
+	primary key (category, filePath),
+	foreign key(filePath) references Recipe(filePath)
 );
 
 create table BakeRequest(
-	userID integer unique primary key references UserLogin(userID),
+	userID integer unique,
 	startTime time,
-	endTime time check (endTime > startTime) 
+	endTime time check (endTime > startTime),
+	foreign key(userID) references UserLogin(userID) 
 );
 
 create table RequestCategory(
-	userID integer references UserLogin(userID),
-	category text references Category(category),
-	primary key (userID, category)
+	userID integer,
+	category text,
+	primary key (userID, category),
+	foreign key(userID) references UserLogin(userID),
+	foreign key(category) references Category(category)
 );
 
 /*Ditching this relation, but keeping just in case
@@ -59,9 +66,11 @@ create table BakeRecipe(
 */
 
 create table Pair(
-	user1 integer unique references UserLogin(userID),
-	user2 integer unique references UserLogin(userID),
+	user1 integer unique,
+	user2 integer unique,
 	recipe text references Recipe(filePath),
-	primary key (user1, user2)
+	primary key (user1, user2),
+	foreign key(user1) references UserLogin(userID),
+	foreign key(user2) references UserLogin(userID)
 );
 
