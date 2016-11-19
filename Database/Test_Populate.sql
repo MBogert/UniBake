@@ -30,14 +30,14 @@ insert into Login values(5, 'bsmith@pugetsound.edu', '$pIcy');
 
 --School
 --
-insert into School values(1, 'University of Puget Sound', '@pugetsound.edu');
-insert into School values(2, 'University of Washington Seattle', '@uw.edu');
-insert into School values(3, 'Evergreen State College', '@evergreen.edu');
+insert into School values(1, 'University of Puget Sound', 'pugetsound.edu');
+insert into School values(2, 'University of Washington Seattle', 'uw.edu');
+insert into School values(3, 'Evergreen State College', 'evergreen.edu');
 --Should Fail
-insert into School values(1, 'School of Hard Knocks', '@hknock.edu');
-insert into School values(4, 'School of Hard Knocks', '@pugetsound.edu');
-insert into School values('1', 'School of Hard Knocks', '@hknock.edu');
-insert into School values(4, 420, '@hknock.edu');
+insert into School values(1, 'School of Hard Knocks', 'hknock.edu');
+insert into School values(4, 'School of Hard Knocks', 'pugetsound.edu');
+insert into School values('1', 'School of Hard Knocks', '@knock.edu');
+insert into School values(4, 420, 'hknock.edu');
 insert into School values(4, 'School of Hard Knocks', 420);
 
 
