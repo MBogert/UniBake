@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <?php
-$cookie_name = "userID";
+try{
+	$cookie_name = "userID";
 //Get the cookie based off of the userID
 $cookie_value = $_POST["userID"];
 //Sets the cookie for a whole month
 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+}
+
 ?>
 <html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="UniBakeStyle.css"/>
+	</head>
 <body>
 
 <?php

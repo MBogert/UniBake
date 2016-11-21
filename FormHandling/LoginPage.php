@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>Log In Page</title>
+</head>
+<body>
+<div class ="navbar">
+<?php include 'navbar.php';?>
+</div>
 
 <h2>Enter username and password</h2>
    
@@ -13,19 +26,13 @@
 		<tr>
         <td>Password:<font color="red">*</font></td>
         <td><input type ="text" name="password" required=""/> <br/></td>
+
 </tr>
 <tr>
 <tr>
 </table>
-                <div align="center"><input type="submit"/></div>
+                <div align="center"><input type="submit" name="submit" value="Log in"></div>
         </form>
-
-
-</body>
-</html>
-
-<html>
-<body>
 
 
 </body>

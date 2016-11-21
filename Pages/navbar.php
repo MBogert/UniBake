@@ -1,39 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-
-  <meta charset="utf-8">
-  <!-- Latest compiled and minified CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-
-  <title>Matches Page</title>
-</head>
 <style>
-body {
-  background-color: #cc0000;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /*background-color: #333;*/
 }
-.options-box {
-  background: #ff0000;
-  border: 1px solid #2e2e1f;
-  border-radius: 3px;
-  height: 100%;
-  line-height: 35px;
-  padding: 10px 10px 30px 10px;
-  text-align: left;
-  /*width: 340px;*/
-  /*width: 90%;*/
-  margin-top: 50px;
-  /*margin-left: 50px;*/
-}
-.container {
-  height: 100%;
-  position: relative;
+
+li {
+    display: inline;
+    /*float: left;*/
 }
 </style>
+</head>
 
-<body slyle="color:#b3000">
-
-  <div class="container">
+<body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -46,6 +29,13 @@ body {
           <li><a href="recipies.html">Recipies</a></li>
           <li><a href="bio.html">My Bio</a></li>
           <li>
+          <!-- check if the cookie is set, if not then display -->
+<!--           <?php
+          if (isset($_COOKIE["userID"])){
+            $userID = $_COOKIE["userID"];
+
+          }
+          ?> -->
             <div class="row" style="margin-left:200px; margin-top:10px;">
               <form class="form-inline" action="loginBar.php" method="post">
                 <div class="form-group">
@@ -64,18 +54,5 @@ body {
         </ul>
       </div>
     </nav>
-    <div class="options-box">
-      <pre>
-              <h3>The array of matches will be entered here</h3>
- 
-      </pre>
-    </div>
-  </div>
-  <!-- <div class="container">
-  </div> -->
-
 </body>
-<!-- <script>
-  console.log(<? echo json_encode($username); ?>);
-</script> -->
-</html>
+<html>
