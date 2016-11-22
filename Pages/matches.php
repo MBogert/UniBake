@@ -67,6 +67,15 @@ body {
     <div class="options-box">
       <pre>
               <h3>The array of matches will be entered here</h3>
+              <?php
+              //Get the values from the request form and submit the query
+              try{
+                $db = new PDO('sqlite:./../Database/unibake.db');
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                foreach($result as $tuple)
+              }
+              ?>
  
       </pre>
     </div>
