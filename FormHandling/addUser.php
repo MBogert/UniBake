@@ -31,7 +31,10 @@
 
 		//Check if user's domain is in registered schools
 		$verified = False;//This is our verification that the email passes
+		echo "$domain";
 		foreach($result as $tuple){
+
+			echo "$tuple[domain]";
 
 			if($tuple[domain] == $domain){
 				$verified = True;
@@ -42,7 +45,7 @@
 
 		//If email is not verified, redirect to error
 		if(!$verified){
-			header("Location: ../Pages/error.html");
+			//header("Location: ../Pages/error.html");
 		}
 
 		//Add user to database
