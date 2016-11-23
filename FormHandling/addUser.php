@@ -87,6 +87,7 @@
 		$prepared2->execute();
 
 		//header("Location: ../Pages/error.html"); <--- Some success page
+	}
 		catch(PDOException $e){
 
 			//Page Redirect
@@ -94,6 +95,4 @@
 			//header("Location: ../Pages/error.html");
 
 		} 
-
-	}
 ?>
