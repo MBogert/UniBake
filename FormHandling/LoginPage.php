@@ -26,7 +26,6 @@
 		<tr>
         <td>Password:<font color="red">*</font></td>
         <td><input type ="text" name="password" required=""/> <br/></td>
-
 </tr>
 <tr>
 <tr>
