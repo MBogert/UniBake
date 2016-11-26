@@ -13,7 +13,7 @@
       $result = $prepared->execute();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
-      
+      $user = $result->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
@@ -24,7 +24,7 @@
 
          setcookie('email', $_POST['email'], time() + (86400 * 30));
          setcookie('password', $_POST['password'],time() + (86400 * 30));
-         setcookie('userID', $result->fetch(), time() + (86400 * 30));
+         setcookie('userID', $user, time() + (86400 * 30));
          //It was successful so go to next page
          header("location: welcome.php");
       }else {
