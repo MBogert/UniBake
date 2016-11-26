@@ -14,11 +14,11 @@
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
       
-      $count = $result->rowCount();
+      //$count = $result->rowCount(PDO::);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
-      if($count == 1) {
+      if(count($result) == 1) {
          session_register("email");
          $_SESSION['login_user'] = email;
          
