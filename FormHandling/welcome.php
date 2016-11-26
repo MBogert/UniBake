@@ -1,13 +1,10 @@
 <?php
 //do we know this user?
-if (isset($_COOKIE['email']))
-{
+if (isset($_COOKIE['email'])){
  $email = $_COOKIE['email']; //get the value of the cookie from browser
- $password = $_COOKIE['password']
+ $password = $_COOKIE['password'];
  //logUserIn($email, $password);
-}
-else
-{
+} else {
  //don't know this person (or cookie expired)
 	echo "Don't know you!"
 }
