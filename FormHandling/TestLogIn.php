@@ -24,7 +24,7 @@
 
          setcookie('email', $_POST['email'], time() + (86400 * 30));
          setcookie('password', $_POST['password'],time() + (86400 * 30));
-         setcookie('userID', $user, time() + (86400 * 30));
+         setcookie('userID', $user[0], time() + (86400 * 30));
          //It was successful so go to next page
          header("location: welcome.php");
       }else {
