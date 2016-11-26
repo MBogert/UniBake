@@ -13,7 +13,7 @@
       $result = $prepared->execute();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
-      $user = $result->fetch(PDO::FETCH_ASSOC);
+      $user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
@@ -70,8 +70,10 @@
                   <input type = "submit" value = " Submit "/><br />
                </form>
                
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-					
+<!--                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+ -->					
+                <div style = "font-size:11px; color:#cc0000; margin-top:10px"></div>
+
             </div>
 				
          </div>
