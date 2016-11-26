@@ -6,7 +6,7 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $prepared =$db->prepare("SELECT userID FROM Login WHERE (email = ':email' and password = ':password')");
+      $prepared =$db->prepare("SELECT userID FROM Login WHERE (email = :email and password = :password)");
       $prepared->bindParam(':email', $_POST[email]);
       $prepared->bindParam(':password', $_POST[password]);
 
