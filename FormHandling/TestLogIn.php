@@ -7,8 +7,8 @@
       // username and password sent from form 
       
       $prepared =$db->prepare("SELECT userID FROM Login WHERE (email = :userEmail AND password = :userPassword)");
-      $prepared->bindParam(':userEmail', $_POST[email]);
-      $prepared->bindParam(':userPassword', $_POST[password]);
+      $prepared->bindParam(':userEmail', $_POST['email']);
+      $prepared->bindParam(':userPassword', $_POST['password']);
 
       $result = $prepared->execute();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
