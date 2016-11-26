@@ -6,10 +6,8 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $prepared =$db->prepare("SELECT userID FROM Login WHERE (username = ':username' and passcode = ':password')");
-      $prepared->bindParam(':inputStartTime', $_POST[startTime]);
-
-      $prepared->bindParam(':username', $_POST[username]);
+      $prepared =$db->prepare("SELECT userID FROM Login WHERE (email = ':email' and passcode = ':password')");
+      $prepared->bindParam(':email', $_POST[email]);
       $prepared->bindParam(':password', $_POST[password]);
 
       $result = $prepared->execute();
@@ -21,8 +19,8 @@
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if($count == 1) {
-         session_register("username");
-         $_SESSION['login_user'] = username;
+         session_register("email");
+         $_SESSION['login_user'] = email;
          
          header("location: welcome.php");
       }else {
@@ -63,7 +61,7 @@
             <div style = "margin:30px">
                
                <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
+                  <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
                   <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
                   <input type = "submit" value = " Submit "/><br />
                </form>
