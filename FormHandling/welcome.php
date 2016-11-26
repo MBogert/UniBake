@@ -4,7 +4,7 @@ if (isset($_COOKIE['email']))
 {
  $email = $_COOKIE['email']; //get the value of the cookie from browser
  $password = $_COOKIE['password']
- logUserIn($email, $password);
+ //logUserIn($email, $password);
 }
 else
 {
