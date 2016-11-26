@@ -6,6 +6,8 @@ if (isset($_COOKIE['email'])){
  //logUserIn($email, $password);
 } else {
  //don't know this person (or cookie expired)
+	echo $_COOKIE['email'];
+
 	echo "Don't know you!";
 }
 ?>
