@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+//do we know this user?
+if (isset($_COOKIE["userID"]))
+{
+ $userName = $_COOKIE["userID"]; //get the value of the cookie from browser
+ logUserIn($userName);
+}
+else
+{
+ //don't know this person (or cookie expired)
+}
+?>
 <html lang="en">
 <head>
 
@@ -72,8 +84,21 @@ body {
               try{
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                
-                foreach($result as $tuple)
+                //Need a dropdown 
+                $prepared = $db-> prepare("Select * from BakeRequest where (userStartTime >= startTime AND userEndTime <= endTime)");
+                $prepared->bindParam(':userStartTime', $_POST[startTime]);
+                $prepared->bindParam(':userEndTime', $_POST[endTime]);
+                $result = $prepared->execute();
+                //Query - Select * from BakeRequest where startTime >= $_POST[startTime] AND endTime <= $_POST[endTime]
+                foreach($result as $tuple){
+                  
+                  print_r($tuple);
+                }
+
+                $db=null;
+
+              }catch(PDOException $e){
+                die('Exception : '.$e->getMessage()); //die will quit the script immediate
               }
               ?>
  

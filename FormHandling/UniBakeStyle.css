@@ -1,9 +1,16 @@
 body{
-	background-color: red;
+	background-color: white;
 }
 h1{
 	color: navy;
 	margin-left: 20px;
+}
+div {
+    background-color: lightgrey;
+    width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
 }
 
 /* For the header */
