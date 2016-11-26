@@ -18,7 +18,10 @@ if (isset($_COOKIE['email'])){
    </head>
    
    <body>
-      <h1>Welcome <?php echo $_COOKIE['email']; ?></h1> 
+      <h1>Welcome <?php echo $_COOKIE['email'];
+      echo $_COOKIE['password'];
+      echo $_COOKIE['userID'];
+       ?></h1> 
       <h2><a href = "logout.php">Sign Out</a></h2>
    </body>
    
