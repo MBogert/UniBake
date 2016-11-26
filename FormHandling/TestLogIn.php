@@ -15,7 +15,7 @@
       //$active = $row['active'];
       $user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
-      
+      echo $user;
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if(count($result) == 1) {
