@@ -19,9 +19,10 @@
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if(count($result) == 1) {
-         session_register("email");
-         $_SESSION['login_user'] = email;
+         //session_register("email");
+         //$_SESSION['login_user'] = email;
          
+         //It was successful so go to next page
          header("location: welcome.php");
       }else {
          $error = "Your Login Name or Password is invalid";
