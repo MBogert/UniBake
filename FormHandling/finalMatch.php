@@ -22,7 +22,7 @@ try{
                 //This is the query that filters out feasible users that could be possible matches
                 $prepared = $db-> prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
-									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime >= startTime OR :inputEndTime <= endTime)");
+									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime OR :inputEndTime >= startTime)");
                 //Bind the parameters for SQL Injection
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
