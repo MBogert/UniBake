@@ -24,7 +24,7 @@
 
 		//Check email if it is valid
 		//$domain = strtok($_POST['email'], "@");
-		$domain = split($_POST['email'], '@');
+		$domain = split($_POST['email'], '@', 2);
 
 		//Query database for school email domains
 		$stmt = "SELECT domain FROM School;";
