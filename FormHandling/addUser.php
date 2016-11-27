@@ -23,8 +23,8 @@
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		//Check email if it is valid
-		$domain = strtok($_POST['email'], "@");
-		$domain = strtok($domain, "");
+		//$domain = strtok($_POST['email'], "@");
+		$domain = split($_POST['email'], '@');
 
 		//Query database for school email domains
 		$stmt = "SELECT domain FROM School;";
@@ -32,12 +32,12 @@
 
 		//Check if user's domain is in registered schools
 		$verified = False;//This is our verification that the email passes
-		echo "$domain";
+		echo "$domain[1]";
 		foreach($result as $tuple){
 
 			echo "$tuple[domain]";
 
-			if($tuple['domain'] == $domain){
+			if($tuple['domain'] == "$domain[1]"){
 				$verified = True;
 				break;
 			}
@@ -46,6 +46,7 @@
 
 		//If email is not verified, redirect to error
 		if(!$verified){
+			echo "Email verification still broken";
 			//header("Location: ../Pages/error.html");
 		}
 
