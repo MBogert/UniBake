@@ -21,8 +21,8 @@ if (isset($_COOKIE['email'])){
    <body>
       <h5>
       <?php 
-      $returnVal = $_POST['result'];
-      echo "These are your results ".$returnVal.".";
+      //$_POST['result'];
+      echo "These are your results ".$_POST['result'].".";
        ?>
        	
        </h5> 
