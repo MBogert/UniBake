@@ -36,7 +36,7 @@
 
 			echo "$tuple[domain]";
 
-			if($tuple[domain] == $domain){
+			if("$tuple[domain]" == $domain){
 				$verified = True;
 				break;
 			}
@@ -55,14 +55,14 @@
 		while(True){
 
 			$unique = True;
-			$id = mt_rand(void);
+			$id = mt_rand();
 
 			$stmt = "SELECT userID FROM UserLogin;";
 			$result = $db->query($stmt);
 
 			foreach($result as $tuple){
 
-				if($tuple[userID] == $id){
+				if("$tuple[userID]" == $id){
 					$unique = False;
 					break;
 				}
@@ -78,18 +78,19 @@
 		//UserLogin
 		$prepared1 = $db->prepare("INSERT INTO UserLogin (userID, name, phone) VALUES (:userID, :name, :phone);");
 		$prepared1->bindParam(':userID', $id);
-		$prepared1->bindParam(':name', $_POST[name]);
-		$prepared1->bindParam(':phone', $_POST[phone]);
+		$prepared1->bindParam(':name', "$_POST[name]");
+		$prepared1->bindParam(':phone', "$_POST[phone]");
 		$prepared1->execute();
 
 		//Login
 		$prepared2 = $db->prepare("INSERT INTO Login (userID, email, password) VALUES (:userID, :email, :password);");
 		$prepared2->bindParam(':userID', $id);
-		$prepared2->bindParam(':email', $_POST[email]);
-		$prepared2->bindParam(':password', $_POST[password]);
+		$prepared2->bindParam(':email', "$_POST[email]");
+		$prepared2->bindParam(':password', "$_POST[password]");
 		$prepared2->execute();
 
 		//header("Location: ../Pages/error.html"); <--- Some success page
+		header("Location:.. welcome.php");
 	}
 		catch(PDOException $e){
 
