@@ -37,7 +37,9 @@ try{
 
                     //Get the preference categories
                     $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
-                    $userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
+                    $userData2 = $db->query("select category from RequestCategory where (userID = $_POST['userID']");
+
+                    //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
                     //Store the number of similar categories
                     $similar = compare2($userData1, $userData2);
                     //Add the user and their similar categories to the array
