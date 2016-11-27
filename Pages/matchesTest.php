@@ -48,7 +48,6 @@ try{
 
                 foreach($result as $tuple){
                     //$data = array($tuple);
-                    //$otherPerson = $tuple[':inputUserID'];
                     $otherPerson = $tuple['userID'];
 
                     //Get the preference categories
