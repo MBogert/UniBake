@@ -24,7 +24,7 @@
 
 		//Check email if it is valid
 		//$domain = strtok($_POST['email'], "@");
-		$domain = split($_POST['email'], '@');
+		list($fluff, $domain) = split($_POST['email'], '@', 2);
 
 		//Query database for school email domains
 		$stmt = "SELECT domain FROM School;";
@@ -32,12 +32,12 @@
 
 		//Check if user's domain is in registered schools
 		$verified = False;//This is our verification that the email passes
-		echo "$domain[1]";
+		echo $domain;
 		foreach($result as $tuple){
 
 			echo "$tuple[domain]";
 
-			if($tuple['domain'] == "$domain[1]"){
+			if($tuple['domain'] == $domain){
 				$verified = True;
 				break;
 			}
