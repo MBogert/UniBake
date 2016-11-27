@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     function compare2($list1, $list2){
     //Hashmap of users to the amount of matches they have
     $counter =0;
@@ -42,7 +44,6 @@ try{
                     matched_push($otherPerson, $similar);
 
                 }
-                session_start();
 
                 //Sort the matches from high to low
                 $finalArr = arsort($matched);

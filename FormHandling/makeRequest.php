@@ -16,7 +16,7 @@
 
 	<h2> Please submit your request for when you would like to bake </h2>
 	<div>
-		<form action="finalMatches.php" method="post">
+		<form action="finalMatch.php" method="post">
 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
 		Start Time:<input type="time" name="startTime"<br>
 		End Time:<input type="time" name="endTime"<br>

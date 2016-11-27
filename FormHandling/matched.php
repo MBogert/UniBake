@@ -1,5 +1,7 @@
 <?php
 //do we know this user?
+session_start();
+
 if (isset($_COOKIE['email'])){
  $email = $_COOKIE['email']; //get the value of the cookie from browser
  $password = $_COOKIE['password'];
@@ -21,8 +23,8 @@ if (isset($_COOKIE['email'])){
       <h5>
       <?php 
       session_start();
-
-      echo $_GET['result'];
+      $returnVal = $_GET['result'];
+      echo "These are your results ".$returnVal.".";
        ?>
        	
        </h5> 
