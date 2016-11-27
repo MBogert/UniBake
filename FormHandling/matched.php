@@ -1,6 +1,5 @@
 <?php
 //do we know this user?
-session_start();
 
 if (isset($_COOKIE['email'])){
  $email = $_COOKIE['email']; //get the value of the cookie from browser
@@ -22,8 +21,7 @@ if (isset($_COOKIE['email'])){
    <body>
       <h5>
       <?php 
-      session_start();
-      $returnVal = $_GET['result'];
+      $returnVal = $_POST['result'];
       echo "These are your results ".$returnVal.".";
        ?>
        	
