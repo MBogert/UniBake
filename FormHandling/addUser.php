@@ -23,7 +23,8 @@
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		//Check email if it is valid
-		$domain = strtok($_POST[email], "@");
+		$domain = strtok($_POST['email'], "@");
+		$domain = strtok($domain, "");
 
 		//Query database for school email domains
 		$stmt = "SELECT domain FROM School;";
@@ -34,9 +35,9 @@
 		echo "$domain";
 		foreach($result as $tuple){
 
-			echo "$tuple[domain]";
+			echo "$tuple['domain']";
 
-			if("$tuple[domain]" == $domain){
+			if($tuple['domain'] == $domain){
 				$verified = True;
 				break;
 			}
@@ -62,7 +63,7 @@
 
 			foreach($result as $tuple){
 
-				if("$tuple[userID]" == $id){
+				if($tuple['userID'] == $id){
 					$unique = False;
 					break;
 				}
@@ -72,21 +73,21 @@
 			if($unique){break;}
 
 		}
-
+		//Single quote inside, no quotes outside (superglobals)
 
 		//Prepare statements and execute		
 		//UserLogin
 		$prepared1 = $db->prepare("INSERT INTO UserLogin (userID, name, phone) VALUES (:userID, :name, :phone);");
 		$prepared1->bindParam(':userID', $id);
-		$prepared1->bindParam(':name', "$_POST[name]");
-		$prepared1->bindParam(':phone', "$_POST[phone]");
+		$prepared1->bindParam(':name', $_POST['name']);
+		$prepared1->bindParam(':phone', $_POST['phone']);
 		$prepared1->execute();
 
 		//Login
 		$prepared2 = $db->prepare("INSERT INTO Login (userID, email, password) VALUES (:userID, :email, :password);");
 		$prepared2->bindParam(':userID', $id);
-		$prepared2->bindParam(':email', "$_POST[email]");
-		$prepared2->bindParam(':password', "$_POST[password]");
+		$prepared2->bindParam(':email', $_POST['email']);
+		$prepared2->bindParam(':password', $_POST['password']);
 		$prepared2->execute();
 
 		//header("Location: ../Pages/error.html"); <--- Some success page
