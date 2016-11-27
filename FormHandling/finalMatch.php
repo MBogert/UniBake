@@ -41,14 +41,16 @@ try{
                     //Store the number of similar categories
                     $similar = compare2($userData1, $userData2);
                     //Add the user and their similar categories to the array
-                    matched_push($otherPerson, $similar);
+                    array_push($matched, '$otherPerson' => '$similar');
 
                 }
 
                 //Sort the matches from high to low
+
                 $finalArr = arsort($matched);
+                $_SESSION['result'] = $finalArr;
                 //$_POST['result'] = $finalArr;
-                $finalArr = $_POST['result'];
+                //$finalArr = $_POST['result'];
                 //Print out these results
                 //Close the db
                 $db=null;
