@@ -28,35 +28,14 @@ try{
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputUserID', $_POST['userID']);
                 //$result=$prepared->execute();
-                $result = $prepared->get_result();
+                $result = $prepared->fetch(PDO::FETCH_ASSOC);
 
                 $matched = array();
 
-                while($myrow = $result->fetch_assoc()){
-                $otherPerson = $myrow['userID'];
+                // while($myrow = $result->fetch_assoc()){
+                // $otherPerson = $myrow['userID'];
 
 
-                    $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
-                    $prepared2 = $db->prepare("select category from RequestCategory where (userID = :inputUserID");
-                    $prepared2->bindParam(':inputUserID', $_POST['userID']);
-                    $otherUser = $prepared2->execute();
-
-                    //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
-                    //Store the number of similar categories
-                    $similar = compare2($userData1, $otherUser);
-                    //Add the user and their similar categories to the array
-                    $matched[$otherPerson] = $similar;
-                    //array_push($matched, '$otherPerson'=>'$similar');
-
-                }
-
-
-                // foreach($result as $tuple){
-                //     //$data = array($tuple);
-                //     //$otherPerson = $tuple['userID'];
-                //     $otherPerson = $tuple[0];
-
-                //     //Get the preference categories
                 //     $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
                 //     $prepared2 = $db->prepare("select category from RequestCategory where (userID = :inputUserID");
                 //     $prepared2->bindParam(':inputUserID', $_POST['userID']);
@@ -70,6 +49,27 @@ try{
                 //     //array_push($matched, '$otherPerson'=>'$similar');
 
                 // }
+
+
+                foreach($result as $tuple){
+                    //$data = array($tuple);
+                    //$otherPerson = $tuple['userID'];
+                    $otherPerson = $tuple[0];
+
+                    //Get the preference categories
+                    $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
+                    $prepared2 = $db->prepare("select category from RequestCategory where (userID = :inputUserID");
+                    $prepared2->bindParam(':inputUserID', $_POST['userID']);
+                    $otherUser = $prepared2->execute();
+
+                    //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
+                    //Store the number of similar categories
+                    $similar = compare2($userData1, $otherUser);
+                    //Add the user and their similar categories to the array
+                    $matched[$otherPerson] = $similar;
+                    //array_push($matched, '$otherPerson'=>'$similar');
+
+                }
 
                 //Sort the matches from high to low
 
