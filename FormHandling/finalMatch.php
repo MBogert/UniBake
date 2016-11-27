@@ -41,7 +41,7 @@ try{
                     //Store the number of similar categories
                     $similar = compare2($userData1, $userData2);
                     //Add the user and their similar categories to the array
-                    array_push($matched, $otherPerson => $similar);
+                    array_push($matched, '$otherPerson' => '$similar');
 
                 }
 
