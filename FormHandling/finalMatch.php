@@ -27,9 +27,9 @@ try{
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputUserID', $_POST['userID']);
-                //$result=$prepared->execute();
-                $prepared->execute();
-                $result = $prepared->fetch(PDO::FETCH_ASSOC);
+                $result=$prepared->execute();
+                //$prepared->execute();
+                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
 
                 $matched = array();
                 print_r($result);
