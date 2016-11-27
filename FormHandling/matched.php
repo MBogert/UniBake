@@ -23,6 +23,7 @@ if (isset($_COOKIE['email'])){
       <?php 
       //$_POST['result'];
       session_start();
+      print_r($_SESSION['result']);
       echo "These are your results ".$_SESSION['result'].".";
        ?>
        	
