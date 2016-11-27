@@ -1,22 +1,4 @@
-<!DOCTYPE HTML>
-
 <?php
-// Pass in their preference lists
-//List2 should be an associative array with the userID and their preference list
-// function compare($list1, $list2){
-//     //Hashmap of users to the amount of matches they have
-//     $users = array();
-//     for($i=0; $i<count($list1); $i++){
-//         //The counter that says how many matches they have
-//         $counter =0;
-//         for($j=0; $j<count($list2); $j++){
-//             if($list1[$i] = $list2[$i]){
-//             $counter++;
-//             }   
-//     }
-//     array_push($userID, $counter)
-//     }
-
     function compare2($list1, $list2){
     //Hashmap of users to the amount of matches they have
     $counter =0;
@@ -60,9 +42,10 @@ try{
                     matched_push($otherPerson, $similar);
 
                 }
+                session_start();
+
                 //Sort the matches from high to low
                 $finalArr = arsort($matched);
-                session_start();
                 $_SESSION['result'] = $finalArr;
                 //Print out these results
                 //Close the db
@@ -74,4 +57,3 @@ try{
               //Find the students at the same school
 header("Location: matched.php");
 ?>
-</html>

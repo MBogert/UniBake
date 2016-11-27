@@ -20,7 +20,9 @@ if (isset($_COOKIE['email'])){
    <body>
       <h5>
       <?php 
-      echo $_SESSION['result'];
+      session_start();
+
+      echo $_GET['result'];
        ?>
        	
        </h5> 
