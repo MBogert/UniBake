@@ -31,7 +31,7 @@ try{
                 $result = $prepared->fetch(PDO::FETCH_ASSOC);
 
                 $matched = array();
-
+                print_r($result);
                 // while($myrow = $result->fetch_assoc()){
                 // $otherPerson = $myrow['userID'];
 
@@ -74,6 +74,7 @@ try{
                 //Sort the matches from high to low
 
                 $finalArr = arsort($matched);
+                print_r($finalArr);
                 $_SESSION['result'] = $finalArr;
                 $_SESSION['answer'] = $result;
                 //$_POST['result'] = $finalArr;
@@ -86,5 +87,5 @@ try{
                 die('Exception : '.$e->getMessage()); //die will quit the script immediate
               }
               //Find the students at the same school
-header("Location: matched.php");
+//header("Location: matched.php");
 ?>
