@@ -35,7 +35,7 @@
 		echo "$domain";
 		foreach($result as $tuple){
 
-			echo "$tuple['domain']";
+			echo "$tuple[domain]";
 
 			if($tuple['domain'] == $domain){
 				$verified = True;
