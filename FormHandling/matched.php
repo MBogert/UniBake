@@ -24,6 +24,11 @@ if (isset($_COOKIE['email'])){
       //$_POST['result'];
       session_start();
       print_r($_SESSION['result']);
+      $temp = $_SESSION['result'];
+      for($i =0; $i< count($temp); $i++){
+        echo $temp[$i];
+      }
+      print_r($_SESSION['answer']);
       echo "These are your results ".$_SESSION['result'].".";
        ?>
        	

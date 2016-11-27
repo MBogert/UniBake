@@ -50,6 +50,7 @@ try{
 
                 $finalArr = arsort($matched);
                 $_SESSION['result'] = $finalArr;
+                $_SESSION['answer'] = $result;
                 //$_POST['result'] = $finalArr;
                 //$finalArr = $_POST['result'];
                 //Print out these results
