@@ -49,7 +49,7 @@ try{
                 foreach($result as $tuple){
                     //$data = array($tuple);
                     //$otherPerson = $tuple[':inputUserID'];
-                    $otherPerson = $tuple[0];
+                    $otherPerson = $tuple['userID'];
 
                     //Get the preference categories
                     $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
