@@ -46,9 +46,11 @@ try{
                 }
 
                 //Sort the matches from high to low
+
                 $finalArr = arsort($matched);
+                $_SESSION['result'] = $finalArr;
                 //$_POST['result'] = $finalArr;
-                $finalArr = $_POST['result'];
+                //$finalArr = $_POST['result'];
                 //Print out these results
                 //Close the db
                 $db=null;
