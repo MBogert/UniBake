@@ -19,7 +19,8 @@ if (isset($_COOKIE['email'])){
    
    <body>
       <h5>
-      <?php echo $_POST['result'];
+      <?php 
+      echo $_SESSION['result'];
        ?>
        	
        </h5> 

@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+
 <?php
 // Pass in their preference lists
 //List2 should be an associative array with the userID and their preference list
@@ -60,7 +62,8 @@ try{
                 }
                 //Sort the matches from high to low
                 $finalArr = arsort($matched);
-                $_POST['result'] = $finalArr;
+                session_start();
+                $_SESSION['result'] = $finalArr;
                 //Print out these results
                 //Close the db
                 $db=null;
@@ -71,3 +74,4 @@ try{
               //Find the students at the same school
 header("Location: matched.php");
 ?>
+</html>
