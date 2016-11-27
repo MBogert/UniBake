@@ -26,7 +26,7 @@ if (isset($_COOKIE['email'])){
       print_r($_SESSION['result']);
       $temp = $_SESSION['result'];
       for($i =0; $i< count($temp); $i++){
-        echo "Printing out index ".$i."."<br>;
+        echo "Printing out index ".$i.".";
 
         echo $temp[$i];
       }
