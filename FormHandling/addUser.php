@@ -27,11 +27,12 @@
 		list($fluff, $domain) = explode("@", $_POST['email'], 2);
 
 		//Query database for school email domains
-		$stmt = "SELECT domain FROM School;";
+		$stmt = "SELECT domain, schoolID FROM School;";
 		$result = $db->query($stmt);
 
 		//Check if user's domain is in registered schools
 		$verified = False;//This is our verification that the email passes
+		$schoolID = -1;//This is the school the user attends (if verified)
 		echo $domain;
 		foreach($result as $tuple){
 
@@ -39,6 +40,7 @@
 
 			if($tuple['domain'] == $domain){
 				$verified = True;
+				$schoolID = $tuple['schoolID'];
 				break;
 			}
 
@@ -46,8 +48,7 @@
 
 		//If email is not verified, redirect to error
 		if(!$verified){
-			echo "Email verification still broken";
-			//header("Location: ../Pages/error.html");
+			header("Location: ../Pages/error.html");
 		}
 
 		//Add user to database
@@ -74,7 +75,6 @@
 			if($unique){break;}
 
 		}
-		//Single quote inside, no quotes outside (superglobals)
 
 		//Prepare statements and execute		
 		//UserLogin
@@ -91,8 +91,14 @@
 		$prepared2->bindParam(':password', $_POST['password']);
 		$prepared2->execute();
 
+		//Attends
+		$prepared3 = $db->prepare("INSERT INTO Attends (userID, schoolID) VALUES (:userID, :schoolID);");
+		$prepared3->bindParam(':userID', $id);
+		$prepared3->bindParam(':schoolID', $schoolID);
+		$prepared3->execute();
+
 		//header("Location: ../Pages/error.html"); <--- Some success page
-		header("Location:.. welcome.php");
+		header("Location: welcome.php");
 	}
 		catch(PDOException $e){
 
