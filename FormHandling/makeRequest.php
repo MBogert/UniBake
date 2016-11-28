@@ -32,8 +32,8 @@
 		//Obtain all possible categories
 		$stmt = "SELECT DISTINCT category FROM Category;";
 		$result1 = $db->query($stmt);
-		$result2 = $result1;
-		$result3 = $result1;
+		$result2 = $db->query($stmt);
+		$result3 = $db->query($stmt);
 
 		//Close database
 		$db = null;
@@ -42,21 +42,18 @@
 		//Preference 1
 		echo "Preference 1: <select name = 'category1'>";
 		foreach($result1 as $tuple){
-			echo "Itereate";
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
 		//Preference 2
 		echo "Preference 2: <select name = 'category2'>";
 		foreach($result2 as $tuple){
-			echo "Itereate";
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
 		//Preference 3
 		echo "Preference 3: <select name = 'category3'>";
 		foreach($result3 as $tuple){
-			echo "Itereate";
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
