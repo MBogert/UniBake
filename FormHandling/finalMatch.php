@@ -27,10 +27,11 @@ try{
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputUserID', $_POST['userID']);
-                $result=$prepared->execute();
+                //$result=$prepared->execute();
                 //$prepared->execute();
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
-                $prepared->fetch(PDO::FETCH_ASSOC);
+                //$prepared->bind_result()
+                $result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 foreach($result as $tuple){
                     print_r($tuple);
