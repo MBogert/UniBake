@@ -32,9 +32,9 @@ try{
 
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 //$prepared->bind_result($user);
-                $result = $prepared->fetch(PDO::FETCH_ASSOC);
+                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
-                
+                $result = $prepared->fetchAll();
                 foreach($result as $tuple){
                     print $tuple['userID'];
 
