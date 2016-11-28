@@ -40,6 +40,7 @@
 		//Preference 1
 		echo "Preference 1: <select name = 'category1'>";
 		foreach($result as $tuple){
+			echo "Itereate";
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
