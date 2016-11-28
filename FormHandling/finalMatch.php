@@ -140,9 +140,12 @@ try{
                 $finalArr = asort($matched);
                 // Should be doing a for each loop to go through each user in the list
                 //Want to printout their matches too not just how many they have 
+                //This is break statement in php
+                echo nl2br("Another one.\n.");
+
                  foreach($matched as $key=>$value){
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
-                    echo nl2br("Another one.\n.");
+                    echo nl2br("\n");
                     //echo "This is the other way".$matched['userID'];
 
                  }
