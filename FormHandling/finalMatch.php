@@ -152,9 +152,12 @@ try{
                     $result = $pair->fetchAll();
                     echo "This is the result"."<br/>";
                     print_r($result);
-                    echo "Their email".$result[email];
-                    echo "Their name".$result[name];
-                    echo "Their phone".$result[phone];
+                    while($row = $result->fetch_assoc()){
+                        echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
+                    }
+                    // echo "Their email".$result['email'];
+                    // echo "Their name".$result['name'];
+                    // echo "Their phone".$result['phone'];
 
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("\n");
