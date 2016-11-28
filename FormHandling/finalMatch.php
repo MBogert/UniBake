@@ -110,14 +110,14 @@ try{
                     $prepared2->execute();
                     $results1 = $prepared2->fetchAll();
                     $results2 = $userData1->fetchAll();
-                    echo "These are the results \r\n";
-                    echo <br/>;
+                    //echo "These are the results \r\n";
+                    echo nl2br("These are the results \n");
 
                     print_r($results1);
-                    print "This is a new line \r\n ";
-                    echo <br/>;
+                    //print "This is a new line \r\n ";
+                    echo nl2br("In between results.\n.");
 
-                    echo "This is in between the results";
+                    //echo "This is in between the results";
                     print_r($results2);
 
                     //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
@@ -129,7 +129,6 @@ try{
                     $matched[$otherPerson] = $similar;
                     //array_push($matched, '$otherPerson'=>'$similar');
                     print "This is a new line";
-                    echo <br/>;
                     echo"This is matched";
                     print_r($matched);
 
@@ -143,13 +142,10 @@ try{
                 //Want to printout their matches too not just how many they have 
                  foreach($matched as $element){
                     echo "This is the match you get".$element['userID'];
-                    echo <br/>;
 
                  }
                  for($i=0; $i<sizeof($matched); $i++){
         echo "How about this one?".$matched[$i]."\r\n";
-                echo <br/>;
-
 
     }
 
