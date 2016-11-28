@@ -81,6 +81,7 @@
          </div>
 			
       </div>
+      <h1> Click <a href="signUp.php"> Sign UP if you don't have an account </a></h1>
 
    </body>
 </html>
