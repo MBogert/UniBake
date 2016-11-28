@@ -81,7 +81,7 @@ try{
                     $prepared2->bindParam(':mainUser', $_COOKIE['userID']);
                     //$otherUser = $prepared2->execute();
                     $prepared2->execute();
-                    $results1 = $prepared->fetchAll();
+                    $results1 = $prepared2->fetchAll();
                     $results2 = $userData1->fetchAll();
                     echo "These are the results";
                     print_r($results1);
