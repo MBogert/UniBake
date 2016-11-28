@@ -32,9 +32,9 @@ try{
 
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 //$prepared->bind_result($user);
-                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
+                $result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
-                $result = $prepared->fetchAll();
+                //$result = $prepared->fetchAll();
                 echo "This is the result";
                 echo "This is how the time is formatted".$_POST['startTime'];
                 print_r($result);
