@@ -20,21 +20,21 @@ try{
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //Need a dropdown 
                 //This is the query that filters out feasible users that could be possible matches
-                $prepared = $db-> prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
+                $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
 									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime OR :inputEndTime >= startTime)");
                 //Bind the parameters for SQL Injection
-                $prepared->bindParam(':inputStartTime', $_POST['startTime']);
-                $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputUserID', $_POST['userID']);
+                $prepared->bindParam(':inputEndTime', $_POST['endTime']);
+                $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 //$result=$prepared->execute();
                 $prepared->execute();
 
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 //$prepared->bind_result($user);
-                $result = $prepared->fetch(PDO::FETCH_ASSOC);
+                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
-                //$result = $prepared->fetchAll();
+                $result = $prepared->fetchAll();
                 echo "This is the result";
                 echo "This is how the time is formatted".$_POST['startTime'];
                 print_r($result);
