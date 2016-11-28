@@ -59,6 +59,9 @@
 		}
 		echo "</select>";
 
+		header("Location: ../FormHandling/finalMatch.php")
+
+
 	}
 	catch(PDOException $e){
 
@@ -67,7 +70,6 @@
 			//header("Location: ../Pages/error.html");
 
 	} 
-header("Location: ../FormHandling/finalMatch.php")
 ?>
 		<input type="submit">
 		</form>
