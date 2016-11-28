@@ -140,10 +140,16 @@ try{
                 $finalArr = asort($matched);
                 // Should be doing a for each loop to go through each user in the list
                 //Want to printout their matches too not just how many they have 
+                 foreach($matched as $key=>$value){
+                    echo "This is the user {key} => to the value{value}";
+                    echo nl2br("Another one.\n.");
+                    //echo "This is the other way".$matched['userID'];
+
+                 }
                  foreach($matched as $element){
                     echo "This is the match you get".$element['userID'];
                     echo nl2br("Another one.\n.");
-                    echo "This is the other way".$matched['userID'];
+                    //echo "This is the other way".$matched['userID'];
 
                  }
                  for($i=0; $i<sizeof($matched); $i++){
