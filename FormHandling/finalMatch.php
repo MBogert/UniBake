@@ -78,7 +78,7 @@ try{
                     echo "This is the other person".$otherPerson;
                     $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
                     $userData1->execute();
-                    $prepared2 = $db->prepare("select category from RequestCategory where (userID = :mainUser");
+                    $prepared2 = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
                     $prepared2->bindParam(':mainUser', $_COOKIE['userID']);
                     //$otherUser = $prepared2->execute();
                     $prepared2->execute();
