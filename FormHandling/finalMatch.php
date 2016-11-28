@@ -111,14 +111,14 @@ try{
                     $results1 = $prepared2->fetchAll();
                     $results2 = $userData1->fetchAll();
                     //echo "These are the results \r\n";
-                    echo nl2br("These are the results \n");
+                    //echo nl2br("These are the results \n");
 
-                    print_r($results1);
+                    //print_r($results1);
                     //print "This is a new line \r\n ";
-                    echo nl2br("In between results.\n.");
+                    //echo nl2br("In between results.\n.");
 
                     //echo "This is in between the results";
-                    print_r($results2);
+                    //print_r($results2);
 
                     //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
                     //Store the number of similar categories
@@ -155,9 +155,9 @@ try{
                     // while($row = $result->fetchAll()){
                     //     echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
                     // }
-                    echo "Their email".$result['email'];
-                    echo "Their name".$result['name'];
-                    echo "Their phone".$result['phone'];
+                    echo "Their email ".<strong>$result['email']</strong>;
+                    echo "Their name ".$result['name'];
+                    echo "Their phone ".$result['phone'];
 
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("\n");
