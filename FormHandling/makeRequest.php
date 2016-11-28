@@ -40,19 +40,19 @@
 		//Preference 1
 		echo "Preference 1: <select name = 'category1'>";
 		foreach($result as $tuple){
-			echo "<option>$tuple['category']</option>";
+			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
 		//Preference 2
 		echo "Preference 2: <select name = 'category2'>";
 		foreach($result as $tuple){
-			echo "<option>$tuple['category']</option>";
+			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
 		//Preference 3
 		echo "Preference 3: <select name = 'category3'>";
 		foreach($result as $tuple){
-			echo "<option>$tuple['category']</option>";
+			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
 
