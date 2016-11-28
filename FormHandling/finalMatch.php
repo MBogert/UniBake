@@ -15,11 +15,11 @@
 <body>
 <h1> Here are your matches! (Including yourself)</h1>
 <p>
-<?php
+<!-- <?php
     for($i=0; $i<count($matched); $i++){
         echo "How about this one?".$matched['userID'][$i];
     }
-?>
+?> -->
 </p>
 
 
@@ -135,6 +135,9 @@ try{
 
                 //$finalArr = arsort($matched);
                 $finalArr = asort($matched);
+                 for($i=0; $i<count($matched); $i++){
+        echo "How about this one?".$matched['userID'][$i];
+    }
 
                 echo "This is the final array";
                 print_r($finalArr);
