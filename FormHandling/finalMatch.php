@@ -48,7 +48,7 @@ try{
                 //This is the query that filters out feasible users that could be possible matches
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
-									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime OR :inputEndTime >= startTime)");
+									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
                 //$prepared->bindParam(':inputUserID', $_POST['userValue']);
                 $prepared->bindParam(':inputUserID', $_COOKIE['userID']);
@@ -135,7 +135,7 @@ try{
 
                 //$finalArr = arsort($matched);
                 $finalArr = asort($matched);
-                 for($i=0; $i<count($matched); $i++){
+                 for($i=0; $i<sizeof($matched); $i++){
         echo "How about this one?".$matched[$i]."\r\n";
 
     }
