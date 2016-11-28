@@ -147,12 +147,12 @@ try{
                     echo "Here is the information for the user you could be paired with";
 
                     $pair = $db->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    $pair->execute();
+                    $result = $pair->execute();
                     //$result = $db->query($stmt);
-                    $result = $pair->fetchAll();
+                    //$result = $pair->fetchAll();
                     echo "This is the result"."<br/>";
-                    print_r($result);
-                    while($row = $result->fetch_assoc()){
+                    //print_r($result);
+                    while($row = $result->fetchAll()){
                         echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
                     }
                     // echo "Their email".$result['email'];
