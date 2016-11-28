@@ -31,6 +31,7 @@
 
 		//Obtain all possible categories
 		$stmt = "SELECT DISTINCT category FROM Category;";
+		//do we want to query the same thing or get the results in different ways?
 		$result1 = $db->query($stmt);
 		$result2 = $db->query($stmt);
 		$result3 = $db->query($stmt);
@@ -66,7 +67,7 @@
 			//header("Location: ../Pages/error.html");
 
 	} 
-
+header("Location: ../FormHandling/finalMatch.php")
 ?>
 		<input type="submit">
 		</form>
