@@ -35,6 +35,8 @@ try{
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 $result = $prepared->fetchAll();
+                echo "This is the result";
+                print_r($result);
                 foreach($result as $tuple){
                     echo "Printint in the loop";
                     print $tuple['userID'];
