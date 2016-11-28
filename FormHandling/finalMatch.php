@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+<!-- Put in the stylesheet -->
+
+  <title>Make Request Page</title>
+  <!-- Include the navbar file -->
+  <?php include navbar.php ?>
+</head>
+<style>
+
+</style>
+<body>
+<h1> Here are your matches! (Including yourself)</h1>
+<p>
+<?php
+    foreach($matched as $tuple){
+        echo "How about this one?".$matched['userID'];
+    }
+?>
+</p>
+
+
 <?php
     session_start();
 
@@ -76,7 +101,7 @@ try{
                     $otherPerson = $tuple['userID'];
                     //echo "This is the tuple[0]".$tuple[0];
                     //Get the preference categories
-                    echo "This is the other person".$otherPerson;
+                    echo "This is the other person \r\n".$otherPerson;
                     $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
                     $userData1->execute();
                     $prepared2 = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
@@ -85,9 +110,9 @@ try{
                     $prepared2->execute();
                     $results1 = $prepared2->fetchAll();
                     $results2 = $userData1->fetchAll();
-                    echo "These are the results";
+                    echo "These are the results \r\n";
                     print_r($results1);
-                    print "This is a new line";
+                    print "This is a new line \r\n ";
                     echo "This is in between the results";
                     print_r($results2);
 
@@ -127,3 +152,4 @@ try{
               //Find the students at the same school
 //header("Location: matched.php");
 ?>
+</html>
