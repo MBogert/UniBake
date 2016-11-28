@@ -145,9 +145,10 @@ try{
 
                  foreach($matched as $key=>$value){
                     echo "Here is the information for the user you could be paired with";
-                    $stmt = ("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    $result = $db->query($stmt);
-
+                    $pair = $db->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
+                    $pair->execute();
+                    //$result = $db->query($stmt);
+                    $result = $pair->fetchAll();
                     echo "Their email".$result['email'];
                     echo "Their name".$result['name'];
                     echo "Their phone".$result['phone'];
