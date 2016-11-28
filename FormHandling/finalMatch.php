@@ -36,6 +36,7 @@ try{
                 $matched = array();
                 $result = $prepared->fetchAll();
                 echo "This is the result";
+                echo "This is how the time is formatted".$_POST['startTime'];
                 print_r($result);
                 foreach($result as $tuple){
                     echo "Printint in the loop";
