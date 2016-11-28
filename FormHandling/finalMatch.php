@@ -155,14 +155,10 @@ try{
                     // while($row = $result->fetchAll()){
                     //     echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
                     // }
-                    <body>
-                    <h1>
+
                     echo "Their email ".$result['email'];
                     echo "Their name ".$result['name'];
                     echo "Their phone ".$result['phone'];
-                    </h1>
-                    </body>
-
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("\n");
                     //echo "This is the other way".$matched['userID'];
