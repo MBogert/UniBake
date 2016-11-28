@@ -35,10 +35,13 @@ try{
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 $result = $prepared->fetchAll();
-                echo "This is the result";
-                echo "This is how the time is formatted".$_POST['startTime'];
-                echo "This is the user".$_POST['userID'];
+                echo "This is start time".$_POST['startTime'];
+                echo "This is end time".$_POST['startTime'];
 
+                echo "This is the user".$_POST['userValue'];
+
+                echo "This is the result";
+                echo $result;
                 print_r($result);
                 foreach($result as $tuple){
                     echo "Printint in the loop";
