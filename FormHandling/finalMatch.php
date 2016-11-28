@@ -147,17 +147,17 @@ try{
                     echo "Here is the information for the user you could be paired with";
 
                     $pair = $db->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    $result = $pair->execute();
+                    $pair->execute();
                     //$result = $db->query($stmt);
-                    //$result = $pair->fetchAll();
+                    $result = $pair->fetch();
                     echo "This is the result"."<br/>";
                     //print_r($result);
-                    while($row = $result->fetchAll()){
-                        echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
-                    }
-                    // echo "Their email".$result['email'];
-                    // echo "Their name".$result['name'];
-                    // echo "Their phone".$result['phone'];
+                    // while($row = $result->fetchAll()){
+                    //     echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
+                    // }
+                    echo "Their email".$result['email'];
+                    echo "Their name".$result['name'];
+                    echo "Their phone".$result['phone'];
 
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("\n");
