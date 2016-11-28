@@ -135,6 +135,11 @@ try{
 
                 //$finalArr = arsort($matched);
                 $finalArr = asort($matched);
+                // Should be doing a for each loop to go through each user in the list
+                //Want to printout their matches too not just how many they have 
+                 foreach($matched as $element){
+                    echo "This is the match you get".$element['userID'];
+                 }
                  for($i=0; $i<sizeof($matched); $i++){
         echo "How about this one?".$matched[$i]."\r\n";
 
