@@ -145,10 +145,12 @@ try{
 
                  foreach($matched as $key=>$value){
                     echo "Here is the information for the user you could be paired with";
-                    $pair= $db->query("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    echo "Their email".$pair['email'];
-                    echo "Their name".$pair['name'];
-                    echo "Their phone".$pair['phone'];
+                    $stmt = ("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
+                    $result = $db->query($stmt);
+
+                    echo "Their email".$result['email'];
+                    echo "Their name".$result['name'];
+                    echo "Their phone".$result['phone'];
 
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("\n");
