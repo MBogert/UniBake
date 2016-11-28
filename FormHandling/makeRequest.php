@@ -20,7 +20,8 @@
 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
 		Start Time:<input type="time" name="startTime"<br>
 		End Time:<input type="time" name="endTime"<br>
-<?php//To populate category preferences
+<?php
+//To populate category preferences
 
 	try{
 
