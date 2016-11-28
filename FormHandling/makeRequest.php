@@ -14,9 +14,13 @@
 </style>
 <body>
 
-
-
-<?php
+	<h2> Please submit your request for when you would like to bake </h2>
+	<div>
+		<form action="finalMatch.php" method="post">
+		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
+		Start Time:<input type="time" name="startTime"<br>
+		End Time:<input type="time" name="endTime"<br>
+<?php//To populate category preferences
 
 	try{
 
@@ -30,6 +34,27 @@
 
 		//Close database
 		$db = null;
+
+		//Selection for category preferences
+		//Preference 1
+		echo "Preference 1: <select name = 'category1'>"
+		foreach($result as $tuple){
+			echo "<option>$tuple['category']</option>";
+		}
+		echo "</select>";
+		//Preference 2
+		echo "Preference 2: <select name = 'category2'>"
+		foreach($result as $tuple){
+			echo "<option>$tuple['category']</option>";
+		}
+		echo "</select>";
+		//Preference 3
+		echo "Preference 3: <select name = 'category3'>"
+		foreach($result as $tuple){
+			echo "<option>$tuple['category']</option>";
+		}
+		echo "</select>";
+
 	}
 	catch(PDOException $e){
 
@@ -40,36 +65,6 @@
 	} 
 
 ?>
-
-
-
-	<h2> Please submit your request for when you would like to bake </h2>
-	<div>
-		<form action="finalMatch.php" method="post">
-		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
-		Start Time:<input type="time" name="startTime"<br>
-		End Time:<input type="time" name="endTime"<br>
-		Preference 1: <select name = "category1">
-							<?php 
-								foreach($result as $tuple){
-									echo "<option>$tuple['category']</option>";
-								}
-							?>
-					  </select>
-		Preference 2: <select name = "category2">
-							<?php 
-								foreach($result as $tuple){
-									echo "<option>$tuple['category']</option>";
-								}
-							?>
-					  </select>
-		Preference 3: <select name = "category3">
-							<?php 
-								foreach($result as $tuple){
-									echo "<option>$tuple['category']</option>";
-								}
-							?>		
-					  </select>
 		<input type="submit">
 		</form>
 	</div>
