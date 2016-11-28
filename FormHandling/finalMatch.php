@@ -13,11 +13,11 @@
 
 </style>
 <body>
-<h1> Here are your matches! (Including yourself)</h1>
+<h1> Here are your matches!</h1>
 <p>
 <!-- <?php
-    for($i=0; $i<count($matched); $i++){
-        echo "How about this one?".$matched['userID'][$i];
+    //for($i=0; $i<count($matched); $i++){
+      //  echo "How about this one?".$matched['userID'][$i];
     }
 ?> -->
 </p>
@@ -141,21 +141,21 @@ try{
                 // Should be doing a for each loop to go through each user in the list
                 //Want to printout their matches too not just how many they have 
                  foreach($matched as $key=>$value){
-                    echo "This is the user {$key} => to the value{$value}";
+                    echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("Another one.\n.");
                     //echo "This is the other way".$matched['userID'];
 
                  }
-                 foreach($matched as $element){
-                    echo "This is the match you get".$element['userID'];
-                    echo nl2br("Another one.\n.");
-                    //echo "This is the other way".$matched['userID'];
+                 // foreach($matched as $element){
+                 //    echo "This is the match you get".$element['userID'];
+                 //    echo nl2br("Another one.\n.");
+                 //    //echo "This is the other way".$matched['userID'];
 
-                 }
-                 for($i=0; $i<sizeof($matched); $i++){
-        echo "How about this one?".$matched[$i]."\r\n";
+                 // }
+    //              for($i=0; $i<sizeof($matched); $i++){
+    //     echo "How about this one?".$matched[$i]."\r\n";
 
-    }
+    // }
 
                 echo "This is the final array";
                 print_r($finalArr);
