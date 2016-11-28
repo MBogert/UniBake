@@ -30,7 +30,7 @@ try{
                 $result=$prepared->execute();
                 //$prepared->execute();
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
-
+                $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 foreach($result as $tuple){
                     print_r($tuple);
