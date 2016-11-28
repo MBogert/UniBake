@@ -59,7 +59,7 @@
 		}
 		echo "</select>";
 
-		header("Location: ../FormHandling/finalMatch.php");
+		//header("Location: ../FormHandling/finalMatch.php");
 
 
 	}catch(PDOException $e){
