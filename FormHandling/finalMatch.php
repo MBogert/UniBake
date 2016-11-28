@@ -31,7 +31,7 @@ try{
                 $prepared->execute();
 
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
-                $prepared->bind_result($user)
+                $prepared->bind_result($user);
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 while($prepared->fetch()){
