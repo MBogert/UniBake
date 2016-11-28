@@ -37,20 +37,20 @@ try{
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 $result = $prepared->fetchAll();
-                echo "This is start time".$_POST['startTime'];
-                echo "This is end time".$_POST['endTime'];
+                // echo "This is start time".$_POST['startTime'];
+                // echo "This is end time".$_POST['endTime'];
 
-                echo "This is the user".$_POST['userValue'];
-                echo "This is the user".$_COOKIE['userID'];
+                // echo "This is the user".$_POST['userValue'];
+                // echo "This is the user".$_COOKIE['userID'];
 
 
-                echo "This is the result";
-                print_r($result);
-                foreach($result as $tuple){
-                    echo "Printint in the loop";
-                    print $tuple['userID'];
+                // echo "This is the result";
+                // print_r($result);
+                // foreach($result as $tuple){
+                //     echo "Printint in the loop";
+                //     print $tuple['userID'];
 
-                }
+                // }
                 // while($myrow = $result->fetch_assoc()){
                 // $otherPerson = $myrow['userID'];
 
@@ -87,6 +87,7 @@ try{
                     $results2 = $userData1->fetchAll();
                     echo "These are the results";
                     print_r($results1);
+                    print "This is a new line";
                     echo "This is in between the results";
                     print_r($results2);
 
@@ -98,6 +99,8 @@ try{
                     //Add the user and their similar categories to the array
                     $matched[$otherPerson] = $similar;
                     //array_push($matched, '$otherPerson'=>'$similar');
+                    print "This is a new line";
+
                     echo"This is matched";
                     print_r($matched);
 
@@ -105,7 +108,9 @@ try{
 
                 //Sort the matches from high to low
 
-                $finalArr = arsort($matched);
+                //$finalArr = arsort($matched);
+                $finalArr = asort($matched);
+
                 echo "This is the final array";
                 print_r($finalArr);
                 $_SESSION['result'] = $finalArr;
