@@ -4,9 +4,8 @@
     function compare2($list1, $list2){
     //Hashmap of users to the amount of matches they have
     $counter =0;
-    for($i=0; $i<count($list1); $i++){
+    for($i=0; $i<sizeof($list1); $i++){
         //The counter that says how many matches they have
-
             if($list1[$i] == $list2[$i]){
             $counter++;
             }   
