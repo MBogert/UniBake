@@ -44,7 +44,6 @@ try{
 
 
                 echo "This is the result";
-                echo $result;
                 print_r($result);
                 foreach($result as $tuple){
                     echo "Printint in the loop";
@@ -73,20 +72,27 @@ try{
                 foreach($result as $tuple){
                     //$data = array($tuple);
                     //$otherPerson = $tuple['userID'];
-                    $otherPerson = $tuple[0];
-                    echo "This is the tuple[0]".$tuple[0];
+                    $otherPerson = $tuple['userID'];
+                    //echo "This is the tuple[0]".$tuple[0];
                     //Get the preference categories
-                    $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
+                    echo "This is the other person".$otherPerson;
+                    $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
+                    $userData1->execute();
                     $prepared2 = $db->prepare("select category from RequestCategory where (userID = :inputUserID");
-                    $prepared2->bindParam(':inputUserID', $_POST['userID']);
-                    $otherUser = $prepared2->execute();
-
+                    $prepared2->bindParam(':inputUserID', $_COOKIE['userID']);
+                    //$otherUser = $prepared2->execute();
+                    $prepared2->execute();
+                    $results1 = $prepared->fetchAll();
+                    $results2 = $userData1->fetchAll();
                     //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
                     //Store the number of similar categories
-                    $similar = compare2($userData1, $otherUser);
+                    //$similar = compare2($userData1, $otherUser);
+                    $similar = compare2($results2, $results1);
+
                     //Add the user and their similar categories to the array
                     $matched[$otherPerson] = $similar;
                     //array_push($matched, '$otherPerson'=>'$similar');
+                    echo"This is matched";
                     print_r($matched);
 
                 }
