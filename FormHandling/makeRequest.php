@@ -7,7 +7,7 @@
 
   <title>Make Request Page</title>
   <!-- Include the navbar file -->
-  <?php include navbar.php ?>
+  <?php include 'navbar.php'; ?>
 </head>
 <style>
 
