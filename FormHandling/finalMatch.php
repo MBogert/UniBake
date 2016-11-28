@@ -32,7 +32,7 @@ try{
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
 
                 $matched = array();
-                foreach($result as $answer){
+                foreach($result as $key => $value){
                     print_r($result);
 
                 }
