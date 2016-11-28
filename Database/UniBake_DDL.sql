@@ -38,7 +38,6 @@ create table Recipe(
 create table Category(
 	filePath text,
 	category text,
-	primary key (category, filePath),
 	foreign key(filePath) references Recipe(filePath)
 );
 
@@ -49,20 +48,13 @@ create table BakeRequest(
 	foreign key(userID) references UserLogin(userID) 
 );
 
+--NOTE: "category" technically references from the relation Category
+--However, it doesn't reference a specific tuple, the value just has to be present in the Category relation.
 create table RequestCategory(
 	userID integer,
 	category text,
-	foreign key(userID) references UserLogin(userID),
-	foreign key(category) references Category(category)
+	foreign key(userID) references UserLogin(userID)
 );
-
-/*Ditching this relation, but keeping just in case
-create table BakeRecipe(
-	userID integer references UserLogin(userID) on update cascade on delete cascade check(userID in BakeRequest),
-	recipe text references Recipe(filePath) on update cascade on delete cascade,
-	primary key (userID, filePath)
-);
-*/
 
 create table Pair(
 	user1 integer unique,
