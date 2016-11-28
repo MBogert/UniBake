@@ -28,15 +28,19 @@ try{
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputUserID', $_POST['userID']);
                 //$result=$prepared->execute();
-                //$prepared->execute();
-                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
-                //$prepared->bind_result()
-                $result = $prepared->fetch(PDO::FETCH_ASSOC);
-                $matched = array();
-                foreach($result as $tuple){
-                    print_r($tuple);
+                $prepared->execute();
 
+                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
+                $prepared->bind_result($user)
+                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
+                $matched = array();
+                while($prepared->fetch()){
+                    echo $user;
                 }
+                // foreach($result as $userID){
+                //     print_r($userID);
+
+                // }
                 // while($myrow = $result->fetch_assoc()){
                 // $otherPerson = $myrow['userID'];
 
