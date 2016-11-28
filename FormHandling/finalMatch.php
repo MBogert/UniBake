@@ -136,7 +136,8 @@ try{
                 //$finalArr = arsort($matched);
                 $finalArr = asort($matched);
                  for($i=0; $i<count($matched); $i++){
-        echo "How about this one?".$matched['userID'][$i];
+        echo "How about this one?".$matched[$i]."\r\n";
+
     }
 
                 echo "This is the final array";
