@@ -36,6 +36,7 @@ try{
                 $matched = array();
                 $result = $prepared->fetchAll();
                 foreach($result as $tuple){
+                    echo "Printint in the loop";
                     print $tuple['userID'];
 
                 }
@@ -62,7 +63,7 @@ try{
                     //$data = array($tuple);
                     //$otherPerson = $tuple['userID'];
                     $otherPerson = $tuple[0];
-
+                    echo "This is the tuple[0]".$tuple[0];
                     //Get the preference categories
                     $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
                     $prepared2 = $db->prepare("select category from RequestCategory where (userID = :inputUserID");
@@ -75,12 +76,14 @@ try{
                     //Add the user and their similar categories to the array
                     $matched[$otherPerson] = $similar;
                     //array_push($matched, '$otherPerson'=>'$similar');
+                    print_r($matched);
 
                 }
 
                 //Sort the matches from high to low
 
                 $finalArr = arsort($matched);
+                echo "This is the final array";
                 print_r($finalArr);
                 $_SESSION['result'] = $finalArr;
                 $_SESSION['answer'] = $result;
