@@ -111,8 +111,12 @@ try{
                     $results1 = $prepared2->fetchAll();
                     $results2 = $userData1->fetchAll();
                     echo "These are the results \r\n";
+                    echo <br/>;
+
                     print_r($results1);
                     print "This is a new line \r\n ";
+                    echo <br/>;
+
                     echo "This is in between the results";
                     print_r($results2);
 
@@ -125,7 +129,7 @@ try{
                     $matched[$otherPerson] = $similar;
                     //array_push($matched, '$otherPerson'=>'$similar');
                     print "This is a new line";
-
+                    echo <br/>;
                     echo"This is matched";
                     print_r($matched);
 
@@ -139,9 +143,13 @@ try{
                 //Want to printout their matches too not just how many they have 
                  foreach($matched as $element){
                     echo "This is the match you get".$element['userID'];
+                    echo <br/>;
+
                  }
                  for($i=0; $i<sizeof($matched); $i++){
         echo "How about this one?".$matched[$i]."\r\n";
+                echo <br/>;
+
 
     }
 
