@@ -6,7 +6,9 @@
     $counter =0;
     for($i=0; $i<sizeof($list1); $i++){
         //The counter that says how many matches they have
-            if($list1['category'][$i] == $list2['category'][$i]){
+            //if($list1['category'][$i] == $list2['category'][$i]){
+        if($list1[$i] == $list2[$i]){
+
             $counter++;
             }   
     }
