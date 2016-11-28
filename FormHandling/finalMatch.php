@@ -142,6 +142,8 @@ try{
                 //Want to printout their matches too not just how many they have 
                  foreach($matched as $element){
                     echo "This is the match you get".$element['userID'];
+                    echo nl2br("Another one.\n.");
+                    echo "This is the other way".$matched['userID'];
 
                  }
                  for($i=0; $i<sizeof($matched); $i++){
