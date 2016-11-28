@@ -83,6 +83,10 @@ try{
                     $prepared2->execute();
                     $results1 = $prepared->fetchAll();
                     $results2 = $userData1->fetchAll();
+                    echo "These are the results";
+                    print_r($results1);
+                    print_r($results2);
+
                     //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
                     //Store the number of similar categories
                     //$similar = compare2($userData1, $otherUser);
