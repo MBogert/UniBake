@@ -32,7 +32,10 @@ try{
                 //$result = $prepared->fetch(PDO::FETCH_ASSOC);
 
                 $matched = array();
-                print_r($result);
+                foreach($result as $answer){
+                    print_r($result);
+
+                }
                 // while($myrow = $result->fetch_assoc()){
                 // $otherPerson = $myrow['userID'];
 
