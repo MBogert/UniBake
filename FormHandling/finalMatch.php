@@ -36,9 +36,11 @@ try{
                 $matched = array();
                 $result = $prepared->fetchAll();
                 echo "This is start time".$_POST['startTime'];
-                echo "This is end time".$_POST['startTime'];
+                echo "This is end time".$_POST['endTime'];
 
                 echo "This is the user".$_POST['userValue'];
+                echo "This is the user".$_COOKIE['userID'];
+
 
                 echo "This is the result";
                 echo $result;
