@@ -97,14 +97,17 @@
 		$prepared3->bindParam(':schoolID', $schoolID);
 		$prepared3->execute();
 
-		//header("Location: ../Pages/error.html"); <--- Some success page
+		//Close database
+		$db = null;
+
+		//Redirect
 		header("Location: welcome.php");
 	}
 		catch(PDOException $e){
 
 			//Page Redirect
-			die('Exception: '.$e->getMessage());
-			//header("Location: ../Pages/error.html");
+			//die('Exception: '.$e->getMessage());
+			header("Location: ../Pages/error.html");
 
 		} 
 ?>
