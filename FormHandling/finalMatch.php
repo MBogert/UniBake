@@ -6,7 +6,7 @@
     $counter =0;
     for($i=0; $i<sizeof($list1); $i++){
         //The counter that says how many matches they have
-            if($list1[$i] == $list2[$i]){
+            if($list1['category'][$i] == $list2['category'][$i]){
             $counter++;
             }   
     }
@@ -85,6 +85,7 @@ try{
                     $results2 = $userData1->fetchAll();
                     echo "These are the results";
                     print_r($results1);
+                    echo "This is in between the results";
                     print_r($results2);
 
                     //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
