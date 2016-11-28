@@ -24,7 +24,8 @@ try{
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
 									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime OR :inputEndTime >= startTime)");
                 //Bind the parameters for SQL Injection
-                $prepared->bindParam(':inputUserID', $_POST['userValue']);
+                //$prepared->bindParam(':inputUserID', $_POST['userValue']);
+                $prepared->bindParam(':inputUserID', $_COOKIE['userID']);
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 //$result=$prepared->execute();
