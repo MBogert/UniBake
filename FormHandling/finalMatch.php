@@ -156,9 +156,10 @@ try{
                     //     echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
                     // }
 
-                    echo "Their email ".$result['email'];
-                    echo "Their name ".$result['name'];
-                    echo "Their phone ".$result['phone'];
+                    echo "Their email ".$result['email']."<br/>";
+                    echo "Their name ".$result['name']."<br/>";
+                    echo "Their phone ".$result['phone']."<br/>";
+
                     echo "This is the other user {$key} => to how many matches you have in common {$value}";
                     echo nl2br("\n");
                     //echo "This is the other way".$matched['userID'];
