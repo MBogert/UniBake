@@ -52,6 +52,14 @@ try{
                 $prepared1->bindParam(':category1', $_POST['category1']);
                 $prepared1->execute();
 
+                //Triplicate fix code?
+                $prepared1->bindParam(':category1', $_POST['category2']);
+                $prepared1->execute();
+                $prepared1->bindParam(':category1', $_POST['category3']);
+                $prepared1->execute();               
+                //
+
+                /*
                 $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category2) ");
                 $prepared2->bindParam(':category2', $_POST['category2']);
                 $prepared2->bindParam(':userID', $_SESSION['userID']);
@@ -66,7 +74,7 @@ try{
                 $prepared3->bindParam(':userID', $_SESSION['userID']);
 
                 $prepared3->execute();
-
+                */
 
 
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
