@@ -44,6 +44,9 @@
 
 		//Selection for category preferences
 		//Preference 1
+		echo"
+		<form action='processRequest.php' method='post'>
+
 		echo "Preference 1: <select name = 'category1'>";
 		foreach($result1 as $tuple){
 			echo "<option>$tuple[category]</option>";
@@ -62,6 +65,8 @@
 		}
 		echo "</select>";
 
+		<input type='submit'/>
+		</form>";
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
 		
