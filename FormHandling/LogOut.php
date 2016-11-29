@@ -9,5 +9,4 @@
 //Send them back to log in or home page
     header("Location: TestLogIn.php");
     exit;
-   }
 ?>
