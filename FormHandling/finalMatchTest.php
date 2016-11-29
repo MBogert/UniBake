@@ -14,13 +14,7 @@
 </style>
 <body>
 <h1> Here are your matches!</h1>
-<p>
-<!-- <?php
-    //for($i=0; $i<count($matched); $i++){
-      //  echo "How about this one?".$matched['userID'][$i];
-    //}
-?> -->
-</p>
+
 
 
 <?php
@@ -167,28 +161,6 @@ try{
                 //This is break statement in php
                 echo nl2br("Another one.\n.");
 
-                 foreach($matched as $key=>$value){
-                    echo "Here is the information for the user you could be paired with";
-
-                    $pair = $db->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    $pair->execute();
-                    //$result = $db->query($stmt);
-                    $result = $pair->fetch();
-                    echo "This is the result"."<br/>";
-                    //print_r($result);
-                    // while($row = $result->fetchAll()){
-                    //     echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
-                    // }
-                    //add what criteria they matched on 
-                    echo "Their email ".$result['email']."<br/>";
-                    echo "Their name ".$result['name']."<br/>";
-                    echo "Their phone ".$result['phone']."<br/>";
-
-                    echo "This is the other user {$key} => to how many matches you have in common {$value}";
-                    echo nl2br("\n");
-                    //echo "This is the other way".$matched['userID'];
-
-                 }
                  // foreach($matched as $element){
                  //    echo "This is the match you get".$element['userID'];
                  //    echo nl2br("Another one.\n.");
@@ -217,5 +189,34 @@ try{
 //header("Location: matched.php");
 ?>
 
+<p>
+<body>
+<td>Here are your results</td>
 
+<body>
+<form action="pairPeople.php" method="post">
+ <?php foreach($matched as $key=>$value): ?> 
+    <tr>
+    <h1> "Here is the information for the user you could be paired with"</h1>
+
+    <td><?php 
+
+                    $pair = $db->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
+                    $pair->execute();
+                    //$result = $db->query($stmt);
+                    $result = $pair->fetch();
+                    echo "This is the result"."<br/>";
+                    ?>
+                    Name: <input type ="text" name="name" value="<?php echo "Their email ".$result['name']."<br/>"; ?>">
+                    Email: <input type ="text" name="email" value="<?php echo "Their email ".$result['email']."<br/>"; ?>">
+                    Phone Number: <input type ="text" name="phone" value="<?php echo "Their email ".$result['phone']."<br/>"; ?>">
+                    <?php echo "This is the other user {$key} => to how many matches you have in common {$value}";?>
+               
+?> </td>
+</tr>
+<?php endforeach; ?>
+  <input type="submit" name="submit" value="Submit">  
+
+</form>
+</p>
 </html>
