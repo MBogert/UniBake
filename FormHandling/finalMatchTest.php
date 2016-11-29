@@ -194,10 +194,11 @@ try{
 <td>Here are your results</td>
 
 <body>
+    <h1> "Here is the information for the user you could be paired with"</h1>
+
 <form action="pairPeople.php" method="post">
  <?php foreach($matched as $key=>$value): ?> 
     <tr>
-    <h1> "Here is the information for the user you could be paired with"</h1>
 
     <td><?php 
          $db1 = new PDO('sqlite:./../Database/unibake.db');
@@ -208,15 +209,21 @@ try{
                     $result = $pair->fetch();
                     echo "This is the result"."<br/>";
                     ?>
-                    Name: <input type ="text" name="name" value="<?php echo "Their email ".$result['name']."<br/>"; ?>">
-                    Email: <input type ="text" name="email" value="<?php echo "Their email ".$result['email']."<br/>"; ?>">
-                    Phone Number: <input type ="text" name="phone" value="<?php echo "Their email ".$result['phone']."<br/>"; ?>">
+                    <?php echo "Their email ".$result['email'];
+                    echo "Their name ".$result['name'];
+                    echo "Their phone ".$result['phone']."<br/>";
+                    ?>
+                    Name: <input type ="hidden" name="name" value="<?php $result['name']; ?>">
+                    Email: <input type ="hidden" name="email" value="<?php $result['email']; ?>">
+                    Phone Number: <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
                     <?php echo "This is the other user {$key} => to how many matches you have in common {$value}";?>
+                      <input type="submit" name="select" value="Submit">  
+
                
-?> </td>
+ </td>
 </tr>
+
 <?php endforeach; ?>
-  <input type="submit" name="submit" value="Submit">  
 
 </form>
 </p>
