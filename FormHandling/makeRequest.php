@@ -16,7 +16,7 @@
 
 	<h2> Please submit your request for when you would like to bake </h2>
 	<div>
-		<form action="finalMatch.php" method="post">
+		<form action="finalMatchTest.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
  -->		
  <input type="hidden" name="userValue" value="$_COOKIE[userID]"<br>
@@ -64,7 +64,7 @@
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
-		
+
 
 
 	}catch(PDOException $e){
