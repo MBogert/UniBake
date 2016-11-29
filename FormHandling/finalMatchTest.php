@@ -209,13 +209,13 @@ try{
                     $result = $pair->fetch();
                     echo "This is the result"."<br/>";
                     ?>
-                    <?php echo "Their email ".$result['email'];
-                    echo "Their name ".$result['name'];
-                    echo "Their phone ".$result['phone']."<br/>";
+                    <?php echo "Their email: ".$result['email']."  ";
+                    echo "Their name: ".$result['name']."  ";
+                    echo "Their phone number: ".$result['phone']."<br/>";
                     ?>
-                    Name: <input type ="hidden" name="name" value="<?php $result['name']; ?>">
-                    Email: <input type ="hidden" name="email" value="<?php $result['email']; ?>">
-                    Phone Number: <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
+                    <input type ="hidden" name="name" value="<?php $result['name']; ?>">
+                    <input type ="hidden" name="email" value="<?php $result['email']; ?>">
+                    <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
                     <?php echo "This is the other user {$key} => to how many matches you have in common {$value}";?>
                       <input type="submit" name="select" value="Submit">  
 
