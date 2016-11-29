@@ -39,9 +39,9 @@ try{
                 //This is the query that filters out feasible users that could be possible matches
 
                 //First do the insert queries
-                echo "This is category1".$_POST['category1'];
-                echo "This is category2".$_POST['category2'];
-                echo "This is category3".$_POST['category3'];
+                // echo "This is category1".$_POST['category1'];
+                // echo "This is category2".$_POST['category2'];
+                // echo "This is category3".$_POST['category3'];
 
                 $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
                 $prepared1->bindParam(':userID', $_COOKIE['userID']);
