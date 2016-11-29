@@ -18,7 +18,6 @@ session_start();
 <body>
 
 <?php
-    session_start();
 
     function compare2($list1, $list2){
     //Hashmap of users to the amount of matches they have
@@ -46,6 +45,7 @@ try{
                 // echo "This is category2".$_POST['category2'];
                 // echo "This is category3".$_POST['category3'];
 
+                echo $_SESSION['userID'];
                 $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
                 //$prepared1->bindParam(':userID', $_COOKIE['userID']);
                 $prepared1->bindParam(':userID', $_SESSION['userID']);

@@ -3,7 +3,6 @@ session_start();
 
    $db = new PDO('sqlite:./../Database/unibake.db');
    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
@@ -13,6 +12,7 @@ session_start();
       $prepared->bindParam(':userPassword', $_POST['password']);
 
       $result = $prepared->execute();
+      $result->fetch();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);

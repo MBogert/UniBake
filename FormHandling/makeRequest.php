@@ -24,7 +24,7 @@ session_start();
  -->		
 <!--  <input type="hidden" name="userValue" value="$_COOKIE[userID]"<br>
  -->
-  <input type="hidden" name="userValue" value="$_SESSION[userID]"<br>
+  <input type="hidden" name="userID" value="$_SESSION[userID]"<br>
 
 		Start Time:<input type="time" name="startTime"<br>
 		End Time:<input type="time" name="endTime"<br>
