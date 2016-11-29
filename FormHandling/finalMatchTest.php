@@ -13,9 +13,6 @@
 
 </style>
 <body>
-<h1> Here are your matches!</h1>
-
-
 
 <?php
     session_start();
@@ -68,49 +65,14 @@ try{
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
 									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
-                //$prepared->bindParam(':inputUserID', $_POST['userValue']);
+
                 $prepared->bindParam(':inputUserID', $_COOKIE['userID']);
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
-                //$result=$prepared->execute();
                 $prepared->execute();
 
-                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
-                //$prepared->bind_result($user);
-                //$result = $prepared->fetch(PDO::FETCH_ASSOC);
                 $matched = array();
                 $result = $prepared->fetchAll();
-                // echo "This is start time".$_POST['startTime'];
-                // echo "This is end time".$_POST['endTime'];
-
-                // echo "This is the user".$_POST['userValue'];
-                // echo "This is the user".$_COOKIE['userID'];
-
-
-                // echo "This is the result";
-                // print_r($result);
-                // foreach($result as $tuple){
-                //     echo "Printint in the loop";
-                //     print $tuple['userID'];
-
-                // }
-                // while($myrow = $result->fetch_assoc()){
-                // $otherPerson = $myrow['userID'];
-
-
-                //     $userData1 = $db->query("select category from RequestCategory where (userID = $otherPerson)");
-                //     $prepared2 = $db->prepare("select category from RequestCategory where (userID = :inputUserID");
-                //     $prepared2->bindParam(':inputUserID', $_POST['userID']);
-                //     $otherUser = $prepared2->execute();
-
-                //     //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
-                //     //Store the number of similar categories
-                //     $similar = compare2($userData1, $otherUser);
-                //     //Add the user and their similar categories to the array
-                //     $matched[$otherPerson] = $similar;
-                //     //array_push($matched, '$otherPerson'=>'$similar');
-
-                // }
 
 
                 foreach($result as $tuple){
@@ -119,7 +81,7 @@ try{
                     $otherPerson = $tuple['userID'];
                     //echo "This is the tuple[0]".$tuple[0];
                     //Get the preference categories
-                    echo "This is the other person \r\n".$otherPerson;
+  
                     $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
                     $userData1->execute();
                     $getCategory = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
@@ -128,57 +90,13 @@ try{
                     $getCategory->execute();
                     $results1 = $getCategory->fetchAll();
                     $results2 = $userData1->fetchAll();
-                    //echo "These are the results \r\n";
-                    //echo nl2br("These are the results \n");
 
-                    //print_r($results1);
-                    //print "This is a new line \r\n ";
-                    //echo nl2br("In between results.\n.");
-
-                    //echo "This is in between the results";
-                    //print_r($results2);
-
-                    //$userData2 = $db->query("select category from RequestCategory where (userID = :inputUserID");
-                    //Store the number of similar categories
-                    //$similar = compare2($userData1, $otherUser);
                     $similar = compare2($results2, $results1);
 
                     //Add the user and their similar categories to the array
                     $matched[$otherPerson] = $similar;
-                    //array_push($matched, '$otherPerson'=>'$similar');
-                    print "This is a new line";
-                    echo"This is matched";
-                    print_r($matched);
 
                 }
-
-                //Sort the matches from high to low
-
-                //$finalArr = arsort($matched);
-                $finalArr = asort($matched);
-                // Should be doing a for each loop to go through each user in the list
-                //Want to printout their matches too not just how many they have 
-                //This is break statement in php
-                echo nl2br("Another one.\n.");
-
-                 // foreach($matched as $element){
-                 //    echo "This is the match you get".$element['userID'];
-                 //    echo nl2br("Another one.\n.");
-                 //    //echo "This is the other way".$matched['userID'];
-
-                 // }
-    //              for($i=0; $i<sizeof($matched); $i++){
-    //     echo "How about this one?".$matched[$i]."\r\n";
-
-    // }
-
-                echo "This is the final array";
-                print_r($finalArr);
-                $_SESSION['result'] = $finalArr;
-                $_SESSION['answer'] = $result;
-                //$_POST['result'] = $finalArr;
-                //$finalArr = $_POST['result'];
-                //Print out these results
                 //Close the db
                 $db=null;
 
@@ -194,7 +112,8 @@ try{
 <td>Here are your results</td>
 
 <body>
-    <h1> "Here is the information for the user you could be paired with"</h1>
+    <h1> Select a user you want to bake with! </h1>
+    <p>(Need to figure out a way to delete their request if they decide to not choose)</p>
 
 <form action="pairPeople.php" method="post">
  <?php foreach($matched as $key=>$value): ?> 
@@ -207,16 +126,16 @@ try{
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
-                    echo "This is the result"."<br/>";
                     ?>
-                    <?php echo "Their email: ".$result['email']."  ";
-                    echo "Their name: ".$result['name']."  ";
+                    <?php echo "This is the other userID {$key} => and this is how many things you have in common {$value}";?>
+
+                    <?php echo "Their email: ".$result['email']."<br/>";
+                    echo "Their name: ".$result['name']."<br/>";
                     echo "Their phone number: ".$result['phone']."<br/>";
                     ?>
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
-                    <?php echo "This is the other user {$key} => to how many matches you have in common {$value}";?>
                       <input type="submit" name="select" value="Submit">  
 
                

@@ -13,13 +13,18 @@
 
 </style>
 <body>
-<h1> Here are your matches!</h1>
+<h1> Which recipe would you like to bake with your partner?</h1>
 
 <?php
 //find the school that the student belongs to 
 try{
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                //Get the two people we need to pair 
+
+
+
+                //Delete their bake requests
 
                 $db=null;
 
