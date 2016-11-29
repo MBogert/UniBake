@@ -24,15 +24,15 @@ try{
 //Should probably check to see how many distinct categories they have before we do this
 
                 //Get the two people we need to pair 
-                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN where (userID = :inputUserID);"); 
+                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
                 $recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe1->execute();
 
-                $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN where (userID = :inputUserID);"); 
+                $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
                 $recipe2->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe2->execute();
 
-                $recipe3 = $db->prepare("Select distinct filePath from Category NATURAL JOIN where (userID = :inputUserID);"); 
+                $recipe3 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
                 $recipe3->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe3->execute();
                     //$result = $db->query($stmt);
