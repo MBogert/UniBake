@@ -12,7 +12,7 @@ session_start();
       $prepared->bindParam(':userPassword', $_POST['password']);
 
       $result = $prepared->execute();
-      $result->fetch();
+      $result->fetchAll();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
