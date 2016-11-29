@@ -52,6 +52,19 @@ try{
                 echo "This is category2".$_POST['category2'];
                 echo "This is category3".$_POST['category3'];
 
+                $prepared1 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category1) ");
+                $prepared1->bindParam(':category1', $_POST['category1']);
+                $prepared1->bindParam(':userID', $_COOKIE['userID']);
+
+                $prepared2 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category2) ");
+                $prepared2->bindParam(':category2', $_POST['category2']);
+                $prepared2->bindParam(':userID', $_COOKIE['userID']);
+
+                $prepared3 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category3) ");
+                $prepared3->bindParam(':category3', $_POST['category3']);
+                $prepared3->bindParam(':userID', $_COOKIE['userID']);
+
+
 
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
@@ -111,11 +124,11 @@ try{
                     echo "This is the other person \r\n".$otherPerson;
                     $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
                     $userData1->execute();
-                    $prepared2 = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
-                    $prepared2->bindParam(':mainUser', $_COOKIE['userID']);
+                    $getCategory = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
+                    $getCategory->bindParam(':mainUser', $_COOKIE['userID']);
                     //$otherUser = $prepared2->execute();
-                    $prepared2->execute();
-                    $results1 = $prepared2->fetchAll();
+                    $getCategory->execute();
+                    $results1 = $getCategory->fetchAll();
                     $results2 = $userData1->fetchAll();
                     //echo "These are the results \r\n";
                     //echo nl2br("These are the results \n");
