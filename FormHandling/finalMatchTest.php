@@ -200,8 +200,9 @@ try{
     <h1> "Here is the information for the user you could be paired with"</h1>
 
     <td><?php 
-
-                    $pair = $db->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
+         $db1 = new PDO('sqlite:./../Database/unibake.db');
+                $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
