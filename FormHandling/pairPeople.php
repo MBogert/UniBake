@@ -28,27 +28,27 @@ try{
                 $recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe1->execute();
 
-                $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
-                $recipe2->bindParam(':inputUserID', $_COOKIE['userID']);
-                $recipe2->execute();
+                // $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
+                // $recipe2->bindParam(':inputUserID', $_COOKIE['userID']);
+                // $recipe2->execute();
 
-                $recipe3 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
-                $recipe3->bindParam(':inputUserID', $_COOKIE['userID']);
-                $recipe3->execute();
+                // $recipe3 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
+                // $recipe3->bindParam(':inputUserID', $_COOKIE['userID']);
+                // $recipe3->execute();
                     //$result = $db->query($stmt);
                 $result1 = $recipe1->fetchAll();
-                $result2 = $recipe2->fetchAll();
-                $result3 = $recipe3->fetchAll();
+                // $result2 = $recipe2->fetchAll();
+                // $result3 = $recipe3->fetchAll();
 
                 foreach($result1 as $tuple){
-                    echo $tuple['filePath'];
+                    echo "This is an option".$tuple['filePath']."<br/>";
                 }
-                foreach($result2 as $tuple2){
-                    echo $tuple2['filePath'];
-                }
-                        foreach($result3 as $tuple3){
-                    echo $tuple3['filePath'];
-                }
+                // foreach($result2 as $tuple2){
+                //     echo $tuple2['filePath'];
+                // }
+                //         foreach($result3 as $tuple3){
+                //     echo $tuple3['filePath'];
+                // }
 
                 //Delete their bake requests
 
