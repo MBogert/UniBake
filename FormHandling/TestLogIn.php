@@ -12,7 +12,7 @@ session_start();
       $prepared->bindParam(':userPassword', $_POST['password']);
 
       $result = $prepared->execute();
-      $result->fetchAll();
+      //$result->fetchAll();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
@@ -28,7 +28,7 @@ session_start();
          // setcookie('password', $_POST['password'],time() + (86400 * 30));
          // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
 
-         $_SESSION['userID'] = $result['userID'];
+         $_SESSION['userID'] = $_POST['userID'];
          //It was successful so go to next page
          header("location: welcome.php");
       }else {
