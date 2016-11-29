@@ -155,7 +155,8 @@ try{
                     // while($row = $result->fetchAll()){
                     //     echo "email: ". $row['email']." Name: ". $row['name']. "Phone :". $row['phone']."<br>";
                     // }
-
+                    echo "New comment";
+                    //add what criteria they matched on 
                     echo "Their email ".$result['email']."<br/>";
                     echo "Their name ".$result['name']."<br/>";
                     echo "Their phone ".$result['phone']."<br/>";
