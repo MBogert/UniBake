@@ -46,6 +46,13 @@ try{
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //Need a dropdown 
                 //This is the query that filters out feasible users that could be possible matches
+
+                //First do the insert queries
+                echo "This is category1".$_POST['category1'];
+                echo "This is category2".$_POST['category2'];
+                echo "This is category3".$_POST['category3'];
+
+
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
 									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
