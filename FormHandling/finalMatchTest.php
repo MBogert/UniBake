@@ -44,19 +44,24 @@ try{
                 // echo "This is category3".$_POST['category3'];
 
                 $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
-                $prepared1->bindParam(':userID', $_COOKIE['userID']);
+                //$prepared1->bindParam(':userID', $_COOKIE['userID']);
+                $prepared1->bindParam(':userID', $_SESSION['userID']);
                 $prepared1->bindParam(':category1', $_POST['category1']);
                 $prepared1->execute();
 
                 $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category2) ");
                 $prepared2->bindParam(':category2', $_POST['category2']);
-                $prepared2->bindParam(':userID', $_COOKIE['userID']);
+                $prepared2->bindParam(':userID', $_SESSION['userID']);
+
+                //$prepared2->bindParam(':userID', $_COOKIE['userID']);
                 $prepared2->execute();
 
 
                 $prepared3 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category3) ");
                 $prepared3->bindParam(':category3', $_POST['category3']);
-                $prepared3->bindParam(':userID', $_COOKIE['userID']);
+                //$prepared3->bindParam(':userID', $_COOKIE['userID']);
+                $prepared3->bindParam(':userID', $_SESSION['userID']);
+
                 $prepared3->execute();
 
 
@@ -66,7 +71,9 @@ try{
 									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
 
-                $prepared->bindParam(':inputUserID', $_COOKIE['userID']);
+                //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
+                $prepared->bindParam(':inputUserID', $_SESSION['userID']);
+
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 $prepared->execute();
@@ -85,7 +92,9 @@ try{
                     $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
                     $userData1->execute();
                     $getCategory = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
-                    $getCategory->bindParam(':mainUser', $_COOKIE['userID']);
+                    $getCategory->bindParam(':mainUser', $_SESSION['userID']);
+
+                    //$getCategory->bindParam(':mainUser', $_COOKIE['userID']);
                     //$otherUser = $prepared2->execute();
                     $getCategory->execute();
                     $results1 = $getCategory->fetchAll();
@@ -146,4 +155,6 @@ try{
 
 </form>
 </p>
+<a href="LogOut.php">Logout</a>
+
 </html>

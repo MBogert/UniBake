@@ -21,10 +21,12 @@
       if(count($result) == 1) {
          //session_register("email");
          //$_SESSION['login_user'] = email;
+         //Use cookies instead of session
+         // setcookie('email', $_POST['email'], time() + (86400 * 30));
+         // setcookie('password', $_POST['password'],time() + (86400 * 30));
+         // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
 
-         setcookie('email', $_POST['email'], time() + (86400 * 30));
-         setcookie('password', $_POST['password'],time() + (86400 * 30));
-         setcookie('userID', $_POST['userID'], time() + (86400 * 30));
+         $_SESSION['userID'] = $result['userID'];
          //It was successful so go to next page
          header("location: welcome.php");
       }else {

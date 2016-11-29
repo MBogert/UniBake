@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +22,9 @@
 		<form action="finalMatchTest.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
  -->		
- <input type="hidden" name="userValue" value="$_COOKIE[userID]"<br>
+<!--  <input type="hidden" name="userValue" value="$_COOKIE[userID]"<br>
+ -->
+  <input type="hidden" name="userValue" value="$_SESSION[userID]"<br>
 
 		Start Time:<input type="time" name="startTime"<br>
 		End Time:<input type="time" name="endTime"<br>
@@ -78,6 +83,6 @@
 		<input type="submit">
 		</form>
 	</div>
-
+<a href="LogOut.php">Logout</a>
 </body>
 

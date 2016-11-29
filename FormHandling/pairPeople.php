@@ -25,7 +25,9 @@ try{
 
                 //Get the two people we need to pair 
                 $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
-                $recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
+                //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
+                $recipe1->bindParam(':inputUserID', $_SESSION['userID']);
+
                 $recipe1->execute();
 
                 // $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 

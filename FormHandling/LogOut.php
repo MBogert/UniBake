@@ -1,7 +1,9 @@
 <?php
    session_start();
    
-   if(session_destroy()) {
-      header("Location: TestLogIn.php");
+   session_destroy();
+
+    header("Location: TestLogIn.php");
+    exit;
    }
 ?>
