@@ -52,15 +52,15 @@ try{
                 echo "This is category2".$_POST['category2'];
                 echo "This is category3".$_POST['category3'];
 
-                $prepared1 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category1) ");
+                $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
                 $prepared1->bindParam(':category1', $_POST['category1']);
                 $prepared1->bindParam(':userID', $_COOKIE['userID']);
 
-                $prepared2 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category2) ");
+                $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category2) ");
                 $prepared2->bindParam(':category2', $_POST['category2']);
                 $prepared2->bindParam(':userID', $_COOKIE['userID']);
 
-                $prepared3 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category3) ");
+                $prepared3 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category3) ");
                 $prepared3->bindParam(':category3', $_POST['category3']);
                 $prepared3->bindParam(':userID', $_COOKIE['userID']);
 
