@@ -52,7 +52,7 @@ try{
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     //Provide link (download? Need to supply php to that)
                     echo "This is an option: ".$recipe."<br/>";
-                    echo "<a href='downloadRecipe.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
+                    echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
                     //echo "This is an option".$tuple['filePath']."<br/>";
                 }
                 // foreach($result2 as $tuple2){
