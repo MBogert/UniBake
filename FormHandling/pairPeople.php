@@ -58,6 +58,13 @@ try{
 
                 //Now to do something with this shit
                 $count1 = $categoryCount->fetchAll();
+
+                foreach($categoryCount as $tuple){
+                    list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
+                    echo "This is an option: ".$recipe."<br/>";
+                    echo "Compatibility with your baking duo: ".($tuple['count'] / 3)."<br/>";
+                    echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";  
+                }
                 // $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
                 // $recipe2->bindParam(':inputUserID', $_COOKIE['userID']);
                 // $recipe2->execute();
