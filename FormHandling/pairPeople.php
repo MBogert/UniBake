@@ -47,11 +47,11 @@ try{
                 */
                 //This returns each recipe and the count of categories it has mutual to the two users
                 $categoryCount = $db->prepare(
-                "WITH Categories1 AS (SELECT * FROM RequestCategory WHERE (userID = :inputUserID)),
-                Categories2 AS (SELECT * FROM RequestCategory WHERE (userID = :pairedID)), 
-                MutualCategories as (SELECT * FROM Categories1 NATURAL JOIN Categories2),
+                "WITH Categories1 AS (SELECT userID as user1, category FROM RequestCategory WHERE (user1 = :inputUserID)),
+                Categories2 AS (SELECT userID as user2, category FROM RequestCategory WHERE (user2 = :pairedID)), 
+                MutualCategories as (SELECT DISTINCT category FROM Categories1 NATURAL JOIN Categories2),
                 MutualRecipes as (SELECT * FROM Category WHERE (category in MutualCategories))
-                SELECT filePath, count(filePath) FROM MutualRecipes WHERE (category IN Categories1 AND category IN Categories2) GROUP BY filePath;");
+                SELECT filePath, count(filePath) FROM MutualRecipes GROUP BY filePath;");
                 $categoryCount->bindParam(':inputUserID', $_SESSION['userID']);
                 $categoryCount->bindParam(':pairedID', $_POST['pairID']);
                 $categoryCount->execute();
