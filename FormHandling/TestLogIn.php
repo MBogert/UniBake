@@ -12,14 +12,14 @@ session_start();
       $prepared->bindParam(':userPassword', $_POST['password']);
 
 
-      $result = $prepared->execute();
-      
+      //$result = $prepared->execute();
+      $prepared->execute();
       //$result->fetchAll();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
-      $user = $result->fetchAll();
+      $user = $prepared->fetchAll();
       print_r($user);
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
