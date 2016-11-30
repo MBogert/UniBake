@@ -28,12 +28,36 @@ try{
                 
 
                 //Get the two people we need to pair 
-                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
+                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID or userID = :pairedID);"); 
                 //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe1->bindParam(':inputUserID', $_SESSION['userID']);
+                $recipe1->bindParam(':pairedID', $_POST['pairID']);
 
                 $recipe1->execute();
 
+                /*
+                //Categories 1
+                "SELECT * FROM RequestCategory WHERE (userID = inputUserID);"
+                //Categories 2
+                "SELECT * FROM RequestCategory WHERE (userID = pairID);"
+                //Mutual categories
+                "SELECT * FROM Categories1 NATURAL JOIN Categories2;"
+                //Counting compatibility
+                "SELECT count(filePath) FROM Category WHERE (category IN Categories1 AND category IN Categories2 GROUP BY filePath;"
+                */
+                //This returns each recipe and the count of categories it has mutual to the two users
+                $categoryCount = $db->prepare(
+                "WITH Categories1 AS (SELECT * FROM RequestCategory WHERE (userID = :inputUserID)),
+                Categories2 AS (SELECT * FROM RequestCategory WHERE (userID = :pairedID)), 
+                MutualCategories as (SELECT * FROM Categories1 NATURAL JOIN Categories2),
+                MutualRecipes as (SELECT * FROM Category WHERE (category in MutualCategories))
+                SELECT filePath, count(filePath) FROM MutualRecipes WHERE (category IN Categories1 AND category IN Categories2) GROUP BY filePath;");
+                $categoryCount->bindParam(':inputUserID', $_SESSION['userID']);
+                $categoryCount->bindParam(':pairedID', $_POST['pairID']);
+                $categoryCount->execute();
+
+                //Now to do something with this shit
+                $count1 = $categoryCount->fetchAll();
                 // $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
                 // $recipe2->bindParam(':inputUserID', $_COOKIE['userID']);
                 // $recipe2->execute();
