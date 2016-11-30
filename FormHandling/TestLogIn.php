@@ -20,17 +20,17 @@ session_start();
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
       $user = $prepared->fetchAll();
-      print_r($user);
+      //print_r($user);
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
-      if(count($result) == 1) {
+      if(count($user) == 1) {
          //session_register("email");
          //$_SESSION['login_user'] = email;
          //Use cookies instead of session
          // setcookie('email', $_POST['email'], time() + (86400 * 30));
          // setcookie('password', $_POST['password'],time() + (86400 * 30));
          // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
-         $_SESSION['userID'] = $user;
+         $_SESSION['userID'] = $user['userID'];
 
          //$_SESSION['userID'] = $_POST['userID'];
          //It was successful so go to next page
