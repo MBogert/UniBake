@@ -57,9 +57,40 @@ body {
     <div class="options-box">
       <pre>
               <h3>The array of matches will be entered here</h3>
- 
+
       </pre>
     </div>
+    <!-- outer for each -->
+    <div class="options-box">
+        <pre>
+          <div class="row">
+            <div class="col-md-6">
+             <div class=\"container\">
+               <div class=\"match\">
+                 <ul style="display:inline;">
+                   <img src="$imgSrc" stlye="float:left">
+                   <li>Name</li>
+                   <li class="username">$their_userID</li>
+                   <li> You matched on $categoriesMatched categories </li>
+                   <li> You can both meet at $timeFrame </li>
+                   <li> $phone </li>
+                 </ul>
+               </div>
+             </div>
+            </div>
+
+            <div class="col-md-6">
+              <ul>
+                <img src="$imgSrc" stlye="float:left">
+                <li>Recipies you can make:</li>
+                <!-- inner for each -->
+                <li>Banana bread</li>
+                <li>Banana bread</li>
+              </ul>
+            </div>
+         </div>
+        </pre>
+      </div>
   </div>
   <!-- <div class="container">
   </div> -->
