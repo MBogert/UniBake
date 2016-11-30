@@ -56,8 +56,7 @@ try{
                 $prepared1->bindParam(':category1', $_POST['category2']);
                 $prepared1->execute();
                 $prepared1->bindParam(':category1', $_POST['category3']);
-                $prepared1->execute();               
-                //
+                $prepared1->execute();                           
 
                 /*
                 $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category2) ");
@@ -156,7 +155,7 @@ try{
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
-                      <input type="submit" name="select" value="Submit">  
+                    <input type="submit" name="select" value="Submit">  
 
                
  </td>

@@ -11,13 +11,16 @@ session_start();
       $prepared->bindParam(':userEmail', $_POST['email']);
       $prepared->bindParam(':userPassword', $_POST['password']);
 
+
       $result = $prepared->execute();
+      
       //$result->fetchAll();
       //$row = $result->fetch(PDO::FETCH_ASSOC);
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
-      //echo $user;
+      $user = $result->fetch();
+      echo $user;
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if(count($result) == 1) {
@@ -27,6 +30,7 @@ session_start();
          // setcookie('email', $_POST['email'], time() + (86400 * 30));
          // setcookie('password', $_POST['password'],time() + (86400 * 30));
          // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
+         //$_SESSION['userID'] = $result->fetch();
 
          $_SESSION['userID'] = $_POST['userID'];
          //It was successful so go to next page
