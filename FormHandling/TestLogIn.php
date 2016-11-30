@@ -20,7 +20,7 @@ session_start();
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
       $user = $result->fetchAll();
-      echo $user;
+      print_r($user);
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if(count($result) == 1) {
