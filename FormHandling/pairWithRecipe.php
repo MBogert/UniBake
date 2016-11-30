@@ -17,7 +17,6 @@ session_start();
 </style>
 <body>
 <h1> Which recipe would you like to bake with your partner?</h1>
-
 <?php
 //find the school that the student belongs to 
 try{
@@ -25,8 +24,6 @@ try{
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 //Should probably check to see how many distinct categories they have before we do this
-                
-
                 //Get the two people we need to pair 
                 $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 
                 //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
