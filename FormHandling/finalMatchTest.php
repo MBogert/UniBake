@@ -163,7 +163,9 @@ try{
                     echo "Their phone number: ".$result['phone']."<br/>";
                     ?>
 
-                    <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
+<!--                     <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
+ -->                    
+                    <input type ="hidden" name="pairID" value ="<?php {key}; ?>">
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
