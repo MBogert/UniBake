@@ -25,7 +25,7 @@ session_start();
          //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
          $pair->bindParam(':user1', $_SESSION['userID']);
          $pair->bindParam(':user2', $_SESSION['pairUser']);
-         $pair->bindParam(':recipe', $_GET[filePath]);
+         $pair->bindParam(':recipe', $_GET['filePath']);
          $pair->execute();
 
          //2. Delete their BakeRequest
@@ -45,12 +45,12 @@ session_start();
          $deleteRequest1->bindParam('userDR1', $_SESSION['userID']);
          $deleteRequest1->execute();
 
-         
+
          $deleteRequest2 = $db->prepare("DELETE from RequestCategory where (userID = :userDR2)");
          $deleteRequest2->bindParam('userDR2', $_SESSION['pairUser']);
          $deleteRequest2->execute();
 
-$db =null;
+		$db =null;
 
 
 ?>
