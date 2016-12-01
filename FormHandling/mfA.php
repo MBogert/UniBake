@@ -221,10 +221,10 @@ try{
                                   <li>Recipies you can make:</li>
                                   <li>Banana bread</li>
                                   <li>Banana bread</li>
-                                  <input type =\"hidden\" name=\"pairID\" value =" .$result['userID']".>
-                                  <input type =\"hidden\" name=\"name\" value=" .$result['name']".>
-                                  <input type =\"hidden\" name=\"email\" value=" .$result['email']".>
-                                  <input type =\"hidden\" name=\"phone\" value=" .$result['phone']".>
+                                  <input type =\"hidden\" name=\"pairID\" value =" .$result['userID'].">
+                                  <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
+                                  <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
+                                  <input type =\"hidden\" name=\"phone\" value=" .$result['phone'].">
                                   <li><input type=\"submit\" name=\"select\" value=\"I choose this dude\"></li>
                                 </ul>
                               </div>
