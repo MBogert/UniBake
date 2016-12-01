@@ -26,7 +26,7 @@ session_start();
       //print_r($user);
       // If result matched $myusername and $mypassword, table row must be 1 row
 
-      if(count($user) == 1) {
+      if(count($user['userID']) == 1) {
          //session_register("email");
          //$_SESSION['login_user'] = email;
          //Use cookies instead of session
