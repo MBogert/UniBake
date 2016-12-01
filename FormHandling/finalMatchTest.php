@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -28,16 +28,16 @@ session_start();
         if($list1[$i] == $list2[$i]){
 
             $counter++;
-            }   
+            }
     }
 return $counter;
     }
 
-//find the school that the student belongs to 
+//find the school that the student belongs to
 try{
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //Need a dropdown 
+                //Need a dropdown
                 //This is the query that filters out feasible users that could be possible matches
 
                 //First do the insert queries
@@ -56,7 +56,7 @@ try{
                 $prepared1->bindParam(':category1', $_POST['category2']);
                 $prepared1->execute();
                 $prepared1->bindParam(':category1', $_POST['category3']);
-                $prepared1->execute();                           
+                $prepared1->execute();
 
                 //To make sure the unique constraint is satisfied, delete their previous request if any
 
@@ -87,9 +87,8 @@ try{
 
 
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
-									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
-                                    RestrictPair as (select * from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
-									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
+									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
+									select distinct userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
 
                 //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
@@ -109,7 +108,7 @@ try{
                     $otherPerson = $tuple['userID'];
                     //echo "This is the tuple[0]".$tuple[0];
                     //Get the preference categories
-  
+
                     $userData1 = $db->prepare("select category from RequestCategory where (userID = $otherPerson)");
                     $userData1->execute();
                     $getCategory = $db->prepare("select category from RequestCategory where (userID = :mainUser)");
@@ -146,10 +145,10 @@ try{
     <p>(Need to figure out a way to delete their request if they decide to not choose)</p>
 
 <form action="pairPeople.php" method="post">
- <?php foreach($matched as $key=>$value): ?> 
+ <?php foreach($matched as $key=>$value): ?>
     <tr>
 
-    <td><?php 
+    <td><?php
          $db1 = new PDO('sqlite:./../Database/unibake.db');
                 $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     //$pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
@@ -168,14 +167,14 @@ try{
 
                     //echo "Their userID: ".$result['userID']."<br/>";
 
-                    ?>             
+                    ?>
                     <input type ="hidden" name="pairID" value ="<?php echo $result['userID']; ?>">
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php echo $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
-                    <input type="submit" name="submit" value="Submit">  
+                    <input type="submit" name="submit" value="Submit">
 
-               
+
  </td>
 </tr>
 
