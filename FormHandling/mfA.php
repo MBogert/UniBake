@@ -203,7 +203,6 @@ try{
                     $result = $pair->fetch();
                     $db =null;
                     ?>
-                    <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {($value / 3)}";?>
 
                     <?php
                     echo "</div>
@@ -222,6 +221,11 @@ try{
                                   <li>Recipies you can make:</li>
                                   <li>Banana bread</li>
                                   <li>Banana bread</li>
+                                  <input type =\"hidden\" name=\"pairID\" value =" .$result['userID']">
+                                  <input type =\"hidden\" name=\"name\" value=" .$result['name']">
+                                  <input type =\"hidden\" name=\"email\" value=" .$result['email']">
+                                  <input type =\"hidden\" name=\"phone\" value=" .$result['phone']">
+                                  <li><input type=\"submit\" name=\"select\" value=\"Submit\"></li>
                                 </ul>
                               </div>
                            </div>
@@ -231,11 +235,6 @@ try{
 
 <!--                     <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
  -->
-                    <input type ="hidden" name="pairID" value ="<?php echo $result['userID']; ?>">
-                    <input type ="hidden" name="name" value="<?php $result['name']; ?>">
-                    <input type ="hidden" name="email" value="<?php $result['email']; ?>">
-                    <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
-                    <input type="submit" name="select" value="Submit">
 
 
  </td>
