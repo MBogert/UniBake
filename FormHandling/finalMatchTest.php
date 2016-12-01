@@ -58,6 +58,11 @@ try{
                 $prepared1->bindParam(':category1', $_POST['category3']);
                 $prepared1->execute();                           
 
+                //To make sure the unique constraint is satisfied, delete their previous request if any
+
+                $deleteRequest1 = $db->prepare("DELETE from BakeRequest where (userID = :userDR1)");
+                $deleteRequest1->bindParam('userDR1', $_SESSION['userID']);
+                $deleteRequest1->execute();
 
                 $bakeRequest = $db->prepare("INSERT into BakeRequest (userID, startTime, endTime) VALUES (:userID1, :start, :endT)");
                 $bakeRequest->bindParam(':userID1', $_SESSION['userID']);

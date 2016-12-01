@@ -45,7 +45,7 @@ session_start();
          $deleteRequest1->bindParam('userDR1', $_SESSION['userID']);
          $deleteRequest1->execute();
 
-
+         
          $deleteRequest2 = $db->prepare("DELETE from RequestCategory where (userID = :userDR2)");
          $deleteRequest2->bindParam('userDR2', $_SESSION['pairUser']);
          $deleteRequest2->execute();
