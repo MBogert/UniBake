@@ -8,6 +8,11 @@ insert into UserLogin values(6, 'Bob Smith', '555-555-5555');
 insert into UserLogin values(7, 'Paula Dean', '666-666-6666');
 insert into UserLogin values(8, 'Kendrick Lamar', '777-777-7777');
 insert into UserLogin values(9, 'Mr. Miyagi', '888-888-8888');
+insert into UserLogin values(10, 'Ben Test', '123-444-4444');
+insert into UserLogin values(11, 'Bob Test', '123-555-5555');
+insert into UserLogin values(12, 'Paula Test', '123-666-6666');
+insert into UserLogin values(13, 'Kendrick Test', '123-777-7777');
+insert into UserLogin values(14, 'Mr. Test', '123-888-8888');
 
 
 --Login
@@ -20,6 +25,11 @@ insert into Login values(6, 'bsmith@evergreen.edu', 'bobbeh');
 insert into Login values(7, 'pdean@evergreen.edu', 'XXXbutterXXX');
 insert into Login values(8, 'klamar@uw.edu', 'b@ck$eat');
 insert into Login values(9, 'miyagi@uw.edu', 'kkidOG');
+insert into Login values(10, 'btest@pugetsound.edu', 'BJ&mmin');
+insert into Login values(11, 'btest2@pugetsound.edu', 'bobbeh');
+insert into Login values(12, 'ptest@pugetsound.edu', 'XXXbutterXXX');
+insert into Login values(13, 'kltest@pugetsound.edu', 'b@ck$eat');
+insert into Login values(14, 'miytest@pugetsound.edu', 'kkidOG');
 
 
 --School
@@ -38,6 +48,11 @@ insert into Attends values(6, 3);
 insert into Attends values(7, 3);
 insert into Attends values(8, 2);
 insert into Attends values(9, 2);
+insert into Attends values(10, 1);
+insert into Attends values(11, 1);
+insert into Attends values(12, 1);
+insert into Attends values(13, 1);
+insert into Attends values(14, 1);
 
 
 --Recipe
@@ -89,6 +104,12 @@ insert into BakeRequest values(5, '08:00', '12:00');
 insert into BakeRequest values(6, '15:00', '22:00');
 insert into BakeRequest values(8, '09:30', '13:30');
 insert into BakeRequest values(9, '06:00', '12:00');
+insert into BakeRequest values(10, '08:00', '12:00');
+insert into BakeRequest values(11, '15:00', '22:00');
+insert into BakeRequest values(12, '09:30', '13:30');
+insert into BakeRequest values(13, '06:00', '12:00');
+insert into BakeRequest values(14, '06:00', '12:00');
+
 
 
 --RequestCategory
@@ -113,5 +134,20 @@ insert into RequestCategory values(8, 'Small');
 insert into RequestCategory values(9, 'Chocolate');
 insert into RequestCategory values(9, 'Easy');
 insert into RequestCategory values(9, 'Small');
+insert into RequestCategory values(10, 'Cookie');
+insert into RequestCategory values(10, 'Pie');
+insert into RequestCategory values(10, 'Cake');
+insert into RequestCategory values(11, 'Cookie');
+insert into RequestCategory values(11, 'Pie');
+insert into RequestCategory values(11, 'Cake');
+insert into RequestCategory values(12, 'Cookie');
+insert into RequestCategory values(12, 'Pie');
+insert into RequestCategory values(12, 'Cake');
+insert into RequestCdategory values(13, 'Cookie');
+insert into RequestCategory values(13, 'Pie');
+insert into RequestCategory values(13, 'Cake');
+insert into RequestCategory values(14, 'Cookie');
+insert into RequestCategory values(14, 'Pie');
+insert into RequestCategory values(14, 'Cake');
 
 
