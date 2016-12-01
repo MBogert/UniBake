@@ -78,6 +78,7 @@ session_start();
             <li  class="active"><a href="matches.html">My Matches</a></li>
             <li><a href="recipies.html">Recipies</a></li>
             <li><a href="bio.html">My Bio</a></li>
+            <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -130,10 +131,9 @@ try{
                 $bakeRequest->bindParam(':endT', $_POST['endTime']);
                 $bakeRequest->execute();
 
-             $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
-                  FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
-                                    RestrictPair as (select * from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
-                  select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
+                $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
+                  FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
+                  select distinct userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
 
                 //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
@@ -211,10 +211,9 @@ try{
                         <div class=\"options-box\">
                             <div class=\"row\">
                               <div class=\"col-md-6\">
-                                   <ul>
-                                     <li>Their name:" .$result['name']. "</li>
-                                     <li>This is the other userID {$key} => and </li>
-                                     <li> this is your 'Bakeability' with them: {($value / 3)} </li>
+                                   <ul styles=\"display: text-align\">
+                                     <li>You matched with:" .$result['name']. "</li>
+                                     <li> Your 'Bakeability' with ".$result['name']." is {($value / 3)} </li>
                                      <li> Their phone number:" .$result['phone']. "</li>
                                    </ul>
                               </div>
@@ -246,6 +245,6 @@ try{
 
 </form>
 </p>
-<a href="LogOut.php">Logout</a>
+
 
 </html>
