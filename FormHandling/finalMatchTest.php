@@ -158,6 +158,7 @@ try{
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
+                    $db= null;
                     ?>
                     <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {($value / 3)}";?>
 

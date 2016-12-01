@@ -129,9 +129,10 @@ try{
                 $bakeRequest->bindParam(':endT', $_POST['endTime']);
                 $bakeRequest->execute();
 
-                $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
-									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
-									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
+             $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
+                  FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
+                                    RestrictPair as (select * from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
+                  select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
 
                 //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
@@ -199,6 +200,7 @@ try{
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
+                    $db =null;
                     ?>
                     <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {($value / 3)}";?>
 
@@ -229,7 +231,7 @@ try{
 
 <!--                     <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
  -->
-                    <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
+                    <input type ="hidden" name="pairID" value ="<?php echo $result['userID']; ?>">
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
