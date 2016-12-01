@@ -213,8 +213,7 @@ try{
                               <div class=\"col-md-6\">
                                    <ul>
                                      <li>Their name:" .$result['name']. "</li>
-                                     <li>This is the other userID {$key} => and </li>
-                                     <li> this is your 'Bakeability' with them: {($value / 3)} </li>
+                                     <li> This is your 'Bakeability' with them: {($value / 3)}".$result['name']." </li>
                                      <li> Their phone number:" .$result['phone']. "</li>
                                    </ul>
                               </div>
