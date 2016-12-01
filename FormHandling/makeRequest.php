@@ -19,7 +19,7 @@ session_start();
 
 	<h2> Please submit your request for when you would like to bake </h2>
 	<div>
-		<form action="finalMatchTest.php" method="post">
+		<form action="mfA.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
  -->		
 <!--  <input type="hidden" name="userValue" value="$_COOKIE[userID]"<br>
