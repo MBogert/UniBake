@@ -24,6 +24,7 @@ session_start();
       // echo $_COOKIE['password'];
       // echo $_COOKIE['userID'];
        ?>
+       <p><a href="makeRequest.php">Go to make request page></a></p>
        	
        </h1> 
       <h2><a href = "LogOut.php">Sign Out</a></h2>
