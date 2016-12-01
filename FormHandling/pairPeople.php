@@ -98,9 +98,9 @@ try{
                     //Tokenize filePath
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     //Provide link (download? Need to supply php to that)
-                    echo "This is the other user with session".$_SESSION['pairUser']." Blah <br/>";
-                    echo "This is the other user with post".$_POST['pairID']." Blah <br/>";
-                    print_r($_SESSION['pairUser']);
+                    //echo "This is the other user with session".$_SESSION['pairUser']." Blah <br/>";
+                    //echo "This is the other user with post".$_POST['pairID']." Blah <br/>";
+                    //print_r($_SESSION['pairUser']);
 
                     echo "This is an option: ".$recipe."<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    

@@ -23,10 +23,10 @@ session_start();
 		echo "This is you".$_SESSION['userID']."<br/>";
 
 		echo "This is the other user".$_SESSION['pairUser']."<br/>";
-		 $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:user1, :user2, :recipe)"); 
+		 $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)"); 
          //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
-         $pair->bindParam(':user1', $_SESSION['userID']);
-         $pair->bindParam(':user2', $_SESSION['pairUser']);
+         $pair->bindParam(':userD1', $_SESSION['userID']);
+         $pair->bindParam(':userD2', $_SESSION['pairUser']);
          $pair->bindParam(':recipe', $_GET['filePath']);
          $pair->execute();
 
