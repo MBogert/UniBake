@@ -1,8 +1,8 @@
 <?php 
 session_start();
-$pairU = $_POST['pairID'];
+//$pairU = $_POST['pairID'];
 //$_SESSION['pairUser'] = $_POST['pairID'];
-$_SESSION['pairUser'] = $pairU;
+//$_SESSION['pairUser'] = $pairU;
 
 ?>
 <!DOCTYPE html>
@@ -25,6 +25,9 @@ $_SESSION['pairUser'] = $pairU;
 <?php
 //find the school that the student belongs to 
 try{
+
+    $_SESSION['pairUser'] = $_POST['pairID'];
+
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -91,7 +94,7 @@ try{
                     echo "This is the other user with session".$_SESSION['pairUser']."<br/>";
                     echo "This is the other user with post".$_POST['pairID']."<br/>";
                     print_r($_SESSION['pairUser']);
-                    
+
                     echo "This is an option: ".$recipe."<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
                     //echo "This is an option".$tuple['filePath']."<br/>";
