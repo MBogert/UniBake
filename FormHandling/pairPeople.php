@@ -43,10 +43,12 @@ try{
                 //Get the other user via their e-mail
                 //$user = $db->prepare()
                 //Get the two people we need to pair 
-                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID or userID = :pairedID);"); 
+                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputID or userID = :pairedID);"); 
                 //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
-                $recipe1->bindParam(':inputUserID', $_SESSION['userID']);
-                $recipe1->bindParam(':pairedID', $_POST['pairID']);
+                $recipe1->bindParam(':inputID', $_SESSION['userID']);
+                $recipe1->bindParam(':pairedID', $_SESSION['pairUser']);
+
+                //$recipe1->bindParam(':pairedID', $_POST['pairID']);
                 $recipe1->execute();
 
                 //Start a session variable with the 2nd user to get its data down the line

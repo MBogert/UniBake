@@ -20,10 +20,10 @@ session_start();
 //User1 is the user making the request, User2 is the paired person
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo "This is you".$_SESSION['userID']."<br/>";
+		echo "This is you ".$_SESSION['userID']."<br/>";
 
-		echo "This is the other user".$_SESSION['pairUser']."<br/>";
-		
+		echo "This is the other user ".$_SESSION['pairUser']."<br/>";
+
 		 $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)"); 
          //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
          $pair->bindParam(':userD1', $_SESSION['userID']);
