@@ -186,7 +186,7 @@ try{
 <td>Here are your results</td>
 
 <body>
-    <h1> Select a user you want to bake with! </h1>
+    <h1 styles="margin-left:200px"> Select a user you want to bake with! </h1>
 
 <form action="pairPeople.php" method="post">
  <?php foreach($matched as $key=>$value): ?>
@@ -217,16 +217,12 @@ try{
                                    </ul>
                               </div>
                               <div class=\"col-md-6\">
-                                <ul>
-                                  <li>Recipies you can make:</li>
-                                  <li>Banana bread</li>
-                                  <li>Banana bread</li>
+                                  <img src=\"/AvatarImgs/gomer.png\">
                                   <input type =\"hidden\" name=\"pairID\" value =" .$result['userID'].">
                                   <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
                                   <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
                                   <input type =\"hidden\" name=\"phone\" value=" .$result['phone'].">
-                                  <li><input type=\"submit\" name=\"select\" value=\"I choose this dude\"></li>
-                                </ul>
+                                  <input type=\"submit\" name=\"select\" value=\"I choose this dude\">
                               </div>
                            </div>
 
