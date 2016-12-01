@@ -19,8 +19,8 @@ session_start();
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
-      $user = $prepared->fetchAll();
-      //$user = $prepared->fetch();
+      //$user = $prepared->fetchAll();
+      $user = $prepared->fetch();
       //print_r($user);
       // If result matched $myusername and $mypassword, table row must be 1 row
 
@@ -31,9 +31,9 @@ session_start();
          // setcookie('email', $_POST['email'], time() + (86400 * 30));
          // setcookie('password', $_POST['password'],time() + (86400 * 30));
          // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
-         //$_SESSION['userID'] = $user['userID'];
+         $_SESSION['userID'] = $user['userID'];
 
-         $_SESSION['userID'] = $_POST['userID'];
+         //$_SESSION['userID'] = $_POST['userID'];
          //It was successful so go to next page
          header("location: welcome.php");
       }else {
