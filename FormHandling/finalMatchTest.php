@@ -87,8 +87,9 @@ try{
 
 
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
-									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
-									select userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
+									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
+                                    RestrictPair as (select * from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
+									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
                 //Bind the parameters for SQL Injection
 
                 //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
@@ -163,7 +164,7 @@ try{
                     <?php echo "Their email: ".$result['email']."<br/>";
                     echo "Their name: ".$result['name']."<br/>";
                     echo "Their phone number: ".$result['phone']."<br/>";
-                    
+
                     //echo "Their userID: ".$result['userID']."<br/>";
 
                     ?>             
