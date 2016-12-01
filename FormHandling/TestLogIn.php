@@ -1,6 +1,8 @@
 <?php
 session_start();
+?>
 
+<?php
    $db = new PDO('sqlite:./../Database/unibake.db');
    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    
@@ -31,7 +33,8 @@ session_start();
          // setcookie('email', $_POST['email'], time() + (86400 * 30));
          // setcookie('password', $_POST['password'],time() + (86400 * 30));
          // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
-         $_SESSION['userID'] = $user['userID'];
+         $userInfo = $user['userID'];
+         $_SESSION['userID'] = $userInfo;
 
          //$_SESSION['userID'] = $_POST['userID'];
          //It was successful so go to next page
