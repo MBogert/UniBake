@@ -26,6 +26,8 @@ try{
 
                 //Should probably check to see how many distinct categories they have before we do this
                 
+                //Get the other user via their e-mail
+                //$user = $db->prepare()
 
                 //Get the two people we need to pair 
                 $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID or userID = :pairedID);"); 
