@@ -163,6 +163,7 @@ try{
                     <?php echo "Their email: ".$result['email']."<br/>";
                     echo "Their name: ".$result['name']."<br/>";
                     echo "Their phone number: ".$result['phone']."<br/>";
+                    
                     //echo "Their userID: ".$result['userID']."<br/>";
 
                     ?>             
