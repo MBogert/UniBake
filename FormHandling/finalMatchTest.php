@@ -89,7 +89,7 @@ try{
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select userID from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
                                     RestrictPair as (select userID from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
-									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime OR :inputEndTime >= startTime)");
+									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime AND :inputEndTime >= startTime)");
 
 
                 //Bind the parameters for SQL Injection
@@ -146,7 +146,8 @@ try{
     <h1> Select a user you want to bake with! </h1>
     <p>(Need to figure out a way to delete their request if they decide to not choose)</p>
 
-<form action="pairPeople.php" method="post">
+<!-- <form action="pairPeople.php" method="post">
+ --> 
  <?php foreach($matched as $key=>$value): ?>
     <tr>
 
@@ -170,11 +171,13 @@ try{
                     //echo "Their userID: ".$result['userID']."<br/>";
 
                     ?>
+                    <form action="pairPeople.php" method="post">
                     <input type ="hidden" name="pairID" value ="<?php echo $result['userID']; ?>">
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php echo $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
                     <input type="submit" name="submit" value="Submit">
+                    </form>
 
 
  </td>
@@ -182,7 +185,7 @@ try{
 
 <?php endforeach; ?>
 
-</form>
+<!-- </form> -->
 </p>
 <a href="LogOut.php">Logout</a>
 

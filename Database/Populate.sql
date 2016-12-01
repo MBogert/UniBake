@@ -143,7 +143,7 @@ insert into RequestCategory values(11, 'Cake');
 insert into RequestCategory values(12, 'Cookie');
 insert into RequestCategory values(12, 'Pie');
 insert into RequestCategory values(12, 'Cake');
-insert into RequestCdategory values(13, 'Cookie');
+insert into RequestCategory values(13, 'Cookie');
 insert into RequestCategory values(13, 'Pie');
 insert into RequestCategory values(13, 'Cake');
 insert into RequestCategory values(14, 'Cookie');
