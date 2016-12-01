@@ -21,8 +21,8 @@ session_start();
       //$active = $row['active'];
       //$user = $prepared->fetch(PDO::FETCH_ASSOC);
       //$count = $result->rowCount(PDO::);
-      $user = $prepared->fetchAll();
-      //$user = $prepared->fetch();
+      //$user = $prepared->fetchAll();
+      $user = $prepared->fetch();
       //print_r($user);
       // If result matched $myusername and $mypassword, table row must be 1 row
 
