@@ -87,13 +87,15 @@ try{
 
 
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
-									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
-									select distinct userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
+									FindStudents as (select userID from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
+                                    RestrictPair as (select userID from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
+									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime OR :inputEndTime >= startTime)");
+
+
                 //Bind the parameters for SQL Injection
 
                 //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
-
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 $prepared->execute();
