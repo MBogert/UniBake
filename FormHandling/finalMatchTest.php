@@ -151,7 +151,9 @@ try{
     <td><?php 
          $db1 = new PDO('sqlite:./../Database/unibake.db');
                 $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
+                    //$pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
+                    $pair = $db1->prepare("Select email, name, phone, userID from Login NATURAL JOIN UserLogin where (userID = $key)");
+
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
@@ -165,7 +167,7 @@ try{
 
 <!--                     <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
  -->                    
-                    <input type ="hidden" name="pairID" value ="<?php {($key)}; ?>">
+                    <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
