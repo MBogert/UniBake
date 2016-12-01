@@ -58,7 +58,12 @@ try{
                 $prepared1->bindParam(':category1', $_POST['category3']);
                 $prepared1->execute();                           
 
-                /*
+
+                $bakeRequest = $db->prepare("INSERT into BakeRequest (userID, startTime, endTime) VALUES (:userID1, :start, :endT)");
+                $bakeRequest->bindParam(':userID1', $_SESSION['userID']);
+                $bakeRequest->bindParam(':start', $_POST['startTime']);
+                $bakeRequest->bindParam(':endT', $_POST['endTime']);
+                $bakeRequest->execute();                /*
                 $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category2) ");
                 $prepared2->bindParam(':category2', $_POST['category2']);
                 $prepared2->bindParam(':userID', $_SESSION['userID']);
