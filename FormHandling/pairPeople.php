@@ -1,5 +1,7 @@
 <?php 
 session_start();
+                $_SESSION['pairUser'] = $_POST['pairID'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +39,6 @@ try{
                 $recipe1->execute();
 
                 //Start a session variable with the 2nd user to get its data down the line
-                $_SESSION['pairUser'] = $_POST['pairID'];
 
                 /*
                 //Categories 1
@@ -86,7 +87,7 @@ try{
                     //Tokenize filePath
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     //Provide link (download? Need to supply php to that)
-                    echo "This is the other user".$_POST['pairID'];
+                    echo "This is the other user".$_SESSION['pairUser']."<br/>";
 
                     echo "This is an option: ".$recipe."<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
