@@ -37,7 +37,6 @@ try{
                 //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe1->bindParam(':inputUserID', $_SESSION['userID']);
                 $recipe1->bindParam(':pairedID', $_POST['pairID']);
-
                 $recipe1->execute();
 
                 //Start a session variable with the 2nd user to get its data down the line
@@ -91,7 +90,8 @@ try{
                     //Provide link (download? Need to supply php to that)
                     echo "This is the other user with session".$_SESSION['pairUser']."<br/>";
                     echo "This is the other user with post".$_POST['pairID']."<br/>";
-
+                    print_r($_SESSION['pairUser']);
+                    
                     echo "This is an option: ".$recipe."<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
                     //echo "This is an option".$tuple['filePath']."<br/>";

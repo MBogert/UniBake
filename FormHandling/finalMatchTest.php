@@ -173,7 +173,7 @@ try{
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php $result['email']; ?>">
                     <input type ="hidden" name="phone" value="<?php $result['phone']; ?>">
-                    <input type="submit" name="select" value="Submit">  
+                    <input type="submit" name="submit" value="Submit">  
 
                
  </td>
