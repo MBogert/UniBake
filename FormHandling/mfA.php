@@ -217,7 +217,7 @@ try{
                                    </ul>
                               </div>
                               <div class=\"col-md-6\">
-                                  <img src=\"../AvatarImgs/homer.jpg\" styles=\" height: 50px width 50px\">
+                                  <img src=\"../AvatarImgs/homer.jpg\" styles=\" height: 50px width: 50px\">
                                   <input type =\"hidden\" name=\"pairID\" value =" .$result['userID'].">
                                   <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
                                   <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
