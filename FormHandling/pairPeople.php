@@ -29,7 +29,8 @@ try{
     echo $_POST['pairID']." Username found in form <br />";
     // Set session variables
     $_SESSION["pairUser"] = $_POST['pairID'];
-    echo $_SESSION["pairUser"]." stored in session <br />";;
+    echo "This is the e-mail".$_POST['email'];
+    echo $_SESSION["pairUser"]." stored in session <br />";
 }
 
                 //$_SESSION['pairUser'] = $_POST['pairID'];
