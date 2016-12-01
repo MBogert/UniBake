@@ -78,7 +78,7 @@ session_start();
             <li  class="active"><a href="matches.html">My Matches</a></li>
             <li><a href="recipies.html">Recipies</a></li>
             <li><a href="bio.html">My Bio</a></li>
-            <li><a href="LogOut.php" style="margin-left:400px">Logout</a></li>
+            <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
           </ul>
         </div>
       </nav>
