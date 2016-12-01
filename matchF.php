@@ -9,54 +9,54 @@
   <title>Matches Page</title>
 </head>
 <style>
-body {
-  background-color: #cc0000;
-}
-.options-box {
-  background: #ff0000;
-  border: 1px solid #2e2e1f;
-  border-radius: 3px;
-  height: 100%;
-  line-height: 35px;
-  padding: 10px 10px 10px 10px;
-  text-align: left;
-  /*width: 340px;*/
-  /*width: 90%;*/
-  margin-top: 50px;
-  /*margin-left: 50px;*/
-}
-.container {
-  height: 100%;
-  position: relative;
-}
-.matchContainer {
-  background: #ff0000;
-  border: 1px solid #2e2e1f;
-  border-radius: 3px;
-  height: 100%;
-  line-height: 35px;
-  padding: 10px 30px 10px 10px;
-  text-align: left;
-  /*width: 340px;*/
-  /*width: 90%;*/
-  margin: auto;
-  /*margin-left: 50px;*/
-}
-.row{
-  background-color: #FAEBD7;
-  width: 95%;
-  position: center;
-  padding: 10px 10px 10px 10px;
-  /*padding-left: 200px;*/
-  margin: auto;
-}
-.col-md-6 {
-  border: 1px solid #2e2e1f;
-  border-radius: 2px;
-}
-* {
- border: 1px dashed #0000FF;
-}
+  body {
+    background-color: #cc0000;
+  }
+  .options-box {
+    background: #ff0000;
+    border: 1px solid #2e2e1f;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    /*width: 340px;*/
+    /*width: 90%;*/
+    margin-top: 50px;
+    /*margin-left: 50px;*/
+  }
+  .container {
+    height: 100%;
+    position: relative;
+  }
+  .matchContainer {
+    background: #ff0000;
+    border: 1px solid #2e2e1f;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 30px 10px 10px;
+    text-align: left;
+    /*width: 340px;*/
+    /*width: 90%;*/
+    margin: auto;
+    /*margin-left: 50px;*/
+  }
+  .row{
+    background-color: #FAEBD7;
+    width: 95%;
+    position: center;
+    padding: 10px 10px 10px 10px;
+    /*padding-left: 200px;*/
+    margin: auto;
+  }
+  .col-md-6 {
+    border: 1px solid #2e2e1f;
+    border-radius: 2px;
+  }
+  * {
+   border: 1px dashed #0000FF;
+  }
 </style>
 
 <body slyle="color:#b3000">
@@ -76,6 +76,7 @@ body {
         </ul>
       </div>
     </nav>
+  </div>
     <div class="container">
       <div class="options-box">
           <div class="row">
@@ -115,7 +116,5 @@ body {
   </div> -->
 
 </body>
-<!-- <script>
-  console.log(<? echo json_encode($username); ?>);
-</script> -->
+
 </html>

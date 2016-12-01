@@ -18,7 +18,7 @@
 	<div>
 		<form action="finalMatch.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
- -->		
+ -->
  <input type="hidden" name="userValue" value="$_COOKIE[userID]"<br>
 
 		Start Time:<input type="time" name="startTime"<br>
@@ -65,7 +65,7 @@
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
-		
+
 
 
 	}catch(PDOException $e){
@@ -74,11 +74,10 @@
 			die('Exception: '.$e->getMessage());
 			//header("Location: ../Pages/error.html");
 
-	} 
+	}
 ?>
 		<input type="submit">
 		</form>
 	</div>
 
 </body>
-

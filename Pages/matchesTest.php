@@ -11,7 +11,7 @@
 //         for($j=0; $j<count($list2); $j++){
 //             if($list1[$i] = $list2[$i]){
 //             $counter++;
-//             }   
+//             }
 //     }
 //     array_push($userID, $counter)
 //     }
@@ -24,16 +24,16 @@
 
             if($list1[$i] == $list2[$i]){
             $counter++;
-            }   
+            }
     }
 return $counter;
     }
 
-//find the school that the student belongs to 
+//find the school that the student belongs to
 try{
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                //Need a dropdown 
+                //Need a dropdown
                 //This is the query that filters out feasible users that could be possible matches
                 $prepared = $db-> prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))

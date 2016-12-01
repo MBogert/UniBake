@@ -7,6 +7,7 @@ session_start();
 
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
   <title>Make Request Page</title>
   <!-- Include the navbar file -->
