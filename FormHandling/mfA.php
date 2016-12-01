@@ -211,9 +211,9 @@ try{
                         <div class=\"options-box\">
                             <div class=\"row\">
                               <div class=\"col-md-6\">
-                                   <ul>
-                                     <li>Their name:" .$result['name']. "</li>
-                                     <li> This is your 'Bakeability' with them: {($value / 3)}".$result['name']." </li>
+                                   <ul styles=\"display: text-align\">
+                                     <li>You matched with:" .$result['name']. "</li>
+                                     <li> Your 'Bakeability' with ".$result['name']." is {($value / 3)} </li>
                                      <li> Their phone number:" .$result['phone']. "</li>
                                    </ul>
                               </div>
