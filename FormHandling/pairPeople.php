@@ -25,8 +25,14 @@ session_start();
 <?php
 //find the school that the student belongs to 
 try{
+    if(isset($_POST['pairID'])){
+    echo $_POST['pairID']." Username found in form <br />";
+    // Set session variables
+    $_SESSION["pairUser"] = $_POST['pairID'];
+    echo $_SESSION["pairUser"]." stored in session <br />";;
+}
 
-    $_SESSION['pairUser'] = $_POST['pairID'];
+                //$_SESSION['pairUser'] = $_POST['pairID'];
 
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -91,8 +97,8 @@ try{
                     //Tokenize filePath
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     //Provide link (download? Need to supply php to that)
-                    echo "This is the other user with session".$_SESSION['pairUser']."<br/>";
-                    echo "This is the other user with post".$_POST['pairID']."<br/>";
+                    echo "This is the other user with session".$_SESSION['pairUser']." Blah <br/>";
+                    echo "This is the other user with post".$_POST['pairID']." Blah <br/>";
                     print_r($_SESSION['pairUser']);
 
                     echo "This is an option: ".$recipe."<br/>";
