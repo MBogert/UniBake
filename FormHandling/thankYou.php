@@ -30,8 +30,7 @@ session_start();
          $pair->bindParam(':recipe', $_GET['filePath']);
          $pair->execute();
 
-         //2. Delete their BakeRequest
-
+         //2. Delete their BakeRequestw
          $delete1 = $db->prepare("DELETE from BakeRequest where (userID = :userID1)");
          $delete1->bindParam('userID1', $_SESSION['userID']);
          $delete1->execute();
@@ -52,7 +51,7 @@ session_start();
          $deleteRequest2->bindParam('userDR2', $_SESSION['pairUser']);
          $deleteRequest2->execute();
 
-		$db =null;
+		 $db =null;
 
 
 ?>

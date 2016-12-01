@@ -28,7 +28,6 @@ try{
                 
                 //Get the other user via their e-mail
                 //$user = $db->prepare()
-
                 //Get the two people we need to pair 
                 $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID or userID = :pairedID);"); 
                 //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
@@ -87,6 +86,8 @@ try{
                     //Tokenize filePath
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     //Provide link (download? Need to supply php to that)
+                    echo "This is the other user".$_POST['pairID'];
+
                     echo "This is an option: ".$recipe."<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
                     //echo "This is an option".$tuple['filePath']."<br/>";
