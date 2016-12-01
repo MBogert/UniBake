@@ -33,9 +33,9 @@ session_start();
          // setcookie('email', $_POST['email'], time() + (86400 * 30));
          // setcookie('password', $_POST['password'],time() + (86400 * 30));
          // setcookie('userID', $_POST['userID'], time() + (86400 * 30));
-         $userInfo = $user['userID'];
-         $_SESSION['userID'] = $userInfo;
-
+         //$userInfo = $user['userID'];
+         //$_SESSION['userID'] = $userInfo;
+         $_SESSION['userID'] = $user['userID'];
          //$_SESSION['userID'] = $_POST['userID'];
          //It was successful so go to next page
          header("location: welcome.php");
