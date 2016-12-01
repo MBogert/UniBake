@@ -89,7 +89,7 @@ try{
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
 									FindStudents as (select userID from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
                                     RestrictPair as (select userID from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
-									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime AND :inputEndTime >= startTime)");
+									select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime OR :inputEndTime >= startTime AND userID != :inputUserID)");
 
 
                 //Bind the parameters for SQL Injection
@@ -157,6 +157,7 @@ try{
                     //$pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
                     $pair = $db1->prepare("Select email, name, phone, userID from Login NATURAL JOIN UserLogin where (userID = $key)");
 
+                    //If they have already paired, delete the request
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
