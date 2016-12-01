@@ -1,7 +1,8 @@
 <?php 
 session_start();
-//$pairUser = $_POST['pairID'];
-$_SESSION['pairUser'] = $_POST['pairID'];
+$pairU = $_POST['pairID'];
+//$_SESSION['pairUser'] = $_POST['pairID'];
+$_SESSION['pairUser'] = $pairU;
 
 ?>
 <!DOCTYPE html>
@@ -89,7 +90,7 @@ try{
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     //Provide link (download? Need to supply php to that)
                     echo "This is the other user with session".$_SESSION['pairUser']."<br/>";
-                    echo "This is the other user with post".$_POST['pairUser']."<br/>";
+                    echo "This is the other user with post".$_POST['pairID']."<br/>";
 
                     echo "This is an option: ".$recipe."<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";                    
