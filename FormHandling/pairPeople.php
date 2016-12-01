@@ -35,6 +35,9 @@ try{
 
                 $recipe1->execute();
 
+                //Start a session variable with the 2nd user to get its data down the line
+                $_SESSION['pairUser'] = $_POST['pairID'];
+
                 /*
                 //Categories 1
                 "SELECT * FROM RequestCategory WHERE (userID = inputUserID);"
