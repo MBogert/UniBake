@@ -163,12 +163,9 @@ try{
                     <?php echo "Their email: ".$result['email']."<br/>";
                     echo "Their name: ".$result['name']."<br/>";
                     echo "Their phone number: ".$result['phone']."<br/>";
-                    echo "Their userID: ".$result['userID']."<br/>";
+                    //echo "Their userID: ".$result['userID']."<br/>";
 
-                    ?>
-
-<!--                     <input type ="hidden" name="pairID" value ="<?php $result['userID']; ?>">
- -->                    
+                    ?>             
                     <input type ="hidden" name="pairID" value ="<?php echo $result['userID']; ?>">
                     <input type ="hidden" name="name" value="<?php $result['name']; ?>">
                     <input type ="hidden" name="email" value="<?php echo $result['email']; ?>">
