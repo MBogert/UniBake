@@ -172,15 +172,17 @@ try{
          $db1 = new PDO('sqlite:./../Database/unibake.db');
                 $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     //$pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    $pair = $db1->prepare("Select email, name, phone, userID from Login NATURAL JOIN UserLogin where (userID = $key)");
+                    $pair = $db1->prepare("Select email, name, phone, userID from Login NATURAL JOIN UserLogin where (userID = $key AND userID != :sessionID)");
+                    $pair->bindParam(':sessionID', $_SESSION['userID']);
 
                     //If they have already paired, delete the request
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
+                    $percent = $value / 3;
                     $db= null;
                     ?>
-                    <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {($value / 3)}";?>
+                    <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {$percent}";?>
 
                     <?php echo "Their email: ".$result['email']."<br/>";
                     echo "Their name: ".$result['name']."<br/>";
