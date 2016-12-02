@@ -80,7 +80,7 @@ try{
                 foreach($categoryCount as $tuple){
                     list($recipe, $fileExtension) = explode(".", $tuple['filePath']);
                     echo "This is an option: ".$recipe."<br/>";
-                    echo "Compatibility with your baking duo: ".($tuple['count'] / 3)."<br/>";
+                    echo "Compatibility with your baking duo: ".($tuple['count'] * 3)."%<br/>";
                     echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";  
                 }
                 // $recipe2 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputUserID);"); 

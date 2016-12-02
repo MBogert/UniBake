@@ -183,7 +183,7 @@ try{
                     $percent = $value * 33;
                     $db= null;
                     ?>
-                    <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {$percent}";?>
+                    <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {$percent}%";?>
 
                     <?php echo "Their email: ".$result['email']."<br/>";
                     echo "Their name: ".$result['name']."<br/>";
