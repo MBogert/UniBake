@@ -49,9 +49,13 @@ try{
                 $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user);");
                 $hasRequest->bindParam(':user', $_COOKIE['userID']);
                 $hasRequest->execute(); 
-                if($hasRequest){//Already has request, redirect to error
+                $counter = 0;
+                foreach($request as $tuple){
+                    $counter++;
+                }
+                if($counter != 0){//User has already made request, error
                     header("Location: ../Pages/error.html");
-                }   
+                }
                 //$request = $hasRequest->fetchAll();
 
 
