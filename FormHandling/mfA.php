@@ -63,9 +63,7 @@ session_start();
     border: 1px solid #2e2e1f;
     border-radius: 2px;
   }
-  * {
-   border: 1px dashed #0000FF;
-  }
+
 
 </style>
 <body slyle="color:#b3000">
