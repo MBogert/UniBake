@@ -48,7 +48,8 @@ try{
                 //If user already made request, error
                 $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user);");
                 $hasRequest->bindParam(':user', $_COOKIE['userID']);
-                $hasRequest->execute(); 
+                $hasRequest->execute();
+                $request = $hasRequest->fetchAll(); 
                 $counter = 0;
                 foreach($request as $tuple){
                     $counter++;
