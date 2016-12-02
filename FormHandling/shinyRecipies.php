@@ -181,13 +181,13 @@ try{
                               <div class=\"col-md-6\">
                                    <ul styles=\"display: text-align\">
                                      <li>This is an option: ".$recipe."</li>
-                                     <li> Your 'Bakeability' for ".$recipe." is {($value / 3)} </li>
+
                                    </ul>
                               </div>
                               <div class=\"col-md-6\">
                                   <img src=\"../AvatarImgs/homer.jpg\">
 
-                                  <li> <a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a></li>
+                                  <li> <a href='thankYou.php?filePath=$tuple[filePath]'> Click here to download instructions </a></li>
                               </div>
                            </div>
 
