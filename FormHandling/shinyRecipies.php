@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$pairU = $_POST['pairID'];
+//$  masterU = $_POST['pairID'];
 //$_SESSION['pairUser'] = $_POST['pairID'];
 //$_SESSION['pairUser'] = $pairU;
 
@@ -174,35 +174,28 @@ try{
                     //echo "This is the other user with post".$_POST['pairID']." Blah <br/>";
                     //print_r($_SESSION['pairUser']);
 
-                    echo "This is an option: ".$recipe."<br/>";
-                    echo "<a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a><br/>";
+                    echo "</div>
+                      <div class=\"container\">
+                        <div class=\"options-box\">
+                            <div class=\"row\">
+                              <div class=\"col-md-6\">
+                                   <ul styles=\"display: text-align\">
+                                     <li>This is an option: ".$recipe."</li>
+                                     <li> Your 'Bakeability' with ".$result['name']." is {($value / 3)} </li>
+                                   </ul>
+                              </div>
+                              <div class=\"col-md-6\">
+                                  <img src=\"../AvatarImgs/homer.jpg\">
+
+                                  <li> <a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a></li>
+                              </div>
+                           </div>
+
+                        </div>";
                     //echo "This is an option".$tuple['filePath']."<br/>";
                 }
 
-                <?php
-                echo "</div>
-                  <div class=\"container\">
-                    <div class=\"options-box\">
-                        <div class=\"row\">
-                          <div class=\"col-md-6\">
-                               <ul styles=\"display: text-align\">
-                                 <li>This is an option: ".$recipe."</li>
-                                 <li> Your 'Bakeability' with ".$result['name']." is {($value / 3)} </li>
-                               </ul>
-                          </div>
-                          <div class=\"col-md-6\">
-                              <img src=\"../AvatarImgs/homer.jpg\">
-                              <input type =\"hidden\" name=\"pairID\" value =" .$result['userID'].">
-                              <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
-                              <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
-                              <input type =\"hidden\" name=\"phone\" value=" .$result['phone'].">
-                              <input type=\"submit\" name=\"select\" value=\"I choose this recipe\">
-                              <li> <a href='thankYou.php?filePath=$tuple[filePath]'> Bake </a></li>
-                          </div>
-                       </div>
 
-                    </div>";
-                ?>
                 // foreach($result2 as $tuple2){
                 //     echo $tuple2['filePath'];
                 // }
