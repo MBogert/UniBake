@@ -18,8 +18,8 @@ session_start();
     background-color: #cc0000;
   }
   img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
   }
   .options-box {
     background: #ff0000;
@@ -192,7 +192,7 @@ try{
 <body>
     <h1 styles="margin-left:200px"> Select a user you want to bake with! </h1>
 
-<form action="pairPeople.php" method="post">
+<form action="shinyRecipies.php" method="post">
  <?php foreach($matched as $key=>$value): ?>
     <tr>
 
