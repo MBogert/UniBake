@@ -52,7 +52,7 @@ session_start();
          $deleteRequest2->bindParam('userDR2', $_SESSION['pairUser']);
          $deleteRequest2->execute();
 
-		 $db =null;
+		 $db = null;
 
 
 ?>

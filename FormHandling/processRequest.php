@@ -7,6 +7,8 @@
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
+
 		$prepared1 = $db->prepare("Insert into RequestCategory (userID,category) VALUES (:userID, :category1) ");
 		$prepared1->bindParam(':category1', $_POST['category1']);
 		$prepared1->bindParam(':userID', $_COOKIE['userID']);

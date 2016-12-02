@@ -45,6 +45,18 @@ try{
                 // echo "This is category2".$_POST['category2'];
                 // echo "This is category3".$_POST['category3'];
 
+                //If user already made request, error
+                $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user);");
+                $hasRequest->bindParam(':user', $_COOKIE['userID']);
+                $hasRequest->execute(); 
+                if($hasRequest){//Already has request, redirect to error
+                    header("Location: ../Pages/error.html");
+                }   
+                //$request = $hasRequest->fetchAll();
+
+
+
+
                 echo $_SESSION['userID'];
                 $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
                 //$prepared1->bindParam(':userID', $_COOKIE['userID']);
