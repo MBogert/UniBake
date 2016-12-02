@@ -181,7 +181,7 @@ try{
                               <div class=\"col-md-6\">
                                    <ul styles=\"display: text-align\">
                                      <li>This is an option: ".$recipe."</li>
-                                     <li> Your 'Bakeability' with ".$result['name']." is {($value / 3)} </li>
+                                     <li> Your 'Bakeability' for ".$recipe." is {($value / 3)} </li>
                                    </ul>
                               </div>
                               <div class=\"col-md-6\">
