@@ -180,7 +180,7 @@ try{
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
                     $value = floatval($value);
-                    $percent = $value / 3.0;
+                    $percent = $value * 33;
                     $db= null;
                     ?>
                     <?php echo "This is the other userID {$key} => and this is your 'Bakeability' with them: {$percent}";?>
