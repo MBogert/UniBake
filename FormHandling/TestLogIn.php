@@ -93,7 +93,7 @@ session_start();
          </div>
 
       </div>
-      <h1> Click <a href="addUser.php"> Sign UP if you don't have an account </a></h1>
+      <h1>  <a href="addUser.php">Sign UP if you don't have an account </a></h1>
 
    </body>
 </html>

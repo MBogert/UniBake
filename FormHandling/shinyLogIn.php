@@ -71,16 +71,15 @@ session_start();
 			</div>
 			<label for="email">Email</label>
 			<br/>
-			<input type="text" id="email">
+			<input type="text" name="email">
 			<br/>
 			<label for="password">Password</label>
 			<br/>
-			<input type="password" id="password">
+			<input type="password" name="password">
 			<br/>
 			<button type="submit">Sign In</button>
 			<br/>
-      <button type="submit"> Click <a href="addUser.php"> Sign UP if you don't have an account </a>
-</button>
+      <a href="addUser.php"> Sign UP if you don't have an account </a>
       <br/>
 
 		</div>
