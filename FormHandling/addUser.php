@@ -115,9 +115,9 @@ echo "stage 3";
 		//We should make an error log in page
 		//echo "Sorry that email is already taken, please choose a valid email";
 		// header("Location: ../Pages/error.html");
+    echo "stage 4";
 
 	}
-echo "stage 4";
 	}
 		catch(PDOException $e){
 
