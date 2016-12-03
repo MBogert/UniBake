@@ -20,8 +20,8 @@ session_start();
 try{
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $prepared = $db->prepare("Select count(*) from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
-                //$prepared = $db->prepare("Select * from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
+                //$prepared = $db->prepare("Select count(*) from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
+                $prepared = $db->prepare("Select * from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
 
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
