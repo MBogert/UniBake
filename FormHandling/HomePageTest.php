@@ -29,10 +29,12 @@ try{
 //$result = $prepared->fetch();
 $result = $prepared->fetchAll();
 //$count = $prepared->rowCount();
-$count = $prepared->fetchColumn();
+//$count = $prepared->fetchColumn();
 print_r($result);
 //Can only have a single pair
-if($result['count(*)'] == 1){
+//if($result['count(*)'] == 1){
+if($result->fetchColumn() == 1){
+
 
 //Find the other relevant information that you would want to print out like the time that you are baking 
 $otherInfo =$db->prepare("Select startTime, endTime from BakeRequest where (userID = :user1)");
