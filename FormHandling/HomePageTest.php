@@ -34,7 +34,7 @@ print_r($result);
 //Can only have a single pair
 //if($result['count(*)'] == 1){
 //if($result->fetchColumn() == 1){
-if(count($result) = 1){
+if(count($result) == 1){
 
 
 //Find the other relevant information that you would want to print out like the time that you are baking 
