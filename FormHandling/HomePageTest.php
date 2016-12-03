@@ -27,10 +27,10 @@ try{
 //$result = $prepared->fetch();
 $result = $prepared->fetchAll();
 //$count = $prepared->rowCount();
-$count = $prepared->fetchColumn();
+//$count = $prepared->fetchColumn();
 
 //Can only have a single pair
-if($count == 1){
+if($prepared->fetchColumn() == 1){
 
 
 //Find the other relevant information that you would want to print out like the time that you are baking 
