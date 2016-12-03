@@ -34,8 +34,6 @@
   		<br/>
 			<input type="email" name="email">
 			<br/>
-			<input type="text" name="username">
-			<br/>
 			<label for="password">Password</label>
 			<br/>
 			<input type="password" name="password">
