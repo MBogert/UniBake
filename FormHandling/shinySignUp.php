@@ -44,7 +44,7 @@
 			<br/>
 			<button type="submit">Sign Up Now!</button>
 			<br/>
-			<a href="#"><p class="small">Already have an account?</p></a>
+			<a href="shinyLogIn.php"><p class="small">Already have an account?</p></a>
 		</div>
 	</div>
 </body>
