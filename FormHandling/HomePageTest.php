@@ -24,9 +24,11 @@ try{
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
 
-$result = $prepared->fetch();
-//$result = $prepared->fetchAll();
-$count = $prepared->rowCount();
+//$result = $prepared->fetch();
+$result = $prepared->fetchAll();
+//$count = $prepared->rowCount();
+$count = $prepared->fetchColumn();
+
 //Can only have a single pair
 if($count == 1){
 
@@ -36,7 +38,9 @@ $otherInfo =$db->prepare("Select startTime, endTime from BakeRequest where (user
 $otherInfo->bindParam(':user1', $_SESSION['userID']);
 $otherInfo->execute();
 
-$resultOther = $otherInfo->fetch();
+//$resultOther = $otherInfo->fetch();
+$resultOther = $otherInfo->fetchAll();
+$db=null;
 
 //If the first user is the user then print out information relevant to that if not 
 if($result['user1'] == $_SESSION['userID']){
@@ -57,7 +61,6 @@ echo "This is the time you are baking from ".$resultOther['startTime']." to ".$r
 }else{
     echo "Sorry, you are not paired with anyone yet, you should submit a BakeRequest";
 }
-                $db=null;
 
     }catch(PDOException $e){
                 die('Exception : '.$e->getMessage()); //die will quit the script immediate
