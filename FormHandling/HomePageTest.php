@@ -42,10 +42,12 @@ $resultOther = $otherInfo->fetch();
 if($result['user1'] == $_SESSION['userID']){
 //Print out their Pair with their information 
 //print_r($tuple);
+  echo " There was a result";
 echo "This is who you are paired with".$result['user2']."</br>";
 //echo "This is the recipe that you are baking".
 echo "This is the time you are baking from ".$resultOther['startTime']." to ".$resultOther['endTime']."</br>";
 }else{
+echo "this is the 2nd loop";
 echo "This is who you are paired with".$result['user1']."</br>";
 echo "This is the recipe that you are baking".$result['filePath']."</br>";
 echo "This is the time you are baking from ".$resultOther['startTime']." to ".$resultOther['endTime']."</br>";
