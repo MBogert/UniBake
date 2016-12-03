@@ -59,6 +59,9 @@ try{
                 }
                 //$request = $hasRequest->fetchAll();
 
+                $cleanup = $db->prepare("DELETE FROM RequestCategory WHERE (userID = :userID);");
+                $cleanup->bindParam(':userID', $_SESSION['userID']);
+                $cleanup->execute();
 
 
 
