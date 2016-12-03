@@ -28,7 +28,7 @@
 		$check->execute();
 		//$result = $check->fetch();
 		$result = $check->fetchAll();
-
+		print_r($result);
 
 		//If there is no result data then its safe to add the user
 		if(count($result) == 0 ){
