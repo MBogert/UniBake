@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- Latest compiled and minified CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-  <title>Sign Up</title> 
+  <title>Sign Up</title>
 
 </head>
 <body>
@@ -23,7 +23,7 @@
 		//Open up database
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
+
 		$check = $db->prepare("Select email from UserLogin where (email = :inputEmail)");
 		$check->bindParam(':inputEmail', $_POST['email']);
 		$check->execute();
@@ -57,12 +57,12 @@
 
 		//If email is not verified, redirect to error
 		if(!$verified){
-			header("Location: ../Pages/error.html");
+			// header("Location: ../Pages/error.html");
 		}
 
 		//Add user to database
 		//Create new UserID, make hash function for phone
-		$id = 0;		
+		$id = 0;
 		//Check that the userID is a unique value
 		while(True){
 
@@ -85,7 +85,7 @@
 
 		}
 
-		//Prepare statements and execute		
+		//Prepare statements and execute
 		//UserLogin
 		$prepared1 = $db->prepare("INSERT INTO UserLogin (userID, name, phone) VALUES (:userID, :name, :phone);");
 		$prepared1->bindParam(':userID', $id);
@@ -114,17 +114,17 @@
 	}else{
 		//We should make an error log in page
 		//echo "Sorry that email is already taken, please choose a valid email";
-		header("Location: ../Pages/error.html");
+		// header("Location: ../Pages/error.html");
 
 	}
-	
+
 	}
 		catch(PDOException $e){
 
 			//Page Redirect
 			//die('Exception: '.$e->getMessage());
-			header("Location: ../Pages/error.html");
+			// header("Location: ../Pages/error.html");
 
-		} 
-		
+		}
+
 ?>
