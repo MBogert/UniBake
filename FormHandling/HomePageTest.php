@@ -26,8 +26,8 @@ try{
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
 
-//$result = $prepared->fetch();
-$result = $prepared->fetchAll();
+$result = $prepared->fetch();
+//$result = $prepared->fetchAll();
 //$count = $prepared->rowCount();
 //$count = $prepared->fetchColumn();
 print_r($result);
@@ -57,7 +57,7 @@ echo "This is the time you are baking from ".$resultOther['startTime']." to ".$r
 }else{
 echo "this is the 2nd loop";
 echo "This is who you are paired with".$result['user1']."</br>";
-echo "This is the recipe that you are baking".$result['filePath']."</br>";
+echo "This is the recipe that you are baking".$result['recipe']."</br>";
 echo "This is the time you are baking from ".$resultOther['startTime']." to ".$resultOther['endTime']."</br>";
 
 }
