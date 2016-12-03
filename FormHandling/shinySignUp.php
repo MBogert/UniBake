@@ -28,7 +28,7 @@
 			<br/>
       <label for="phone">Phone Number</label>
   		<br/>
-			<input type="text" name="phone">
+			<input type="text" name="phone" required = "^\d{3}-\d{3}-\d{4}"/>
 			<br/>
       <label for="email">Email</label>
   		<br/>
@@ -36,9 +36,9 @@
 			<br/>
 			<label for="password">Password</label>
 			<br/>
-			<input type="password" name="password">
+			<input type="text" name="password">
 			<br/>
-			<button type="submit" value= " Submit ">Sign Up Now!</button>
+			<input type="submit"/>
 			<br/>
 			<a href="shinyLogIn.php"><p class="small">Already have an account?</p></a>
 		</div>
