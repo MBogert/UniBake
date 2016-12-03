@@ -8,12 +8,17 @@ insert into UserLogin values(6, 'Bob Smith', '555-555-5555');
 insert into UserLogin values(7, 'Paula Dean', '666-666-6666');
 insert into UserLogin values(8, 'Kendrick Lamar', '777-777-7777');
 insert into UserLogin values(9, 'Mr. Miyagi', '888-888-8888');
-insert into UserLogin values(10, 'Ben Test', '123-444-4444');
-insert into UserLogin values(11, 'Bob Test', '123-555-5555');
-insert into UserLogin values(12, 'Paula Test', '123-666-6666');
-insert into UserLogin values(13, 'Kendrick Test', '123-777-7777');
-insert into UserLogin values(14, 'Mr. Test', '123-888-8888');
-
+insert into UserLogin values(10, 'Ben Echo', '123-444-4444');
+insert into UserLogin values(11, 'Bob Jones', '123-555-5555');
+insert into UserLogin values(12, 'Paula Apple', '123-666-6666');
+insert into UserLogin values(13, 'David Chiu', '123-777-7777');
+insert into UserLogin values(14, 'Brad Richards', '123-888-8888');
+insert into UserLogin values(15, 'America Chambers', '123-444-4444');
+insert into UserLogin values(16, 'Tony Mullen', '123-555-5555');
+insert into UserLogin values(17, 'Patrick Stewart', '123-666-6666');
+insert into UserLogin values(18, 'Adam Eve', '123-777-7777');
+insert into UserLogin values(19, 'Jacob Armstrong', '123-888-8888');
+insert into UserLogin values(20, 'Jimi Mac', '123-888-8888');
 
 --Login
 insert into Login values(1, 'mbogert@pugetsound.edu', '$pIcy');
@@ -25,12 +30,17 @@ insert into Login values(6, 'bsmith@evergreen.edu', 'bobbeh');
 insert into Login values(7, 'pdean@evergreen.edu', 'XXXbutterXXX');
 insert into Login values(8, 'klamar@uw.edu', 'b@ck$eat');
 insert into Login values(9, 'miyagi@uw.edu', 'kkidOG');
-insert into Login values(10, 'btest@pugetsound.edu', 'BJ&mmin');
-insert into Login values(11, 'btest2@pugetsound.edu', 'bobbeh');
-insert into Login values(12, 'ptest@pugetsound.edu', 'XXXbutterXXX');
-insert into Login values(13, 'kltest@pugetsound.edu', 'b@ck$eat');
-insert into Login values(14, 'miytest@pugetsound.edu', 'kkidOG');
-
+insert into Login values(10, 'becho@pugetsound.edu', 'BJ&mmin');
+insert into Login values(11, 'bjones@pugetsound.edu', 'bobbeh');
+insert into Login values(12, 'papple@pugetsound.edu', 'XXXbutterXXX');
+insert into Login values(13, 'dchiu@pugetsound.edu', 'b@ck$eat');
+insert into Login values(14, 'brichards@pugetsound.edu', 'kkidOG');
+insert into Login values(15, 'achambers@pugetsound.edu', 'CS361');
+insert into Login values(16, 'tmul@pugetsound.edu', 'software');
+insert into Login values(17, 'pstewart ', '123-666-6666');
+insert into Login values(18, 'Adam Eve', '123-777-7777');
+insert into Login values(19, 'Jacob Armstrong', '123-888-8888');
+insert into Login values(20, 'Jimi Mac', '123-888-8888');
 
 --School
 insert into School values(1, 'University of Puget Sound', 'pugetsound.edu');

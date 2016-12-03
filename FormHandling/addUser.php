@@ -27,7 +27,9 @@
 		$check = $db->prepare("Select email from UserLogin where (email = :inputEmail)");
 		$check->bindParam(':inputEmail', $_POST['email']);
 		$check->execute();
-		$result = $check->fetch();
+		//$result = $check->fetch();
+		$result = $check->fetchAll();
+
 
 		//If there is no result data then its safe to add the user
 		if(count($result) == 0 ){
