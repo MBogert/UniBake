@@ -26,7 +26,7 @@ session_start();
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$check = $db->prepare("Select * from UserLogin where (email = :inputEmail)");
+		$check = $db->prepare("Select * from Login where (email = :inputEmail)");
 		$check->bindParam(':inputEmail', $_POST['email']);
 		$check->execute();
 		//$result = $check->fetch();
