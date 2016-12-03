@@ -79,6 +79,9 @@ session_start();
 			<br/>
 			<button type="submit">Sign In</button>
 			<br/>
+      <button type="submit"> Click <a href="addUser.php"> Sign UP if you don't have an account </a>
+</button>
+      <br/>
 
 		</div>
 	</div>
