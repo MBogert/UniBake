@@ -20,17 +20,19 @@ session_start();
 try{
                 $db = new PDO('sqlite:./../Database/unibake.db');
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $prepared = $db->prepare("Select * from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
+                $prepared = $db->prepare("Select count(*) from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
+                //$prepared = $db->prepare("Select * from Pair where (user1 = :inputUserID OR user2 = :inputUserID)");
+
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
 
 //$result = $prepared->fetch();
 $result = $prepared->fetchAll();
-//$count = $prepared->rowCount();
+$count = $prepared->rowCount();
 //$count = $prepared->fetchColumn();
 
 //Can only have a single pair
-if($prepared->fetchColumn() == 1){
+if($count == 1){
 
 
 //Find the other relevant information that you would want to print out like the time that you are baking 
