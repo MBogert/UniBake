@@ -37,10 +37,10 @@ insert into Login values(13, 'dchiu@pugetsound.edu', 'b@ck$eat');
 insert into Login values(14, 'brichards@pugetsound.edu', 'kkidOG');
 insert into Login values(15, 'achambers@pugetsound.edu', 'CS361');
 insert into Login values(16, 'tmul@pugetsound.edu', 'software');
-insert into Login values(17, 'pstewart ', '123-666-6666');
-insert into Login values(18, 'Adam Eve', '123-777-7777');
-insert into Login values(19, 'Jacob Armstrong', '123-888-8888');
-insert into Login values(20, 'Jimi Mac', '123-888-8888');
+insert into Login values(17, 'pstewart@uw.edu', 'xmen');
+insert into Login values(18, 'aeve@uw.edu', 'genesis');
+insert into Login values(19, 'jarmstrong@evergreen.edu', 'gardens');
+insert into Login values(20, 'jmac@evergreen.edu', 'purphaze');
 
 --School
 insert into School values(1, 'University of Puget Sound', 'pugetsound.edu');
@@ -63,6 +63,13 @@ insert into Attends values(11, 1);
 insert into Attends values(12, 1);
 insert into Attends values(13, 1);
 insert into Attends values(14, 1);
+insert into Attends values(15, 1);
+insert into Attends values(16, 1);
+insert into Attends values(17, 2);
+insert into Attends values(18, 2);
+insert into Attends values(19, 3);
+insert into Attends values(20, 3);
+
 
 
 --Recipe
