@@ -26,8 +26,10 @@ try{
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
 
-$result = $prepared->fetch();
-//$result = $prepared->fetchAll();
+
+echo " This is you".$_SESSION['userID']."</br>";
+//$result = $prepared->fetch();
+$result = $prepared->fetchAll();
 //$count = $prepared->rowCount();
 //$count = $prepared->fetchColumn();
 print_r($result);
@@ -36,35 +38,37 @@ print_r($result);
 //if($result->fetchColumn() == 1){
 if(count($result) == 1){
 
-
-//Find the other relevant information that you would want to print out like the time that you are baking 
+foreach($result as $tuple){
+  //Find the other relevant information that you would want to print out like the time that you are baking 
 $otherInfo =$db->prepare("Select startTime, endTime from BakeRequest where (userID = :user1)");
 $otherInfo->bindParam(':user1', $_SESSION['userID']);
 $otherInfo->execute();
 
-//$resultOther = $otherInfo->fetch();
-$resultOther = $otherInfo->fetchAll();
-$db=null;
+$resultOther = $otherInfo->fetch();
+//$resultOther = $otherInfo->fetchAll();
 
 //If the first user is the user then print out information relevant to that if not 
-if($result['user1'] == $_SESSION['userID']){
+if($tuple['user1'] == $_SESSION['userID']){
 //Print out their Pair with their information 
 //print_r($tuple);
   echo " There was a result";
-echo "This is who you are paired with".$result['user2']."</br>";
+echo "This is who you are paired with".$tuple['user2']."</br>";
 //echo "This is the recipe that you are baking".
 echo "This is the time you are baking from ".$resultOther['startTime']." to ".$resultOther['endTime']."</br>";
 }else{
 echo "this is the 2nd loop";
-echo "This is who you are paired with".$result['user1']."</br>";
-echo "This is the recipe that you are baking".$result['recipe']."</br>";
+echo "This is who you are paired with".$tuple['user1']."</br>";
+echo "This is the recipe that you are baking".$tuple['recipe']."</br>";
 echo "This is the time you are baking from ".$resultOther['startTime']." to ".$resultOther['endTime']."</br>";
 
 }
+}
+
 
 }else{
     echo "Sorry, you are not paired with anyone yet, you should submit a BakeRequest";
 }
+$db=null;
 
     }catch(PDOException $e){
                 die('Exception : '.$e->getMessage()); //die will quit the script immediate
