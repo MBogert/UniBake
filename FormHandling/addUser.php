@@ -117,7 +117,7 @@ echo "stage 3";
 		// header("Location: ../Pages/error.html");
 
 	}
-echo "stage 4"
+echo "stage 4";
 	}
 		catch(PDOException $e){
 
