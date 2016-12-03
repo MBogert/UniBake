@@ -69,6 +69,7 @@ session_start();
 			<div class="box-header">
 				<h2>Log In</h2>
 			</div>
+      <form action = "" method = "post">
 			<label for="email">Email</label>
 			<br/>
 			<input type="text" name="email">
