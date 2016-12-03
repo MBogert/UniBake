@@ -18,10 +18,18 @@
 
 	try{
 
+		//Need to make sure that the user isn't already in the database (want to handle it elegantly)
+
 		//Open up database
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$check = $db->prepare("Select email from UserLogin where (email = :inputEmail)");
+		$check->bindParam(':inputEmail', $_POST['email']);
+		$check->execute();
+		$result = $check->fetch();
 
+		//If there is no result data then its safe to add the user
+		if(count($result) ==0 ){
 		//Check email if it is valid
 		//$domain = strtok($_POST['email'], "@");
 		list($fluff, $domain) = explode("@", $_POST['email'], 2);
@@ -102,6 +110,13 @@
 
 		//Redirect
 		header("Location: welcome.php");
+	}else{
+		//We should make an error log in page
+		//echo "Sorry that email is already taken, please choose a valid email";
+		header("Location: ../Pages/error.html");
+
+	}
+	
 	}
 		catch(PDOException $e){
 
