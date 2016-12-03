@@ -62,6 +62,6 @@ session_start();
 	<?php
 		echo "<a href ='../Recipes/$_GET[filePath]' download>Download</a>";
 	?>
-	<br/><a href = "cleanSession.php">Return Home</a>
+	<br/><a href = "HomePageTest.php">Return Home</a>
 
 </body>
