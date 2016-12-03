@@ -4,6 +4,11 @@ session_start();
 //$_SESSION['pairUser'] = $_POST['pairID'];
 //$_SESSION['pairUser'] = $pairU;
 
+//Check to make sure the user is Logged in
+if(!isset($_SESSION['userID'])){
+echo"Please Log In to use this feature";
+header("Location: TestLogIn.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
