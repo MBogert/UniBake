@@ -27,6 +27,7 @@
 		$check->bindParam(':inputEmail', $_POST['email']);
 		$check->execute();
 		//$result = $check->fetch();
+		echo "FUCK YOU MAN";
 		$result = $check->fetchAll();
 		print_r($result);
 
