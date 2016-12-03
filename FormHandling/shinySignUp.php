@@ -24,25 +24,21 @@
 			</div>
       <label for="username">Name</label>
   		<br/>
-			<input type="text" id="name">
+			<input type="text" ="name">
 			<br/>
-      <label for="username">Phone Number</label>
+      <label for="phone">Phone Number</label>
   		<br/>
-			<input type="text" id="phone_number">
+			<input type="text" name="phone">
 			<br/>
-      <label for="username">Email</label>
+      <label for="email">Email</label>
   		<br/>
-			<input type="text" id="email">
-			<br/>
-			<label for="username">Username</label>
-			<br/>
-			<input type="text" id="username">
+			<input type="email" name="email">
 			<br/>
 			<label for="password">Password</label>
 			<br/>
-			<input type="password" id="password">
+			<input type="password" name="password">
 			<br/>
-			<button type="submit">Sign Up Now!</button>
+			<button type="submit" value= " Submit ">Sign Up Now!</button>
 			<br/>
 			<a href="shinyLogIn.php"><p class="small">Already have an account?</p></a>
 		</div>
