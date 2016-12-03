@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -110,7 +113,6 @@ echo "stage 3";
 		$prepared3->execute();
 
 		//Close database
-		$db = null;
 
 		//Redirect
 		header("Location: welcome.php");
@@ -121,9 +123,10 @@ echo "stage 3";
     echo "stage 4";
 
 	}
-	}
-		catch(PDOException $e){
+			$db = null;
 
+	}catch(PDOException $e){
+die('Exception : '.$e->getMessage()); //die will quit the script immediate
 			//Page Redirect
 			//die('Exception: '.$e->getMessage());
 			// header("Location: ../Pages/error.html");
@@ -131,3 +134,5 @@ echo "stage 3";
 		}
 
 ?>
+
+</html>
