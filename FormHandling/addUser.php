@@ -19,7 +19,7 @@
 	try{
 
 		//Need to make sure that the user isn't already in the database (want to handle it elegantly)
-
+    echo "stage 1";
 		//Open up database
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -54,7 +54,7 @@
 			}
 
 		}
-
+echo "stage 2";
 		//If email is not verified, redirect to error
 		if(!$verified){
 			// header("Location: ../Pages/error.html");
@@ -84,7 +84,7 @@
 			if($unique){break;}
 
 		}
-
+echo "stage 3";
 		//Prepare statements and execute
 		//UserLogin
 		$prepared1 = $db->prepare("INSERT INTO UserLogin (userID, name, phone) VALUES (:userID, :name, :phone);");
@@ -117,7 +117,7 @@
 		// header("Location: ../Pages/error.html");
 
 	}
-
+echo "stage 4"
 	}
 		catch(PDOException $e){
 
