@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -23,12 +26,13 @@
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$check = $db->prepare("Select * from UserLogin where (email = :inputEmail)");
+		$check = $db->prepare("Select * from Login where (email = :inputEmail)");
 		$check->bindParam(':inputEmail', $_POST['email']);
 		$check->execute();
 		//$result = $check->fetch();
+		echo "FUCK YOU MAN";
 		$result = $check->fetchAll();
-
+		print_r($result);
 
 		//If there is no result data then its safe to add the user
 		if(count($result) == 0 ){
@@ -109,7 +113,6 @@ echo "stage 3";
 		$prepared3->execute();
 
 		//Close database
-		$db = null;
 
 		//Redirect
 		echo "About to redirect";
@@ -121,9 +124,10 @@ echo "stage 3";
     echo "stage 4";
 
 	}
-	}
-		catch(PDOException $e){
+			$db = null;
 
+	}catch(PDOException $e){
+die('Exception : '.$e->getMessage()); //die will quit the script immediate
 			//Page Redirect
 			die('Exception: '.$e->getMessage());
 			// header("Location: ../Pages/error.html");
@@ -131,3 +135,5 @@ echo "stage 3";
 		}
 
 ?>
+
+</html>
