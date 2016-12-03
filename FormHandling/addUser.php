@@ -65,14 +65,14 @@ echo "stage 2";
 		//Add user to database
 		//Create new UserID, make hash function for phone
 		$id = 0;
+		$unique = True;
+		$stmt = "SELECT userID FROM UserLogin;";
+		$result = $db->query($stmt);
 		//Check that the userID is a unique value
 		while(True){
 
-			$unique = True;
-			$id = mt_rand();
-
-			$stmt = "SELECT userID FROM UserLogin;";
-			$result = $db->query($stmt);
+			
+			$id = mt_rand();			
 
 			foreach($result as $tuple){
 
@@ -112,6 +112,7 @@ echo "stage 3";
 		$db = null;
 
 		//Redirect
+		echo "About to redirect";
 		header("Location: welcome.php");
 	}else{
 		//We should make an error log in page
@@ -124,7 +125,7 @@ echo "stage 3";
 		catch(PDOException $e){
 
 			//Page Redirect
-			//die('Exception: '.$e->getMessage());
+			die('Exception: '.$e->getMessage());
 			// header("Location: ../Pages/error.html");
 
 		}
