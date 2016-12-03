@@ -77,7 +77,7 @@ session_start();
 			<br/>
 			<input type="password" name="password">
 			<br/>
-			<button type="submit">Sign In</button>
+			<button type="submit" value = " Submit ">Sign In</button>
 			<br/>
       <a href="addUser.php"> Sign UP if you don't have an account </a>
       <br/>
