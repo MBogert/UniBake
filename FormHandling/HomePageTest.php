@@ -26,8 +26,8 @@ try{
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
 
-//$result = $prepared->fetch();
-$result = $prepared->fetchAll();
+$result = $prepared->fetch();
+//$result = $prepared->fetchAll();
 //$count = $prepared->rowCount();
 //$count = $prepared->fetchColumn();
 print_r($result);
