@@ -24,11 +24,11 @@ try{
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
                 $prepared->execute();
 
-//$result = $prepared->fetch();
-$result = $prepared->fetchAll();
-
+$result = $prepared->fetch();
+//$result = $prepared->fetchAll();
+$count = $prepared->rowCount();
 //Can only have a single pair
-if(count($result) == 1){
+if($count == 1){
 
 
 //Find the other relevant information that you would want to print out like the time that you are baking 
