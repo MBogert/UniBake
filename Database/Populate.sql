@@ -167,4 +167,9 @@ insert into RequestCategory values(14, 'Cookie');
 insert into RequestCategory values(14, 'Pie');
 insert into RequestCategory values(14, 'Cake');
 
+--Pair
+insert into Pair values(13, 14, 'choc_chip_cookie.txt');
+insert into Pair values(8, 10, 'pecan_pie.txt');
+
+
 
