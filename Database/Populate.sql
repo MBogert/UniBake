@@ -13,12 +13,12 @@ insert into UserLogin values(11, 'Bob Jones', '123-555-5555');
 insert into UserLogin values(12, 'Paula Apple', '123-666-6666');
 insert into UserLogin values(13, 'David Chiu', '123-777-7777');
 insert into UserLogin values(14, 'Brad Richards', '123-888-8888');
-insert into UserLogin values(15, 'America Chambers', '123-444-4444');
-insert into UserLogin values(16, 'Tony Mullen', '123-555-5555');
-insert into UserLogin values(17, 'Patrick Stewart', '123-666-6666');
-insert into UserLogin values(18, 'Adam Eve', '123-777-7777');
-insert into UserLogin values(19, 'Jacob Armstrong', '123-888-8888');
-insert into UserLogin values(20, 'Jimi Mac', '123-888-8888');
+insert into UserLogin values(15, 'America Chambers', '123-444-5555');
+insert into UserLogin values(16, 'Tony Mullen', '310-555-6543');
+insert into UserLogin values(17, 'Patrick Stewart', '808-666-7293');
+insert into UserLogin values(18, 'Adam Eve', '707-610-7777');
+insert into UserLogin values(19, 'Jacob Armstrong', '444-910-0291');
+insert into UserLogin values(20, 'Jimi Mac', '810-909-3102');
 
 --Login
 insert into Login values(1, 'mbogert@pugetsound.edu', '$pIcy');
