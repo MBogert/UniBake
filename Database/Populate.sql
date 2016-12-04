@@ -119,13 +119,9 @@ insert into BakeRequest values(2, '02:00', '03:00');
 insert into BakeRequest values(4, '03:30', '07:00');
 insert into BakeRequest values(5, '08:00', '12:00');
 insert into BakeRequest values(6, '15:00', '22:00');
-insert into BakeRequest values(8, '09:30', '13:30');
 insert into BakeRequest values(9, '06:00', '12:00');
-insert into BakeRequest values(10, '08:00', '12:00');
 insert into BakeRequest values(11, '15:00', '22:00');
 insert into BakeRequest values(12, '09:30', '13:30');
-insert into BakeRequest values(13, '06:00', '12:00');
-insert into BakeRequest values(14, '06:00', '12:00');
 
 
 
@@ -145,27 +141,16 @@ insert into RequestCategory values(5, 'Salmonella');
 insert into RequestCategory values(6, 'Gooey');
 insert into RequestCategory values(6, 'Doughy');
 insert into RequestCategory values(6, 'Chocolate');
-insert into RequestCategory values(8, 'Pie');
-insert into RequestCategory values(8, 'Cake');
-insert into RequestCategory values(8, 'Small');
 insert into RequestCategory values(9, 'Chocolate');
 insert into RequestCategory values(9, 'Easy');
 insert into RequestCategory values(9, 'Small');
-insert into RequestCategory values(10, 'Cookie');
-insert into RequestCategory values(10, 'Pie');
-insert into RequestCategory values(10, 'Cake');
 insert into RequestCategory values(11, 'Cookie');
 insert into RequestCategory values(11, 'Pie');
 insert into RequestCategory values(11, 'Cake');
 insert into RequestCategory values(12, 'Cookie');
 insert into RequestCategory values(12, 'Pie');
 insert into RequestCategory values(12, 'Cake');
-insert into RequestCategory values(13, 'Cookie');
-insert into RequestCategory values(13, 'Pie');
-insert into RequestCategory values(13, 'Cake');
-insert into RequestCategory values(14, 'Cookie');
-insert into RequestCategory values(14, 'Pie');
-insert into RequestCategory values(14, 'Cake');
+
 
 --Pair
 insert into Pair values(13, 14, 'choc_chip_cookie.txt');
