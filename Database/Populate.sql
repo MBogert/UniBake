@@ -13,12 +13,12 @@ insert into UserLogin values(11, 'Bob Jones', '123-555-5555');
 insert into UserLogin values(12, 'Paula Apple', '123-666-6666');
 insert into UserLogin values(13, 'David Chiu', '123-777-7777');
 insert into UserLogin values(14, 'Brad Richards', '123-888-8888');
-insert into UserLogin values(15, 'America Chambers', '123-444-4444');
-insert into UserLogin values(16, 'Tony Mullen', '123-555-5555');
-insert into UserLogin values(17, 'Patrick Stewart', '123-666-6666');
-insert into UserLogin values(18, 'Adam Eve', '123-777-7777');
-insert into UserLogin values(19, 'Jacob Armstrong', '123-888-8888');
-insert into UserLogin values(20, 'Jimi Mac', '123-888-8888');
+insert into UserLogin values(15, 'America Chambers', '123-444-5555');
+insert into UserLogin values(16, 'Tony Mullen', '310-555-6543');
+insert into UserLogin values(17, 'Patrick Stewart', '808-666-7293');
+insert into UserLogin values(18, 'Adam Eve', '707-610-7777');
+insert into UserLogin values(19, 'Jacob Armstrong', '444-910-0291');
+insert into UserLogin values(20, 'Jimi Mac', '810-909-3102');
 
 --Login
 insert into Login values(1, 'mbogert@pugetsound.edu', '$pIcy');
@@ -37,10 +37,10 @@ insert into Login values(13, 'dchiu@pugetsound.edu', 'b@ck$eat');
 insert into Login values(14, 'brichards@pugetsound.edu', 'kkidOG');
 insert into Login values(15, 'achambers@pugetsound.edu', 'CS361');
 insert into Login values(16, 'tmul@pugetsound.edu', 'software');
-insert into Login values(17, 'pstewart ', '123-666-6666');
-insert into Login values(18, 'Adam Eve', '123-777-7777');
-insert into Login values(19, 'Jacob Armstrong', '123-888-8888');
-insert into Login values(20, 'Jimi Mac', '123-888-8888');
+insert into Login values(17, 'pstewart@uw.edu', 'xmen');
+insert into Login values(18, 'aeve@uw.edu', 'genesis');
+insert into Login values(19, 'jarmstrong@evergreen.edu', 'gardens');
+insert into Login values(20, 'jmac@evergreen.edu', 'purphaze');
 
 --School
 insert into School values(1, 'University of Puget Sound', 'pugetsound.edu');
@@ -63,6 +63,13 @@ insert into Attends values(11, 1);
 insert into Attends values(12, 1);
 insert into Attends values(13, 1);
 insert into Attends values(14, 1);
+insert into Attends values(15, 1);
+insert into Attends values(16, 1);
+insert into Attends values(17, 2);
+insert into Attends values(18, 2);
+insert into Attends values(19, 3);
+insert into Attends values(20, 3);
+
 
 
 --Recipe
@@ -159,5 +166,10 @@ insert into RequestCategory values(13, 'Cake');
 insert into RequestCategory values(14, 'Cookie');
 insert into RequestCategory values(14, 'Pie');
 insert into RequestCategory values(14, 'Cake');
+
+--Pair
+insert into Pair values(13, 14, 'choc_chip_cookie.txt');
+insert into Pair values(8, 10, 'pecan_pie.txt');
+
 
 
