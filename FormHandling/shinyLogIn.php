@@ -80,7 +80,7 @@ session_start();
 			<br/>
 			<button type="submit" value = " Submit ">Sign In</button>
 			<br/>
-      <a href="shinySignUp.php"> Sign UP if you don't have an account </a>
+      <a href="shinySignUp.php"> Create an account </a>
       <br/>
 
 		</div>
