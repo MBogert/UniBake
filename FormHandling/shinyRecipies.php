@@ -67,9 +67,9 @@ session_start();
     border: 1px solid #2e2e1f;
     border-radius: 2px;
   }
-  * {
+  /** {
    border: 1px dashed #0000FF;
-  }
+  }*/
 
 </style>
 <body>
@@ -96,11 +96,11 @@ session_start();
 //find the school that the student belongs to
 try{
     if(isset($_POST['pairID'])){
-    echo $_POST['pairID']." Username found in form <br />";
+    // echo $_POST['pairID']." Username found in form <br />";
     // Set session variables
     $_SESSION['pairUser'] = $_POST['pairID'];
-    echo "This is the e-mail".$_POST['email'];
-    echo $_SESSION["pairUser"]." stored in session <br />";
+    // echo "This is the e-mail".$_POST['email'];
+    // echo $_SESSION["pairUser"]." stored in session <br />";
 }
 
                 //$_SESSION['pairUser'] = $_POST['pairID'];
