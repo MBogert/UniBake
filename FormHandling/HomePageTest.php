@@ -40,6 +40,7 @@ if(count($result) == 1){
 
 foreach($result as $tuple){
   //Find the other relevant information that you would want to print out like the time that you are baking 
+//Might just need phone number, because we can't get a time anymore
 $otherInfo =$db->prepare("Select startTime, endTime from BakeRequest where (userID = :user1)");
 $otherInfo->bindParam(':user1', $_SESSION['userID']);
 $otherInfo->execute();
@@ -47,7 +48,15 @@ $otherInfo->execute();
 $resultOther = $otherInfo->fetch();
 //$resultOther = $otherInfo->fetchAll();
 
-//If the first user is the user then print out information relevant to that if not 
+//If the first user is the user then print out information relevant to that if not
+
+//Return user's phone number
+$pairPhone = $db->prepare("SELECT phone FROM UserLogin WHERE (userID = :pairID);");
+$pairPhone->bindParam(':pairID', $tuple['user2']);
+$pairPhone->execute();
+$phone = $pairPhone->fetch();
+//
+
 if($tuple['user1'] == $_SESSION['userID']){
 //Print out their Pair with their information 
 //print_r($tuple);
@@ -55,6 +64,7 @@ if($tuple['user1'] == $_SESSION['userID']){
 echo "This is who you are paired with".$tuple['user2']."</br>";
 //echo "This is the recipe that you are baking".
 echo "This is the time you are baking from ".$resultOther['startTime']." to ".$resultOther['endTime']."</br>";
+echo "This is their number: ". $phone['phone'] ."</br>";
 }else{
 echo "this is the 2nd loop";
 echo "This is who you are paired with".$tuple['user1']."</br>";
