@@ -95,7 +95,7 @@ session_start();
     </div>
 
 
-      <h1>Welcome user <?php echo "$_SESSION['userID']";
+      <h1>Welcome user <?php echo $_SESSION['userID'];
       // echo $_COOKIE['password'];
       // echo $_COOKIE['userID'];
        ?>
