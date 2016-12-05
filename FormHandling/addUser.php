@@ -62,7 +62,7 @@ session_start();
 		}
 echo "stage 2";
 		//If email is not verified, redirect to error
-		if(!$verified){
+		if($schoolID == -1){
 			header("Location: ../Pages/error.html");
 		}
 
