@@ -30,6 +30,9 @@ header("Location: TestLogIn.php");
     height: 150px;
     width: 150px;
   }
+  input {
+  	font-family: 'Helvetica';
+  }
   .options-box {
     background: #ff0000;
     border: 1px solid #2e2e1f;
@@ -125,6 +128,7 @@ header("Location: TestLogIn.php");
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
+		echo "<img src = ../Pages/skeltal.jpg>";
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
