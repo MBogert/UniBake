@@ -97,6 +97,7 @@ header("Location: TestLogIn.php");
       </div>
     </nav>
   </div>
+  <br>
 	<h2 align="center"> When (and what), would you like to bake? </h2>
 	<div>
 		<form action="mfA.php" method="post">
@@ -146,7 +147,7 @@ header("Location: TestLogIn.php");
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select> <br>";
-		echo "<img src = ../AvatarImgs/skeltal.jpg>";
+
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
@@ -163,6 +164,7 @@ header("Location: TestLogIn.php");
 ?>
 		<input type="submit" align="center">
 		</form>
+    <img src ="../AvatarImgs/skeltal.jpg" margin-left=500px>
 	</div>
 <!-- <a href="LogOut.php">Logout</a> -->
 </body>
