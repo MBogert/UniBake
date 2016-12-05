@@ -8,7 +8,7 @@ session_start();
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-  <title>Thank You</title>
+<br><br>  <title>Thank You</title>
   <!-- Include the navbar file -->
 
 </head>
@@ -105,7 +105,7 @@ img {
 
 
 	<h1 align="center">Thank you for baking with us</h1><br/>
-  <img src="../AvatarImgs/dessert.jpg">
+  <img align="center" src="../AvatarImgs/dessert.jpg">
 	<?php
 		echo "<p align=\"center\"><a href ='../Recipes/$_GET[filePath]' download>Download</a></p>";
 	?>
