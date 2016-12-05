@@ -30,6 +30,9 @@ header("Location: TestLogIn.php");
     height: 150px;
     width: 150px;
   }
+  input {
+  	font-family: 'Helvetica';
+  }
   .options-box {
     background: #ff0000;
     border: 1px solid #2e2e1f;
@@ -76,7 +79,7 @@ header("Location: TestLogIn.php");
 </style>
 <body>
 
-	<h2> Please submit your request for when you would like to bake </h2>
+	<h2> When (and what), would you like to bake? </h2>
 	<div>
 		<form action="mfA.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
@@ -124,7 +127,8 @@ header("Location: TestLogIn.php");
 		foreach($result3 as $tuple){
 			echo "<option>$tuple[category]</option>";
 		}
-		echo "</select>";
+		echo "</select> <br>";
+		echo "<img src = ../AvatarImgs/skeltal.jpg>";
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
