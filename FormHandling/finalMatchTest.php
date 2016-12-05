@@ -53,25 +53,25 @@ try{
                 // echo "This is category3".$_POST['category3'];
 
                 //If user has a pair already, remove and cleanup
-                $removePair = $db->prepare("DELETE FROM Pair WHERE (user1 = :inputUserID OR user2 = :inputUserIDNew)");
+                $removePair = $db->prepare("DELETE FROM Pair WHERE (user1 = :inputUserIDNew OR user2 = :inputUserIDNew)");
                 $removePair->bindParam(':inputUserIDNew', $_SESSION['userID']);
                 $removePair->execute();
 
-
-                //If user already made request, error
-                $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user)");
+                //If user already made request, delete them and let them continue
+                //$hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user)");
+                $hasRequest = $db->prepare("DELETE FROM BakeRequest WHERE (userID = :user)");
                 //$hasRequest->bindParam(':user', $_COOKIE['userID']);
                 $hasRequest->bindParam(':user', $_SESSION['userID']);
-
                 $hasRequest->execute();
+
                 $request = $hasRequest->fetchAll(); 
-                $counter = 0;
-                foreach($request as $tuple){
-                    $counter++;
-                }
-                if($counter != 0){//User has already made request, error
-                    header("Location: ../Pages/error.html");
-                }
+                // $counter = 0;
+                // foreach($request as $tuple){
+                //     $counter++;
+                // }
+                // if($counter != 0){//User has already made request, error
+                //     header("Location: ../Pages/error.html");
+                // }
                 //$request = $hasRequest->fetchAll();
 
                 $cleanup = $db->prepare("DELETE FROM RequestCategory WHERE (userID = :requestUserID)");
