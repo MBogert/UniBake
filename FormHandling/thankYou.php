@@ -8,7 +8,7 @@ session_start();
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-<br><br>  <title>Thank You</title>
+<br><br><br>  <title>Thank You</title>
   <!-- Include the navbar file -->
 
 </head>
@@ -19,7 +19,7 @@ body {
 img {
   height: 450px;
   width: 450px;
-  align="center";
+  margin-left: 200px;
 }
 </style>
 <div class="container">
