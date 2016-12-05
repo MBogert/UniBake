@@ -83,7 +83,7 @@ session_start();
          $db = null;
          }else{
             echo "Sorry those people are alrady paired, try again";
-                <br/><a href = "HomePageTest.php">Return Home</a>
+              echo  "<br/><a href = "HomePageTest.php">Return Home</a>";
 
          }
 
