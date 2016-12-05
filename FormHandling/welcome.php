@@ -14,10 +14,50 @@ session_start();
 // }
 ?>
 <html>
+<head>
+      <title>Welcome</title>
+   </head>
 
+   <body>
+
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">UniBake</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li  class="active"><a href="matches.html">My Matches</a></li>
+            <li><a href="recipies.html">Recipies</a></li>
+            <li><a href="bio.html">My Bio</a></li>
+            <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+      <h1>Welcome user <?php echo $_SESSION['userID'];
+      // echo $_COOKIE['password'];
+      // echo $_COOKIE['userID'];
+       ?>
+       <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
+       <p><a href="mfAMake.php">Get Baking!</a></p>
+
+       </h1>
+      <h2><a href = "LogOut.php">Sign Out</a></h2>
+   </body>
 <style>
   body {
     background-color: #cc0000;
+  }
+  h1 {
+    color: black;
+  }
+  p {
+    color: black;
   }
   img {
     height: 150px;
@@ -70,40 +110,6 @@ session_start();
 </style>
 
 
-   <head>
-      <title>Welcome</title>
-   </head>
-
-   <body>
-
-    <div class="container">
-
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">UniBake</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li  class="active"><a href="matches.html">My Matches</a></li>
-            <li><a href="recipies.html">Recipies</a></li>
-            <li><a href="bio.html">My Bio</a></li>
-            <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-
-      <h1>Welcome user <?php echo $_SESSION['userID'];
-      // echo $_COOKIE['password'];
-      // echo $_COOKIE['userID'];
-       ?>
-       <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
-       <p><a href="mfAMake.php">Get Baking!</a></p>
-
-       </h1>
-      <h2><a href = "LogOut.php">Sign Out</a></h2>
-   </body>
+   
 
 </html>
