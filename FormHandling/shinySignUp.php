@@ -39,6 +39,7 @@
 			<input type="text" name="password">
 			<br/>
 			<input type="submit"/>
+			</form>
 			<br/>
 			<a href="shinyLogIn.php"><p class="small">Already have an account?</p></a>
 		</div>
