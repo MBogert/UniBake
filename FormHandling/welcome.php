@@ -98,7 +98,7 @@ session_start();
     </div>
 
 <br><br><br>
-      <h1 align="center">Welcome user <?php echo $_COOKIE['userID'] ?></h1>;
+      <h1 align="center">Welcome Baker</h1> <!--<?php //echo $_COOKIE['userID'] ?></h1>; -->
 
        <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
        <p align="center" style = "font-size:400%;"><a href="mfAMake.php">Get Baking!</a></p>
