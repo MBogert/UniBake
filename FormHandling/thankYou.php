@@ -16,6 +16,11 @@ session_start();
 body {
   background-color: #cc0000;
 }
+img {
+  height: 450px;
+  width: 450px;
+  align="center";
+}
 </style>
 <div class="container">
 
@@ -100,10 +105,10 @@ body {
 
 
 	<h1 align="center">Thank you for baking with us</h1><br/>
+  <img src="../AvatarImgs/dessert.jpg">
 	<?php
 		echo "<p align=\"center\"><a href ='../Recipes/$_GET[filePath]' download>Download</a></p>";
 	?>
-  <img src="../AvatarImgs/dessert.jpg" align="center">
 	<p align="center"><a href = "welcome.php" >Return Home</a></p>
 
 </body>
