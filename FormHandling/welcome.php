@@ -16,7 +16,7 @@ session_start();
 <html>
 
    <head>
-      <title>Welcome </title>
+      <title>Welcome</title>
    </head>
 
    <body>
@@ -24,8 +24,8 @@ session_start();
       // echo $_COOKIE['password'];
       // echo $_COOKIE['userID'];
        ?>
-       <p><a href="makeRequest.php">Go to make request page</a></p>
-       <p><a href="mfAMake.php">Go to make request page with shiney matches</a></p>
+       <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
+       <p><a href="mfAMake.php">Get Baking!</a></p>
 
        </h1>
       <h2><a href = "LogOut.php">Sign Out</a></h2>
