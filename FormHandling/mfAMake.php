@@ -95,7 +95,7 @@ header("Location: TestLogIn.php");
         <ul class="nav navbar-nav">
           <li><a href="index.html">Home</a></li>
           <li  class="active"><a href="matches.html">My Matches</a></li>
-          <li><a href="recipes.html">Recipies</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
           <li><a href="bio.html">My Bio</a></li>
           <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
         </ul>
