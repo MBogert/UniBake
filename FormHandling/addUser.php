@@ -62,8 +62,8 @@ session_start();
 		}
 echo "stage 2";
 		//If email is not verified, redirect to error
-		if(!$verified){
-			// header("Location: ../Pages/error.html");
+		if($schoolID == -1){
+			header("Location: ../Pages/error.html");
 		}
 
 		//Add user to database
