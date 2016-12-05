@@ -8,13 +8,18 @@ session_start();
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-  <title>Thank You</title>
+<br><br><br>  <title>Thank You</title>
   <!-- Include the navbar file -->
 
 </head>
 <style>
 body {
   background-color: #cc0000;
+}
+img {
+  height: 450px;
+  width: 450px;
+  margin-left: 200px;
 }
 </style>
 <div class="container">
@@ -100,9 +105,10 @@ body {
 
 
 	<h1 align="center">Thank you for baking with us</h1><br/>
+  <img align="center" src="../AvatarImgs/dessert.jpg">
 	<?php
-		echo "<a href ='../Recipes/$_GET[filePath]' download>Download</a>";
+		echo "<p align=\"center\"><a href ='../Recipes/$_GET[filePath]' download>Download</a></p>";
 	?>
-	<br/><a href = "welcome.php" align="center">Return Home</a>
+	<p align="center"><a href = "welcome.php" >Return Home</a></p>
 
 </body>

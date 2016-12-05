@@ -17,11 +17,69 @@ header("Location: TestLogIn.php");
 
 </head>
 <style>
+  body {
+    background-color: #cc0000;
+  }
+  h1 {
+    color: black;
+  }
+  p {
+    color: black;
+  }
+  img {
+    height: 150px;
+    width: 150px;
+  }
+  input {
+  	font-family: 'Helvetica';
+  }
+  .options-box {
+    background: #ff0000;
+    border: 1px solid #2e2e1f;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    /*width: 340px;*/
+    /*width: 90%;*/
+    margin-top: 50px;
+    /*margin-left: 50px;*/
+  }
+  .container {
+    height: 100%;
+    position: relative;
+  }
+  .matchContainer {
+    background: #ff0000;
+    border: 1px solid #2e2e1f;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 30px 10px 10px;
+    text-align: left;
+    /*width: 340px;*/
+    /*width: 90%;*/
+    margin: auto;
+    /*margin-left: 50px;*/
+  }
+  .row{
+    background-color: #FAEBD7;
+    width: 95%;
+    position: center;
+    padding: 10px 10px 10px 10px;
+    /*padding-left: 200px;*/
+    margin: auto;
+  }
+  .col-md-6 {
+    border: 1px solid #2e2e1f;
+    border-radius: 2px;
+  }
 
 </style>
 <body>
 
-	<h2> Please submit your request for when you would like to bake </h2>
+	<h2> When (and what), would you like to bake? </h2>
 	<div>
 		<form action="mfA.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
@@ -69,7 +127,8 @@ header("Location: TestLogIn.php");
 		foreach($result3 as $tuple){
 			echo "<option>$tuple[category]</option>";
 		}
-		echo "</select>";
+		echo "</select> <br>";
+		echo "<img src = ../AvatarImgs/skeltal.jpg>";
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
