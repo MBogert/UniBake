@@ -11,6 +11,8 @@ header("Location: TestLogIn.php");
 
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
 <br>
   <title>Make Request Page</title>
   <!-- Include the navbar file -->
@@ -78,8 +80,24 @@ header("Location: TestLogIn.php");
 
 </style>
 <body>
+  <div class="container">
 
-	<h2> When (and what), would you like to bake? </h2>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Cook4Two</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li  class="active"><a href="matches.html">My Matches</a></li>
+          <li><a href="recipies.html">Recipies</a></li>
+          <li><a href="bio.html">My Bio</a></li>
+          <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+	<h2 align="center"> When (and what), would you like to bake? </h2>
 	<div>
 		<form action="mfA.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
@@ -143,8 +161,8 @@ header("Location: TestLogIn.php");
 
 	}
 ?>
-		<input type="submit">
+		<input type="submit" align="center">
 		</form>
 	</div>
-<a href="LogOut.php">Logout</a>
+<!-- <a href="LogOut.php">Logout</a> -->
 </body>
