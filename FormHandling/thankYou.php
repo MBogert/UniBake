@@ -24,7 +24,16 @@ session_start();
 
 		echo "This is the other user ".$_SESSION['pairUser']."<br/>";
 
-		 $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)"); 
+        //If any of the people are paired together, don't let them be paired additionally?
+        $check = $db->prepare("Select * from Pair where (user1 = :inputUser1 OR user2 = :inputUser1 OR user2 = :inputUser2 OR user2 = :inputUser2 )");
+         $check->bindParam(':inputUser1', $_SESSION['userID']);
+         $check->bindParam(':inputUser2', $_SESSION['pairUser']);
+         $check->execute();
+         $count = $check->fetchAll();
+         //If the check was clean(i.e. neither were already paired)
+         if(count($count) == 0){
+
+         $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)"); 
          //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
          $pair->bindParam(':userD1', $_SESSION['userID']);
          $pair->bindParam(':userD2', $_SESSION['pairUser']);
@@ -52,7 +61,13 @@ session_start();
          $deleteRequest2->bindParam('userDR2', $_SESSION['pairUser']);
          $deleteRequest2->execute();
 
-		 $db = null;
+         $db = null;
+         }else{
+            echo "Sorry those people are alrady paired, try again";
+                <br/><a href = "HomePageTest.php">Return Home</a>
+
+         }
+
 
 
 ?>
