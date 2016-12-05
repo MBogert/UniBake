@@ -97,14 +97,14 @@ session_start();
       </nav>
     </div>
 
+<br><br><br>
+      <h1 align="center">Welcome user <?php echo $_SESSION['userID'] ?></h1>;
 
-      <h1>Welcome user <?php echo $_SESSION['userID'] ?></h1>;
-     
        <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
-       <p><a href="mfAMake.php">Get Baking!</a></p>
+       <p align="center"><a href="mfAMake.php">Get Baking!</a></p>
 
       <h2><a href = "LogOut.php">Sign Out</a></h2>
    </body>
-   
+
 
 </html>
