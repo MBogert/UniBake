@@ -19,7 +19,7 @@ body {
 img {
   height: 450px;
   width: 450px;
-  margin-left: 400px;
+  margin-left: 450px;
 }
 </style>
 <div class="container">
