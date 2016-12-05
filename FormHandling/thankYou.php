@@ -103,6 +103,7 @@ body {
 	<?php
 		echo "<p align=\"center\"><a href ='../Recipes/$_GET[filePath]' download>Download</a></p>";
 	?>
+  <img src="../AvatarImgs/dessert.jpg" align="center">
 	<p align="center"><a href = "welcome.php" >Return Home</a></p>
 
 </body>
