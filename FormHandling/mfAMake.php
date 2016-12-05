@@ -79,7 +79,7 @@ header("Location: TestLogIn.php");
 </style>
 <body>
 
-	<h2> Please submit your request for when you would like to bake </h2>
+	<h2> When (and what), would you like to bake? </h2>
 	<div>
 		<form action="mfA.php" method="post">
 <!-- 		<input type="hidden" name="userID" value="$_COOKIE[userID]"<br>
