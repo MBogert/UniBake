@@ -137,3 +137,4 @@ session_start();
 	<br/><a href = "HomePageTest.php">Return Home</a>
 
 </body>
+</html>
