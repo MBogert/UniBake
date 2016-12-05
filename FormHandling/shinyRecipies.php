@@ -90,6 +90,7 @@ header("Location: TestLogIn.php");
       </div>
     </nav>
   </div>
+  <br>
 <h1> Which recipe would you like to bake with your partner?</h1>
 
 <?php
