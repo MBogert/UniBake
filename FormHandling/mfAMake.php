@@ -147,7 +147,7 @@ header("Location: TestLogIn.php");
 			echo "<option>$tuple[category]</option>";
 		}
 		echo "</select>";
-    echo "<input type=\"submit\" align=\"center\">";
+    echo "<input type=\"submit\" padding-left=\"20px\">";
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
@@ -163,7 +163,7 @@ header("Location: TestLogIn.php");
 	}
 ?>
 		</form>
-    <img src ="../AvatarImgs/skeltal.jpg" margin-left=500px>
+    <img src ="../AvatarImgs/skeltal.jpg" margin-left="500px">
 	</div>
 <!-- <a href="LogOut.php">Logout</a> -->
 </body>
