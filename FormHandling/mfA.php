@@ -283,7 +283,8 @@ try{
                                   <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
                                   <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
                                   <input type =\"hidden\" name=\"phone\" value=" .$result['phone'].">
-                                  <input type=\"submit\" name=\"select\" value=\"Submit\">
+                                  <input type=\"submit\" name=\"submit\" value=\"Submit\">
+                                  </form>
                               </div>
                            </div>
 
@@ -299,7 +300,6 @@ try{
 
 <?php endforeach; ?>
 
-</form>
 </p>
 
 
