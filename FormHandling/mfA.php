@@ -153,12 +153,15 @@ try{
                 $prepared1->execute();
 
                 //Triplicate fix code?
-                $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
-                $prepared2->bindParam(':category1', $_POST['category2']);
-                $prepared1->execute();
-                $prepared1->bindParam(':category1', $_POST['category3']);
-                $prepared1->execute();
+                $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:inputUser2, :category2) ");
+                $prepared2->bindParam(':inputUser2', $_SESSION['userID']);
+                $prepared2->bindParam(':category2', $_POST['category2']);
+                $prepared2->execute();
 
+                $prepared3 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:inputUser3, :category3) ");
+                $prepared3->bindParam(':inputUser3', $_SESSION['userID']);
+                $prepared3->bindParam(':category3', $_POST['category3']);
+                $prepared3->execute();
                 //To make sure the unique constraint is satisfied, delete their previous request if any
 
                 $deleteRequest1 = $db->prepare("DELETE from BakeRequest where (userID = :userDR1)");
