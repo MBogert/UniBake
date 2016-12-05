@@ -15,7 +15,7 @@ session_start();
 
   <title>Make Request Page</title>
   <!-- Include the navbar file -->
-  <?php include 'navbar.php'; ?>
+<br>
 </head>
 <style>
   body {
