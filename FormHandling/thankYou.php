@@ -44,7 +44,7 @@ session_start();
 		echo "This is the other user ".$_SESSION['pairUser']."<br/>";
 
         //If any of the people are paired together, don't let them be paired additionally?
-        $check = $db->prepare("Select * from Pair where (user1 = :inputUser1 OR user2 = :inputUser1 OR user2 = :inputUser2 OR user2 = :inputUser2 )");
+        $check = $db->prepare("Select * from Pair where (user1 = :inputUser1 OR user2 = :inputUser1 OR user2 = :inputUser2 OR user2 = :inputUser2)");
          $check->bindParam(':inputUser1', $_SESSION['userID']);
          $check->bindParam(':inputUser2', $_SESSION['pairUser']);
          $check->execute();
@@ -83,7 +83,7 @@ session_start();
          $db = null;
          }else{
             echo "Sorry those people are alrady paired, try again";
-              echo  "<br/><a href = "HomePageTest.php">Return Home</a>";
+              echo  "<br/><a href = 'HomePageTest.php'>Return Home</a>";
 
          }
 

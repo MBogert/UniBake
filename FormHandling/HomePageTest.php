@@ -51,7 +51,7 @@ $resultOther = $otherInfo->fetch();
 //If the first user is the user then print out information relevant to that if not
 
 //Return user's phone number
-$pairPhone = $db->prepare("SELECT phone FROM UserLogin WHERE (userID = :pairID);");
+$pairPhone = $db->prepare("SELECT phone FROM UserLogin WHERE (userID = :pairID)");
 $pairPhone->bindParam(':pairID', $tuple['user2']);
 $pairPhone->execute();
 $phone = $pairPhone->fetch();

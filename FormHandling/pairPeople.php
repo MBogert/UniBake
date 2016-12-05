@@ -48,7 +48,7 @@ try{
                 //Get the other user via their e-mail
                 //$user = $db->prepare()
                 //Get the two people we need to pair 
-                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputID or userID = :pairedID);"); 
+                $recipe1 = $db->prepare("Select distinct filePath from Category NATURAL JOIN RequestCategory where (userID = :inputID or userID = :pairedID)"); 
                 //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
                 $recipe1->bindParam(':inputID', $_SESSION['userID']);
                 $recipe1->bindParam(':pairedID', $_SESSION['pairUser']);
@@ -74,7 +74,7 @@ try{
                 Categories2 AS (SELECT userID as user2, category FROM RequestCategory WHERE (user2 = :pairedID)), 
                 MutualCategories as (SELECT DISTINCT category FROM Categories1 NATURAL JOIN Categories2),
                 MutualRecipes as (SELECT * FROM Category WHERE (category in MutualCategories))
-                SELECT filePath, count(filePath) FROM MutualRecipes GROUP BY filePath;");
+                SELECT filePath, count(filePath) FROM MutualRecipes GROUP BY filePath");
                 $categoryCount->bindParam(':inputUserID', $_SESSION['userID']);
                 $categoryCount->bindParam(':pairedID', $_POST['pairID']);
                 $categoryCount->execute();
