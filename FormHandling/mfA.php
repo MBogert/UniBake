@@ -1,7 +1,10 @@
-<!DOCTYPE html>
 <?php
 session_start();
+if(!isset($_SESSION['userID'])){
+echo"Please Log In to use this feature";
+header("Location: TestLogIn.php");
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -108,7 +111,40 @@ try{
                 //Need a dropdown
                 //This is the query that filters out feasible users that could be possible matches
 
+                //First do the insert queries
+                // echo "This is category2".$_POST['category2'];
+                // echo "This is category3".$_POST['category3'];
+
+                //If user has a pair already, remove and cleanup
+                $removePair = $db->prepare("DELETE FROM Pair WHERE (user1 = :inputUserIDNew OR user2 = :inputUserIDNew)");
+                $removePair->bindParam(':inputUserIDNew', $_SESSION['userID']);
+                $removePair->execute();
+
+                //If user already made request, delete them and let them continue
+                //$hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user)");
+                $hasRequest = $db->prepare("DELETE FROM BakeRequest WHERE (userID = :user)");
+                //$hasRequest->bindParam(':user', $_COOKIE['userID']);
+                $hasRequest->bindParam(':user', $_SESSION['userID']);
+                $hasRequest->execute();
+
+                $request = $hasRequest->fetchAll(); 
+                // $counter = 0;
+                // foreach($request as $tuple){
+                //     $counter++;
+                // }
+                // if($counter != 0){//User has already made request, error
+                //     header("Location: ../Pages/error.html");
+                // }
+                //$request = $hasRequest->fetchAll();
+
+                $cleanup = $db->prepare("DELETE FROM RequestCategory WHERE (userID = :requestUserID)");
+                $cleanup->bindParam(':requestUserID', $_SESSION['userID']);
+                $cleanup->execute();
+
+
+
                 echo $_SESSION['userID'];
+                //Insert into the request category
                 $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
                 //$prepared1->bindParam(':userID', $_COOKIE['userID']);
                 $prepared1->bindParam(':userID', $_SESSION['userID']);
@@ -131,16 +167,34 @@ try{
                 $bakeRequest->bindParam(':userID1', $_SESSION['userID']);
                 $bakeRequest->bindParam(':start', $_POST['startTime']);
                 $bakeRequest->bindParam(':endT', $_POST['endTime']);
-                $bakeRequest->execute();
+                $bakeRequest->execute();                /*
+                $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category2) ");
+                $prepared2->bindParam(':category2', $_POST['category2']);
+                $prepared2->bindParam(':userID', $_SESSION['userID']);
+
+                //$prepared2->bindParam(':userID', $_COOKIE['userID']);
+                $prepared2->execute();
+
+
+                $prepared3 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category3) ");
+                $prepared3->bindParam(':category3', $_POST['category3']);
+                //$prepared3->bindParam(':userID', $_COOKIE['userID']);
+                $prepared3->bindParam(':userID', $_SESSION['userID']);
+
+                $prepared3->execute();
+                */
+
 
                 $prepared = $db->prepare("WITH FindSchool as (select schoolID from LogIn NATURAL JOIN Attends where (Attends.userID = :inputUserID)),
-                  FindStudents as (select * from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID))
-                  select distinct userID from BakeRequest NATURAL JOIN FindStudents where (:inputStartTime <= endTime AND :inputEndTime >= startTime AND userID != :inputUserID)");
+                  FindStudents as (select userID from LogIn NATURAL JOIN FindSchool NATURAL JOIN Attends where (Attends.schoolID = FindSchool.schoolID)),
+                                    RestrictPair as (select userID from Pair NATURAL JOIN FindStudents where (Pair.user1 != FindStudents.userID AND Pair.user2 != FindStudents.userID))
+                  select distinct userID from BakeRequest NATURAL JOIN RestrictPair where (:inputStartTime <= endTime OR :inputEndTime >= startTime AND userID != :inputUserID)");
+
+
                 //Bind the parameters for SQL Injection
 
                 //$prepared->bindParam(':inputUserID', $_COOKIE['userID']);
                 $prepared->bindParam(':inputUserID', $_SESSION['userID']);
-
                 $prepared->bindParam(':inputEndTime', $_POST['endTime']);
                 $prepared->bindParam(':inputStartTime', $_POST['startTime']);
                 $prepared->execute();
@@ -196,12 +250,16 @@ try{
          $db1 = new PDO('sqlite:./../Database/unibake.db');
                 $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     //$pair = $db1->prepare("Select email, name, phone from Login NATURAL JOIN UserLogin where (userID = $key)");
-                    $pair = $db1->prepare("Select email, name, phone, userID from Login NATURAL JOIN UserLogin where (userID = $key)");
+                      $pair = $db1->prepare("Select email, name, phone, userID from Login NATURAL JOIN UserLogin where (userID = $key AND userID != :sessionID)");
+                    $pair->bindParam(':sessionID', $_SESSION['userID']);
 
+                    //If they have already paired, delete the request
                     $pair->execute();
                     //$result = $db->query($stmt);
                     $result = $pair->fetch();
-                    $db =null;
+                    //  $value = floatval($value);
+                    // $percent = $value * 33;
+                    $db= null;
                     ?>
 
                     <?php
@@ -222,7 +280,7 @@ try{
                                   <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
                                   <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
                                   <input type =\"hidden\" name=\"phone\" value=" .$result['phone'].">
-                                  <input type=\"submit\" name=\"select\" value=\"I choose this dude\">
+                                  <input type=\"submit\" name=\"select\" value=\"Submit\">
                               </div>
                            </div>
 
