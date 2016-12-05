@@ -4,13 +4,12 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
 
   <title>Thank You</title>
-  <!-- Include the navbar file -->
-  <?php include 'navbar.php'; ?>
+
   <style>
     body {
       background-color: #cc0000;
