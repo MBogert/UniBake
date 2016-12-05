@@ -19,6 +19,12 @@ session_start();
   body {
     background-color: #cc0000;
   }
+  h1 {
+    color: black;
+  }
+  p {
+    color: black;
+  }
   img {
     height: 150px;
     width: 150px;
