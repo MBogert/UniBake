@@ -10,28 +10,64 @@ session_start();
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
   <title>Thank You</title>
   <!-- Include the navbar file -->
-
+  <?php include 'navbar.php'; ?>
 </head>
-<div class="container">
+<style>
+  body {
+    background-color: #cc0000;
+  }
+  img {
+    height: 150px;
+    width: 150px;
+  }
+  .options-box {
+    background: #ff0000;
+    border: 1px solid #2e2e1f;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    /*width: 340px;*/
+    /*width: 90%;*/
+    margin-top: 50px;
+    /*margin-left: 50px;*/
+  }
+  .container {
+    height: 100%;
+    position: relative;
+  }
+  .matchContainer {
+    background: #ff0000;
+    border: 1px solid #2e2e1f;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 30px 10px 10px;
+    text-align: left;
+    /*width: 340px;*/
+    /*width: 90%;*/
+    margin: auto;
+    /*margin-left: 50px;*/
+  }
+  .row{
+    background-color: #FAEBD7;
+    width: 95%;
+    position: center;
+    padding: 10px 10px 10px 10px;
+    /*padding-left: 200px;*/
+    margin: auto;
+  }
+  .col-md-6 {
+    border: 1px solid #2e2e1f;
+    border-radius: 2px;
+  }
+  /** {
+   border: 1px dashed #0000FF;
+  }*/
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">Cook4Two</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li  class="active"><a href="matches.html">My Matches</a></li>
-        <li><a href="recipies.html">Recipies</a></li>
-        <li><a href="bio.html">My Bio</a></li>
-        <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
+</style>
 
-
-<body>
 <?php
 //This code will pair the user, then delete their previous bake request and Request Category information
 
@@ -43,16 +79,7 @@ session_start();
 
 		echo "This is the other user ".$_SESSION['pairUser']."<br/>";
 
-        //If any of the people are paired together, don't let them be paired additionally?
-        $check = $db->prepare("Select * from Pair where (user1 = :inputUser1 OR user2 = :inputUser1 OR user2 = :inputUser2 OR user2 = :inputUser2 )");
-         $check->bindParam(':inputUser1', $_SESSION['userID']);
-         $check->bindParam(':inputUser2', $_SESSION['pairUser']);
-         $check->execute();
-         $count = $check->fetchAll();
-         //If the check was clean(i.e. neither were already paired)
-         if(count($count) == 0){
-
-         $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)"); 
+		 $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)");
          //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
          $pair->bindParam(':userD1', $_SESSION['userID']);
          $pair->bindParam(':userD2', $_SESSION['pairUser']);
@@ -80,19 +107,13 @@ session_start();
          $deleteRequest2->bindParam('userDR2', $_SESSION['pairUser']);
          $deleteRequest2->execute();
 
-         $db = null;
-         }else{
-            echo "Sorry those people are alrady paired, try again";
-                <br/><a href = "HomePageTest.php">Return Home</a>
-
-         }
-
+		 $db = null;
 
 
 ?>
+<body>
 
-
-	<h1>Thank you for baking with us</h1><br/>
+	<h1 align="center">Thank you for baking with us</h1><br/>
 	<?php
 		echo "<a href ='../Recipes/$_GET[filePath]' download>Download</a>";
 	?>

@@ -185,8 +185,6 @@ try{
 
 <p>
 <body>
-<td>Here are your results</td>
-
 <body>
     <h1 styles="margin-left:200px"> Select a user you want to bake with! </h1>
 
