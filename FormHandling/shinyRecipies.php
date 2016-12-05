@@ -187,7 +187,7 @@ try{
                               <div class=\"col-md-6\">
                                   <img src=\"../AvatarImgs/homer.jpg\">
 
-                                  <li> <a href='thankYou.php?filePath=$tuple[filePath]'> Click here to download instructions </a></li>
+                                  <li> <a href='shinythankYou1.php?filePath=$tuple[filePath]'> Click here to download instructions </a></li>
                               </div>
                            </div>
 
