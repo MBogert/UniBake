@@ -127,8 +127,8 @@ header("Location: TestLogIn.php");
 		foreach($result3 as $tuple){
 			echo "<option>$tuple[category]</option>";
 		}
-		echo "</select>";
-		echo "<img src = ../Pages/skeltal.jpg>";
+		echo "</select> <br>";
+		echo "<img src = ../AvatarImgs/skeltal.jpg>";
 
 		//header("Location: ../FormHandling/finalMatch.php");
 		//Insert their selections into the database
