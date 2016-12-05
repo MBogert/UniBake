@@ -146,7 +146,7 @@ header("Location: TestLogIn.php");
 		foreach($result3 as $tuple){
 			echo "<option>$tuple[category]</option>";
 		}
-		echo "</select> <br>";
+		echo "</select>";
     echo "<input type=\"submit\" align=\"center\">";
 
 		//header("Location: ../FormHandling/finalMatch.php");
