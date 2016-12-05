@@ -77,6 +77,11 @@ header("Location: TestLogIn.php");
     border: 1px solid #2e2e1f;
     border-radius: 2px;
   }
+  img {
+    height: 450px;
+    width: 450px;
+    margin-left: 450px;
+  }
 
 </style>
 <body>
@@ -163,7 +168,7 @@ header("Location: TestLogIn.php");
 	}
 ?>
 		</form>
-    <img src ="../AvatarImgs/skeltal.jpg" margin-left="500px">
+    <img src ="../AvatarImgs/skeltal.jpg">
 	</div>
 <!-- <a href="LogOut.php">Logout</a> -->
 </body>
