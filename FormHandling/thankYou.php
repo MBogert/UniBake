@@ -19,7 +19,7 @@ body {
 img {
   height: 450px;
   width: 450px;
-  margin-left: 200px;
+  margin-left: 400px;
 }
 </style>
 <div class="container">
@@ -49,9 +49,11 @@ img {
 //User1 is the user making the request, User2 is the paired person
 		$db = new PDO('sqlite:./../Database/unibake.db');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo "This is you ".$_SESSION['userID']."<br/>";
+		// echo "This is you ".$_SESSION['userID'].
+    echo "<br/>";
 
-		echo "This is the other user ".$_SESSION['pairUser']."<br/>";
+		// echo "This is the other user ".$_SESSION['pairUser'].
+    echo "<br/>";
 
         //If any of the people are paired together, don't let them be paired additionally?
         $check = $db->prepare("Select * from Pair where (user1 = :inputUser1 OR user2 = :inputUser1 OR user2 = :inputUser2 OR user2 = :inputUser2)");
@@ -60,7 +62,8 @@ img {
          $check->execute();
          $count = $check->fetchAll();
 
-         print_r($count);
+        //  print_r($count);
+        echo "<br>";
          //If the check was clean(i.e. neither were already paired)
          if(count($count) == 0){
 
