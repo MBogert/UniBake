@@ -278,7 +278,7 @@ try{
                               </div>
                               <div class=\"col-md-6\">
                                   <img src=\"../AvatarImgs/homer.jpg\">
-                                  <form action="shinyRecipies.php" method="post">
+                                  <form action=\"shinyRecipies.php\" method=\"post\">
                                   <input type =\"hidden\" name=\"pairID\" value =" .$result['userID'].">
                                   <input type =\"hidden\" name=\"name\" value=" .$result['name'].">
                                   <input type =\"hidden\" name=\"email\" value=" .$result['email'].">
