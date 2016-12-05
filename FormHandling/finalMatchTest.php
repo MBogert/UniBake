@@ -53,13 +53,13 @@ try{
                 // echo "This is category3".$_POST['category3'];
 
                 //If user has a pair already, remove and cleanup
-                $removePair = $db->prepare("DELETE FROM Pair WHERE (user1 = :userID OR user2 = :userID);");
-                $removePair->bindParam(':userID', $_SESSION['userID']);
+                $removePair = $db->prepare("DELETE FROM Pair WHERE (user1 = :inputUserID OR user2 = :inputUserID)");
+                $removePair->bindParam(':inputUserID', $_SESSION['userID']);
                 $removePair->execute();
 
 
                 //If user already made request, error
-                $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user);");
+                $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user)");
                 $hasRequest->bindParam(':user', $_COOKIE['userID']);
                 $hasRequest->execute();
                 $request = $hasRequest->fetchAll(); 
@@ -72,7 +72,7 @@ try{
                 }
                 //$request = $hasRequest->fetchAll();
 
-                $cleanup = $db->prepare("DELETE FROM RequestCategory WHERE (userID = :userID);");
+                $cleanup = $db->prepare("DELETE FROM RequestCategory WHERE (userID = :userID)");
                 $cleanup->bindParam(':userID', $_SESSION['userID']);
                 $cleanup->execute();
 
