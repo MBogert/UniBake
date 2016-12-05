@@ -7,7 +7,7 @@ session_start();
 
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
   <title>Thank You</title>
   <!-- Include the navbar file -->
   <?php include 'navbar.php'; ?>
@@ -83,7 +83,7 @@ session_start();
       </ul>
     </div>
   </nav>
-</div>
+</div> -->
 
 <?php
 //This code will pair the user, then delete their previous bake request and Request Category information
