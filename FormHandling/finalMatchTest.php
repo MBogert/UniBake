@@ -52,6 +52,12 @@ try{
                 // echo "This is category2".$_POST['category2'];
                 // echo "This is category3".$_POST['category3'];
 
+                //If user has a pair already, remove and cleanup
+                $removePair = $db->prepare("DELETE FROM Pair WHERE (user1 = :userID OR user2 = :userID);");
+                $removePair->bindParam(':userID', $_SESSION['userID']);
+                $removePair->execute();
+
+
                 //If user already made request, error
                 $hasRequest = $db->prepare("SELECT * FROM BakeRequest WHERE (userID = :user);");
                 $hasRequest->bindParam(':user', $_COOKIE['userID']);
