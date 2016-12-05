@@ -153,7 +153,8 @@ try{
                 $prepared1->execute();
 
                 //Triplicate fix code?
-                $prepared1->bindParam(':category1', $_POST['category2']);
+                $prepared2 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
+                $prepared2->bindParam(':category1', $_POST['category2']);
                 $prepared1->execute();
                 $prepared1->bindParam(':category1', $_POST['category3']);
                 $prepared1->execute();
