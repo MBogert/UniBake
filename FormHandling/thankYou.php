@@ -101,8 +101,8 @@ body {
 
 	<h1 align="center">Thank you for baking with us</h1><br/>
 	<?php
-		echo "<a href ='../Recipes/$_GET[filePath]' download>Download</a>";
+		echo "<p align=\"center\"><a href ='../Recipes/$_GET[filePath]' download>Download</a></p>";
 	?>
-	<br/><a href = "welcome.php" align="center">Return Home</a>
+	<p align="center"><a href = "welcome.php" >Return Home</a></p>
 
 </body>

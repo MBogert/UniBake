@@ -103,7 +103,7 @@ session_start();
        <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
        <p align="center"><a href="mfAMake.php">Get Baking!</a></p>
 
-      <h2><a href = "LogOut.php">Sign Out</a></h2>
+      <h2 align="center"><a href = "LogOut.php">Sign Out</a></h2>
    </body>
 
 
