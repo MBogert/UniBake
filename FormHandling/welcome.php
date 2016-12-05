@@ -15,6 +15,7 @@ session_start();
 <!DOCTYPE html>
 <head>
       <title>Welcome</title>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
    </head>
 
 <style>

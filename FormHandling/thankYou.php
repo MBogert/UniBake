@@ -12,6 +12,11 @@ session_start();
   <!-- Include the navbar file -->
 
 </head>
+<style>
+body {
+  background-color: #cc0000;
+}
+</style>
 <div class="container">
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -54,7 +59,7 @@ session_start();
          //If the check was clean(i.e. neither were already paired)
          if(count($count) == 0){
 
-         $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)"); 
+         $pair = $db->prepare("INSERT into Pair (user1, user2, recipe) VALUES (:userD1, :userD2, :recipe)");
          //$recipe1->bindParam(':inputUserID', $_COOKIE['userID']);
          $pair->bindParam(':userD1', $_SESSION['userID']);
          $pair->bindParam(':userD2', $_SESSION['pairUser']);
@@ -85,7 +90,7 @@ session_start();
          $db = null;
          }else{
             echo "Sorry those people are alrady paired, try again";
-              echo  "<br/><a href = 'HomePageTest.php'>Return Home</a>";
+              // echo  "<br/><a href = 'HomePageTest.php'>Return Home</a>";
 
          }
 
@@ -94,10 +99,10 @@ session_start();
 ?>
 
 
-	<h1>Thank you for baking with us</h1><br/>
+	<h1 align="center">Thank you for baking with us</h1><br/>
 	<?php
 		echo "<a href ='../Recipes/$_GET[filePath]' download>Download</a>";
 	?>
-	<br/><a href = "HomePageTest.php">Return Home</a>
+	<br/><a href = "welcome.php" align="center">Return Home</a>
 
 </body>
