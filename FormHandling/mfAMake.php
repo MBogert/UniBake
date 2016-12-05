@@ -11,10 +11,10 @@ header("Location: TestLogIn.php");
 
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
-
+<br>
   <title>Make Request Page</title>
   <!-- Include the navbar file -->
-  <?php include 'navbar.php'; ?>
+
 </head>
 <style>
 
