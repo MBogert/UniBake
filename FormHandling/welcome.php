@@ -98,10 +98,10 @@ session_start();
     </div>
 
 <br><br><br>
-      <h1 align="center">Welcome user <?php echo $_SESSION['userID'] ?></h1>;
+      <h1 align="center">Welcome user <?php echo $_COOKIE['userID'] ?></h1>;
 
        <!--<p><a href="makeRequest.php">Go to make request page</a></p>-->
-       <p align="center"><a href="mfAMake.php">Get Baking!</a></p>
+       <p align="center" style = "font-size:400%;"><a href="mfAMake.php">Get Baking!</a></p>
 
       <h2 align="center"><a href = "LogOut.php">Sign Out</a></h2>
    </body>
