@@ -49,6 +49,8 @@ session_start();
          $check->bindParam(':inputUser2', $_SESSION['pairUser']);
          $check->execute();
          $count = $check->fetchAll();
+
+         print_r($count);
          //If the check was clean(i.e. neither were already paired)
          if(count($count) == 0){
 

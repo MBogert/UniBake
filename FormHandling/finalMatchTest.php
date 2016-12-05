@@ -81,6 +81,7 @@ try{
 
 
                 echo $_SESSION['userID'];
+                //Insert into the request category
                 $prepared1 = $db->prepare("Insert into RequestCategory (userID, category) VALUES (:userID, :category1) ");
                 //$prepared1->bindParam(':userID', $_COOKIE['userID']);
                 $prepared1->bindParam(':userID', $_SESSION['userID']);
