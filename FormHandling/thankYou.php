@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -7,12 +7,31 @@ session_start();
 
   <meta charset="utf-8">
 <!-- Put in the stylesheet -->
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
   <title>Thank You</title>
   <!-- Include the navbar file -->
-  <?php include 'navbar.php'; ?>
-</head>
 
+</head>
+<div class="container">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Cook4Two</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li  class="active"><a href="matches.html">My Matches</a></li>
+        <li><a href="recipies.html">Recipies</a></li>
+        <li><a href="bio.html">My Bio</a></li>
+        <li><a href="LogOut.php" style="margin-left:800px">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<body>
 <?php
 //This code will pair the user, then delete their previous bake request and Request Category information
 
@@ -56,7 +75,7 @@ session_start();
 
 
 ?>
-<body>
+
 
 	<h1>Thank you for baking with us</h1><br/>
 	<?php
